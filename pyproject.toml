@@ -1,0 +1,59 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+name = "integreat-compass"
+description = "A digital platform aimed at improving the integration of refugees and migrants into German society and the labor market."
+authors = [
+    { name = "Tür an Tür – Digitalfabrik gGmbH", email = "tech@integreat-app.de" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "django>=4.2,<5.0",
+]
+keywords = ["integration", "Compass", "Integreat"]
+license = { text = "Apache2 2.0 License" }
+requires-python = ">=3.9"
+dynamic = ["version"]
+
+
+[project.optional-dependencies]
+dev = [
+    "build"
+]
+pinned = [
+    "asgiref==3.6.0",
+    "Django==4.2",
+    "sqlparse==0.4.3",
+]
+dev-pinned = [
+    "build==0.10.0",
+    "packaging==23.0",
+    "pyproject_hooks==1.0.0",
+    "tomli==2.0.1",
+]
+
+[project.urls]
+"Source Code" = "https://github.com/digitalfabrik/integreat-compass"
+"Issues" = "https://github.com/digitalfabrik/integreat-compass/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "integreat_compass.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["integreat_compass*"]

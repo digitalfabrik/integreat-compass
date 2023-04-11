@@ -1,0 +1,56 @@
+version: 2.1
+
+jobs:
+  pip-install:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - restore_cache:
+          key: pip-{{ checksum "pyproject.toml" }}-v1
+      - run:
+          name: Install pip dependencies
+          command: |
+            if [[ -d ".venv" ]]; then
+              echo "Virtual environment restored from cache, skipping pip install"
+            else
+              python3 -m venv .venv
+              source .venv/bin/activate
+              pip install -e .[dev-pinned,pinned]
+            fi
+      - save_cache:
+          key: pip-{{ checksum "pyproject.toml" }}-v1
+          paths:
+            - .venv
+            - integreat_compass.egg-info
+            - /home/circleci/.cache/pip
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .venv
+            - integreat_compass.egg-info
+
+workflows:
+  develop:
+    jobs:
+      - pip-install:
+          filters:
+            branches:
+              ignore: main
+  main:
+    jobs:
+      - pip-install:
+          name: pip-install-main
+          filters:
+            branches:
+              only: main
+  deploy:
+    jobs:
+      - pip-install:
+          name: pip-install-deploy
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
