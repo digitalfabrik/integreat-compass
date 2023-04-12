@@ -24,6 +24,7 @@ classifiers = [
 ]
 dependencies = [
     "django>=4.2,<5.0",
+    "psycopg[binary]",
 ]
 keywords = ["integration", "Compass", "Integreat"]
 license = { text = "Apache2 2.0 License" }
@@ -38,6 +39,7 @@ dev = [
 pinned = [
     "asgiref==3.6.0",
     "Django==4.2",
+    "psycopg[binary]==3.1.8",
     "sqlparse==0.4.3",
 ]
 dev-pinned = [
@@ -50,6 +52,10 @@ dev-pinned = [
 [project.urls]
 "Source Code" = "https://github.com/digitalfabrik/integreat-compass"
 "Issues" = "https://github.com/digitalfabrik/integreat-compass/issues"
+
+[tool.setuptools]
+script-files = ["integreat_compass/integreat-compass-cli"]
+license-files = ["LICENSE.txt"]
 
 [tool.setuptools.dynamic]
 version = { attr = "integreat_compass.__version__" }

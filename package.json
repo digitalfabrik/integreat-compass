@@ -1,5 +1,13 @@
 {
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development webpack watch --mode development --color --stats=errors-warnings",
+    "prod": "NODE_ENV=production webpack --mode production"
+  },
   "devDependencies": {
+    "webpack": "^5.76.0",
+    "webpack-bundle-tracker": "^1.8.1",
+    "webpack-cli": "^5.0.1",
     "prettier": "^2.7.1"
   }
 }
