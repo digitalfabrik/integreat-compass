@@ -30,6 +30,42 @@ jobs:
           paths:
             - .venv
             - integreat_compass.egg-info
+  npm-install:
+    docker:
+      - image: "cimg/node:lts"
+    resource_class: small
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-{{ checksum "package-lock.json" }}-v1
+      - run:
+          name: Install npm dependencies
+          command: |
+            if [[ -d "node_modules" ]]; then
+              echo "Node modules restored from cache, skipping npm install"
+            else
+              npm ci
+            fi
+      - save_cache:
+          key: npm-{{ checksum "package-lock.json" }}-v1
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+  prettier:
+    docker:
+      - image: "cimg/node:lts"
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Check formatting of CSS & JS files
+          command: npx prettier --check .
 
 workflows:
   develop:
@@ -38,6 +74,13 @@ workflows:
           filters:
             branches:
               ignore: main
+      - npm-install:
+          filters:
+            branches:
+              ignore: main
+      - prettier:
+          requires:
+            - npm-install
   main:
     jobs:
       - pip-install:

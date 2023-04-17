@@ -1,0 +1,9 @@
+**/.tsbuild/**
+**/dist/**
+**/htmlcov/**
+**/node_modules/**
+*.html
+*.md
+.venv/**
+build/**
+webpack-stats.json
