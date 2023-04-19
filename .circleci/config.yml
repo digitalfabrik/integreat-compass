@@ -55,6 +55,17 @@ jobs:
           root: .
           paths:
             - node_modules
+  eslint:
+    docker:
+      - image: "cimg/node:lts"
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint static CSS, JS & YAML files
+          command: npx eslint . --no-error-on-unmatched-pattern
   prettier:
     docker:
       - image: "cimg/node:lts"
@@ -78,6 +89,9 @@ workflows:
           filters:
             branches:
               ignore: main
+      - eslint:
+          requires:
+            - npm-install
       - prettier:
           requires:
             - npm-install
