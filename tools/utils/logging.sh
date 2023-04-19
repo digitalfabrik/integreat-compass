@@ -1,4 +1,5 @@
-#!/bin/bash
+# shellcheck shell=bash
+# Do not execute this file directly, but include it with `source`.
 
 # This function prints the given input in bold/normal and the given color code
 function format_line {

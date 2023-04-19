@@ -1,6 +1,6 @@
-#!/bin/bash
-
+# shellcheck shell=bash
 # This file contains utility functions which can be used in the tools.
+# Do not execute it directly, but include it with `source`.
 
 # shellcheck source=./tools/utils/docker.sh
 source "$(dirname "${BASH_SOURCE[0]}")/docker.sh"

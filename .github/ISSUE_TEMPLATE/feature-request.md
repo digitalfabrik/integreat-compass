@@ -10,7 +10,7 @@ labels: feature
 
 
 ### User Story
-<!-- A clear description of the User Stories that should be achieved by the new feature. The User Stories should follow this pattern: 
+<!-- A clear description of the User Stories that should be achieved by the new feature. The User Stories should follow this pattern:
 As a [type of user] I want [goals or objectives] so that [values or benefits]. -->
 
 
