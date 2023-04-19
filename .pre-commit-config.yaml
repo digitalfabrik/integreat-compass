@@ -39,3 +39,7 @@ repos:
     rev: 23.3.0
     hooks:
       - id: black
+  - repo: https://github.com/Riverside-Healthcare/djLint
+    rev: v1.23.1
+    hooks:
+      - id: djlint-django
