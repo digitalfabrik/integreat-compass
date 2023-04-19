@@ -97,6 +97,20 @@ jobs:
       - run:
           name: Lint static CSS, JS & YAML files
           command: npx eslint . --no-error-on-unmatched-pattern
+  isort:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Check isort code style
+          command: isort --check .
   prettier:
     docker:
       - image: "cimg/node:lts"
@@ -140,6 +154,9 @@ workflows:
       - eslint:
           requires:
             - npm-install
+      - isort:
+          requires:
+            - pip-install
       - prettier:
           requires:
             - npm-install
