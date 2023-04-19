@@ -55,6 +55,20 @@ jobs:
           root: .
           paths:
             - node_modules
+  black:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Check black code style
+          command: black --check .
   eslint:
     docker:
       - image: "cimg/node:lts"
@@ -100,6 +114,9 @@ workflows:
           filters:
             branches:
               ignore: main
+      - black:
+          requires:
+            - pip-install
       - eslint:
           requires:
             - npm-install
