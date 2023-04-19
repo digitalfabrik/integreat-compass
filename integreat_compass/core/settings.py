@@ -28,10 +28,10 @@ SECRET_KEY = os.environ.get("INTEGREAT_COMPASS_SECRET_KEY", "dummy" if DEBUG els
 
 ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    "integreat_compass.cms",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "integreat_compass.urls"
+ROOT_URLCONF = "integreat_compass.core.urls"
 
 TEMPLATES = [
     {
@@ -68,16 +68,25 @@ TEMPLATES = [
     }
 ]
 
-WSGI_APPLICATION = "integreat_compass.wsgi.application"
-
+WSGI_APPLICATION = "integreat_compass.core.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+#: A dictionary containing the settings for all databases to be used with this Django installation
+#: (see :setting:`django:DATABASES`)
 DATABASES = {
-    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("INTEGREAT_COMPASS_DB_NAME", "integreat-compass"),
+        "USER": os.environ.get("INTEGREAT_COMPASS_DB_USER", "integreat"),
+        "PASSWORD": os.environ.get(
+            "INTEGREAT_COMPASS_DB_PASSWORD", "password" if DEBUG else ""
+        ),
+        "HOST": os.environ.get("INTEGREAT_COMPASS_DB_HOST", "localhost"),
+        "PORT": os.environ.get("INTEGREAT_COMPASS_DB_PORT", "5432"),
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

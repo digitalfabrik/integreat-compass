@@ -7,10 +7,7 @@ from django.core.management.commands.runserver import Command as runserver
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "integreat_compass.settings")
-
-    # Override default port for `runserver` command
-    runserver.default_port = "8082"
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "integreat_compass.core.settings")
 
     try:
         from django.core.management import execute_from_command_line

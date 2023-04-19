@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# This script bumps all pinned versions in pyproject.toml
+# This script checks if all dependencies in the lock files are up to date and increments the version numbers if necessary.
 
 # Import utility functions
-# shellcheck source=./tools/_functions.sh
-source "$(dirname "${BASH_SOURCE[0]}")/_functions.sh"
+# shellcheck source=./tools/utils/_functions.sh
+source "$(dirname "${BASH_SOURCE[0]}")/utils/_functions.sh"
 
 # Format a line according to pyproject.toml including indentation, quotes and comma
 # E.g. "Django==4.1.7" is converted to "    "\Django==4.1.7\","
@@ -13,6 +13,17 @@ function format_pyproject_toml {
         echo "${line}" | sed --regexp-extended 's/^(.*)$/    "\1",\\n/g' | tr -d '\n'
     done
 }
+
+require_installed
+ensure_not_root
+
+# Check if npm dependencies are up to date
+echo "Updating JavaScript dependencies..." | print_info
+npm update
+
+# Fix npm security issues (skip all breaking changes)
+echo "Running security audit of JavaScript dependencies..." | print_info
+npm audit fix || true
 
 # Update pip dependencies
 echo "Updating Python dependencies..." | print_info
@@ -41,6 +52,11 @@ deactivate
 rm -rf .venv.tmp
 
 # Install updated versions in the real venv
-bash "${DEV_TOOL_DIR}/install.sh"
+if [[ -d ".venv" ]]; then
+    # shellcheck disable=SC2102
+    pip install -e .[dev-pinned,pinned]
+else
+    bash "${DEV_TOOL_DIR}/install.sh"
+fi
 
 echo "✔ Updated pyproject.toml and installed the new versions" | print_success
