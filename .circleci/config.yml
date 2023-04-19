@@ -77,6 +77,17 @@ jobs:
       - run:
           name: Check formatting of CSS & JS files
           command: npx prettier --check .
+  pylint:
+    docker:
+      - image: "cimg/python:3.9.16"
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run pylint
+          command: ./tools/pylint.sh
 
 workflows:
   develop:
@@ -95,6 +106,9 @@ workflows:
       - prettier:
           requires:
             - npm-install
+      - pylint:
+          requires:
+            - pip-install
   main:
     jobs:
       - pip-install:

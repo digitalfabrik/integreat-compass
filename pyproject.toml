@@ -34,19 +34,33 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 dev = [
-    "build"
+    "build",
+    "pylint",
+    "pylint-django",
 ]
 pinned = [
     "asgiref==3.6.0",
     "Django==4.2",
-    "psycopg[binary]==3.1.8",
-    "sqlparse==0.4.3",
+    "psycopg==3.1.8",
+    "psycopg-binary==3.1.8",
+    "sqlparse==0.4.4",
+    "typing_extensions==4.5.0",
 ]
 dev-pinned = [
+    "astroid==2.15.3",
     "build==0.10.0",
-    "packaging==23.0",
+    "dill==0.3.6",
+    "isort==5.12.0",
+    "lazy-object-proxy==1.9.0",
+    "mccabe==0.7.0",
+    "packaging==23.1",
+    "platformdirs==3.2.0",
+    "pylint==2.17.2",
+    "pylint-django==2.5.3",
+    "pylint-plugin-utils==0.7",
     "pyproject_hooks==1.0.0",
-    "tomli==2.0.1",
+    "tomlkit==0.11.7",
+    "wrapt==1.15.0",
 ]
 
 [project.urls]
@@ -62,3 +76,55 @@ version = { attr = "integreat_compass.__version__" }
 
 [tool.setuptools.packages.find]
 include = ["integreat_compass*"]
+
+[tool.pylint.main]
+jobs = 0
+load-plugins = [
+    "pylint_django",
+    "pylint.extensions.code_style",
+    "pylint.extensions.comparetozero",
+    "pylint.extensions.comparison_placement",
+    "pylint.extensions.consider_ternary_expression",
+    "pylint.extensions.docparams",
+    "pylint.extensions.emptystring",
+    "pylint.extensions.for_any_all",
+]
+enable = [
+    "consider-using-augmented-assign",
+]
+disable = [
+    "consider-using-namedtuple-or-dataclass",
+    "consider-using-tuple",
+]
+recursive = true
+ignore-paths = [
+  ".venv",
+  "node_modules",
+  "build",
+]
+fail-on = "I"
+django-settings-module="integreat_compass.core.settings"
+
+[tool.pylint.design]
+max-args = 7
+max-attributes = 7
+max-branches = 12
+max-locals = 15
+max-parents = 7
+
+[tool.pylint.messages_control]
+disable = [
+    "invalid-name",
+    "line-too-long",
+    "too-many-lines",
+    "missing-module-docstring",
+    "no-member",
+    "unsupported-binary-operation",
+    "deprecated-module",
+]
+enable = [
+    "useless-suppression"
+]
+
+[tool.pylint.reports]
+output-format = "colorized"
