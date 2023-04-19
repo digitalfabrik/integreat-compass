@@ -23,9 +23,10 @@ PROJECT_NAME="integreat-compass"
 # Change to dev tools directory
 cd "$(dirname "${BASH_SOURCE[0]}")"
 # The absolute path to the dev tools directory
+cd ..
 DEV_TOOL_DIR=$(pwd)
 # Change to base directory
-cd ../..
+cd ..
 # The absolute path to the base directory of the repository
 BASE_DIR=$(pwd)
 # The path to the package
