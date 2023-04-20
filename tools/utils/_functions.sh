@@ -2,8 +2,11 @@
 
 # This file contains utility functions which can be used in the tools.
 
+# shellcheck source=./tools/utils/docker.sh
 source "$(dirname "${BASH_SOURCE[0]}")/docker.sh"
+# shellcheck source=./tools/utils/logging.sh
 source "$(dirname "${BASH_SOURCE[0]}")/logging.sh"
+# shellcheck source=./tools/utils/permissions.sh
 source "$(dirname "${BASH_SOURCE[0]}")/permissions.sh"
 
 # Do not continue execution if one of the commands fail
