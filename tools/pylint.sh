@@ -10,5 +10,6 @@ require_installed
 
 # Run pylint
 echo "Starting code linting with pylint..." | print_info
-pylint .
+# Explicitly include cli which does not have a .py ending
+pylint . integreat_compass/integreat-compass-cli
 echo "✔ Linting finished" | print_success
