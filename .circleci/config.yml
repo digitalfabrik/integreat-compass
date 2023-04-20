@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  shellcheck: circleci/shellcheck@3.1.2
+
 jobs:
   pip-install:
     docker:
@@ -126,6 +129,12 @@ workflows:
       - pylint:
           requires:
             - pip-install
+      - shellcheck/check:
+          dir: ./tools
+          external_sources: true
+          filters:
+            branches:
+              ignore: main
   main:
     jobs:
       - pip-install:
