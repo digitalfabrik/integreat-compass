@@ -1,4 +1,5 @@
-#!/bin/bash
+# shellcheck shell=bash
+# Do not execute this file directly, but include it with `source`.
 
 # This function waits for the docker database container
 function wait_for_docker_container {

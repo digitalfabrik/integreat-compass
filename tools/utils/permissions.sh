@@ -1,4 +1,5 @@
-#!/bin/bash
+# shellcheck shell=bash
+# Do not execute this file directly, but include it with `source`.
 
 # This function makes sure the script has the permission to interact with the docker daemon
 function ensure_docker_permission {
@@ -85,4 +86,3 @@ function deescalate_privileges {
         env "$@"
     fi
 }
-
