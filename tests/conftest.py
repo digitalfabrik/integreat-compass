@@ -10,7 +10,6 @@ ROOT = "ROOT"
 ANONYMOUS = "ANONYMOUS"
 
 
-# pylint: disable=unused-argument
 @pytest.fixture(scope="session")
 def load_test_data(django_db_setup, django_db_blocker):
     """
