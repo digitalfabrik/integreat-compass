@@ -53,7 +53,9 @@ function listen_for_devserver {
 # This function makes sure a database is available
 function require_database {
     # Check if local postgres server is running
+    echo "REQUIRE DATABASE"
     if nc -z localhost 5432; then
+        echo "PORT 5432"
         ensure_not_root
         echo "✔ Running PostgreSQL database detected" | print_success
         # Migrate database
@@ -62,6 +64,7 @@ function require_database {
         # Set default settings for other dev tools, e.g. testing
         export DJANGO_SETTINGS_MODULE="integreat_compass.core.settings"
     else
+        echo "ELSE"
         # Set docker settings
         export DJANGO_SETTINGS_MODULE="integreat_compass.core.docker_settings"
         # Make sure a docker container is up and running
