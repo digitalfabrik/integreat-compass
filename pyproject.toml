@@ -37,6 +37,7 @@ dev = [
     "black",
     "build",
     "djlint",
+    "isort",
     "pylint",
     "pylint-django",
     "pylint-per-file-ignores",
@@ -122,6 +123,10 @@ skip-magic-trailing-comma = true
 
 [tool.djlint]
 profile="django"
+
+[tool.isort]
+profile = "black"
+order_by_type = false
 
 [tool.pylint.main]
 jobs = 0
