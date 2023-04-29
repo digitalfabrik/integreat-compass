@@ -24,6 +24,7 @@ classifiers = [
 ]
 dependencies = [
     "django>=4.2,<5.0",
+    "django-debug-toolbar",
     "psycopg[binary]",
 ]
 keywords = ["integration", "Compass", "Integreat"]
@@ -58,6 +59,7 @@ pinned = [
     "Django==4.2.1",
     "psycopg==3.1.9",
     "psycopg-binary==3.1.9",
+    "django-debug-toolbar==4.0.0",
     "sqlparse==0.4.4",
     "typing_extensions==4.5.0",
 ]

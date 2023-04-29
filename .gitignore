@@ -72,6 +72,10 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/dist/
+docs/src/ref
+docs/src/ref-ext
+docs/src/release-notes.rst
 
 # PyBuilder
 target/

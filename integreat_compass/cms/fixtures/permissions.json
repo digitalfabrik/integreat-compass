@@ -1,0 +1,33 @@
+[
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "BOARD_MEMBER",
+      "permissions": [
+        ["view_offer_votes", "cms", "vote"],
+        ["vote_on_offer", "cms", "vote"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "INTEGRATION_SPECIALIST",
+      "permissions": [
+        ["set_favorite_offer", "cms", "favorite"],
+        ["comment_on_offer", "cms", "comment"]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "OFFER_PROVIDER",
+      "permissions": [
+        ["edit_offer", "cms", "offer"],
+        ["edit_offer_version", "cms", "offerversion"],
+        ["upload_document", "cms", "document"]
+      ]
+    }
+  }
+]

@@ -26,6 +26,7 @@ DEBUG = bool(strtobool(os.environ.get("INTEGREAT_COMPASS_DEBUG", "False")))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("INTEGREAT_COMPASS_SECRET_KEY", "dummy" if DEBUG else "")
 
+BASE_URL = os.environ.get("INTEGREAT_COMPASS_BASE_URL", "http://localhost:8082")
 ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]"]
 
 # Application definition
@@ -88,6 +89,9 @@ DATABASES = {
     }
 }
 
+
+AUTH_USER_MODEL = "cms.User"
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -122,3 +126,31 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Media Library
+
+#: URL that handles the media served from :setting:`MEDIA_ROOT` (see :setting:`django:MEDIA_URL`)
+MEDIA_URL = "/media/"
+
+#: Absolute filesystem path to the directory that will hold user-uploaded files (see :setting:`django:MEDIA_ROOT`)
+MEDIA_ROOT = os.environ.get(
+    "INTEGREAT_COMPASS_MEDIA_ROOT", os.path.join(BASE_DIR, "media")
+)
+
+#: The maximum size of media files in bytes
+MEDIA_MAX_UPLOAD_SIZE = int(
+    os.environ.get("INTEGREAT_COMPASS_MEDIA_MAX_UPLOAD_SIZE", 3 * 1024 * 1024)
+)
+
+# Voting system settings
+
+#: Maximum votes cast on new offers
+NEW_OFFER_GREMIUM_SIZE = int(
+    os.environ.get("INTEGREAT_COMPASS_NEW_OFFER_GREMIUM_SIZE", 6)
+)
+
+#: Maximum votes cast on changed offers
+CHANGED_OFFER_GREMIUM_SIZE = int(
+    os.environ.get("INTEGREAT_COMPASS_CHANGED_OFFER_GREMIUM_SIZE", 4)
+)
