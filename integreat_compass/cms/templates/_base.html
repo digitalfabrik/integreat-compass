@@ -1,0 +1,33 @@
+{% extends "_raw.html" %}
+{% load i18n %}
+{% load static %}
+{% block raw_content %}
+    <div class="flex justify-between items-center shadow-md bg-white z-50 fixed w-screen top-0">
+        <div class="container mx-auto flex items-center font-medium text-xl text-gray-500">
+            <a href="#">
+                <img src="{% static 'images/logo-integreat-compass.svg' %}"
+                     width="200"
+                     height="200"
+                     alt="{% translate "Logo" %}"
+                     class="h-24 w-48">
+            </a>
+            <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "Dashboard" %}</a>
+            <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "All offers" %}</a>
+            {% if perms.cms.edit_offer %}
+                <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "My Offers" %}</a>
+                <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "Add new offer" %}</a>
+            {% endif %}
+            <div class="ml-auto mr-4 flex-align-right font-bold hover:text-gray-900">
+                {% if user.is_authenticated %}
+                    {{ user.display_name }}
+                {% else %}
+                    <a href="#">{% translate "Login" %}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 py-6 mt-4">
+        {% block content %}
+        {% endblock content %}
+    </div>
+{% endblock raw_content %}

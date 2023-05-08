@@ -1,0 +1,12 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body,
+html {
+    @apply h-full;
+}
+
+a:hover {
+    cursor: pointer;
+}

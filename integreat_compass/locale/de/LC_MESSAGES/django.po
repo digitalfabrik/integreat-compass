@@ -389,6 +389,42 @@ msgstr "Benutzer"
 msgid "users"
 msgstr "Benutzer"
 
+#: cms/templates/_base.html
+msgid "Logo"
+msgstr "Logo"
+
+#: cms/templates/_base.html
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: cms/templates/_base.html
+msgid "All offers"
+msgstr "Alle Maßnahmen"
+
+#: cms/templates/_base.html
+msgid "My Offers"
+msgstr "Meine Maßnahmen"
+
+#: cms/templates/_base.html cms/templates/index.html
+msgid "Add new offer"
+msgstr "Maßnahmen hinzufügen"
+
+#: cms/templates/_base.html
+msgid "Login"
+msgstr "Login"
+
+#: cms/templates/index.html
+msgid "Home"
+msgstr "Start"
+
+#: cms/templates/index.html
+msgid "Arriving, reimagined."
+msgstr "Ankommen weitergedacht."
+
+#: cms/templates/index.html
+msgid "Discover Integreat Compass"
+msgstr "Intgreat Kompass entdecken"
+
 #~ msgid "Django auth group"
 #~ msgstr "Django Auth-Gruppe"
 
