@@ -10,3 +10,6 @@ source "$(dirname "${BASH_SOURCE[0]}")/utils/_functions.sh"
 require_installed
 require_database
 migrate_database
+
+# Load permissions fixture
+deescalate_privileges integreat-compass-cli loaddata permissions

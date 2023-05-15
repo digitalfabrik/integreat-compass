@@ -1,0 +1,426 @@
+# Language file for the german translation of the Integreat Compass
+# Copyright (C) 2023 Integreat Compass
+# This file is distributed under the same license as the CMS package.
+# Integreat <info@integreat-app.de>
+# https://github.com/digitalfabrik/
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Integreat <info@integreat-app.de>\n"
+"Language-Team: Integreat <info@integreat-app.de>\n"
+"Language: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cms/apps.py
+msgid "CMS"
+msgstr "CMS"
+
+#: cms/constants/allowed_media.py
+msgid "PNG image"
+msgstr "PNG Bild"
+
+#: cms/constants/allowed_media.py
+msgid "JPEG image"
+msgstr "JPEG Bild"
+
+#: cms/constants/allowed_media.py
+msgid "PDF document"
+msgstr "PDF Dokument"
+
+#: cms/constants/group_names.py
+msgid "Board Member"
+msgstr "Gremiumsmitglied"
+
+#: cms/constants/group_names.py
+msgid "Integration Specialist"
+msgstr "Integrationsfachkraft"
+
+#: cms/constants/group_names.py
+msgid "Offer Provider"
+msgstr "Maßnahmen-Anbieter"
+
+#: cms/constants/offer_group_types.py
+msgid "private"
+msgstr "privat"
+
+#: cms/constants/offer_group_types.py
+msgid "group"
+msgstr "Gruppe"
+
+#: cms/constants/offer_group_types.py
+msgid "both"
+msgstr "beides"
+
+#: cms/constants/offer_mode_types.py
+msgid "online"
+msgstr "online"
+
+#: cms/constants/offer_mode_types.py
+msgid "hybrid"
+msgstr "hybrid"
+
+#: cms/constants/offer_mode_types.py
+msgid "in person"
+msgstr "vor Ort"
+
+#: cms/constants/offer_version_states.py
+msgid "rejected"
+msgstr "abgelehnt"
+
+#: cms/constants/offer_version_states.py
+msgid "approved"
+msgstr "angenommen"
+
+#: cms/constants/offer_version_states.py
+msgid "decision pending"
+msgstr "Entscheidung ausstehend"
+
+#: cms/constants/organization_types.py
+msgid "non-profit"
+msgstr "Non-Profit"
+
+#: cms/constants/organization_types.py
+msgid "for-profit"
+msgstr "For-Profit"
+
+#: cms/constants/organization_types.py
+msgid "registered association"
+msgstr "eingetragener Verein"
+
+#: cms/models/interactions/comment.py cms/models/interactions/report.py
+#: cms/models/interactions/vote.py
+msgid "comment"
+msgstr "Kommentar"
+
+#: cms/models/interactions/comment.py
+msgid "Additional context for the given rating"
+msgstr "Zusätzliche Rückmeldung für die gegebene Bewertung"
+
+#: cms/models/interactions/comment.py
+msgid "rating"
+msgstr "Bewertung"
+
+#: cms/models/interactions/comment.py
+msgid "Rating of the offer"
+msgstr "Bewertung der Maßnahme"
+
+#: cms/models/interactions/comment.py
+msgid "comments"
+msgstr "Kommentare"
+
+#: cms/models/interactions/favorite.py
+msgid "favorite"
+msgstr "Favorit"
+
+#: cms/models/interactions/favorite.py
+msgid "favorites"
+msgstr "Favoriten"
+
+#: cms/models/interactions/report.py
+msgid "Reason for the report"
+msgstr "Grund für die Meldung"
+
+#: cms/models/interactions/report.py
+msgid "report"
+msgstr "Bericht"
+
+#: cms/models/interactions/report.py
+msgid "reports"
+msgstr "Berichte"
+
+#: cms/models/interactions/vote.py
+msgid "approval"
+msgstr "Zustimmung"
+
+#: cms/models/interactions/vote.py
+msgid "Whether the vote approves or disapproves of an offer"
+msgstr "Ob der Maßnahmen-Bewerbung zugestimmt wird oder nicht"
+
+#: cms/models/interactions/vote.py
+msgid "Reason for approving or disapproving an offer"
+msgstr "Grund für Annahme oder Ablehnung einer Maßnahme"
+
+#: cms/models/interactions/vote.py
+msgid "vote"
+msgstr "Stimme"
+
+#: cms/models/interactions/vote.py
+msgid "votes"
+msgstr "Stimmen"
+
+#: cms/models/offers/document.py
+msgid "File too large. Size should not exceed {}."
+msgstr "Datei zu groß. Größe darf {} nicht überschreiten."
+
+#: cms/models/offers/document.py
+msgid "file"
+msgstr "Datei"
+
+#: cms/models/offers/document.py
+msgid "file size"
+msgstr "Dateigröße"
+
+#: cms/models/offers/document.py
+msgid "file type"
+msgstr "Dateityp"
+
+#: cms/models/offers/document.py
+msgid "document"
+msgstr "Dokument"
+
+#: cms/models/offers/document.py
+msgid "documents"
+msgstr "Dokumente"
+
+#: cms/models/offers/language.py
+msgid "native name"
+msgstr "Name in der Landessprache"
+
+#: cms/models/offers/language.py
+msgid "The name of the language in this language"
+msgstr "Der Name der Sprache in dieser Sprache"
+
+#: cms/models/offers/language.py
+msgid "name in English"
+msgstr "Name in Englisch"
+
+#: cms/models/offers/language.py
+msgid "The name of the language in English"
+msgstr "Der Name der Sprache in Englisch"
+
+#: cms/models/offers/language.py
+msgid "language"
+msgstr "Sprache"
+
+#: cms/models/offers/language.py
+msgid "languages"
+msgstr "Sprachen"
+
+#: cms/models/offers/offer.py
+msgid "group type"
+msgstr "Gruppentyp"
+
+#: cms/models/offers/offer.py
+msgid "Select in what group sizes lessons are offered"
+msgstr "Wählen Sie aus, in welchen Gruppengrößen Unterricht angeboten wird"
+
+#: cms/models/offers/offer.py
+msgid "lesson mode"
+msgstr "Unterrichtsmodus"
+
+#: cms/models/offers/offer.py
+msgid "Select in what mode lessons are offered"
+msgstr "Wählen Sie aus, in welchem Modus Unterricht angeboten wird"
+
+#: cms/models/offers/offer.py
+msgid "offer"
+msgstr "Maßnahme"
+
+#: cms/models/offers/offer.py
+msgid "offers"
+msgstr "Maßnahmen"
+
+#: cms/models/offers/offer_version.py
+msgid "title"
+msgstr "Titel"
+
+#: cms/models/offers/offer_version.py
+msgid "Title of this offer"
+msgstr "Titel dieser Maßnahme"
+
+#: cms/models/offers/offer_version.py
+msgid "description"
+msgstr "Beschreibung"
+
+#: cms/models/offers/offer_version.py
+msgid "Detailed information about the offer"
+msgstr "Detailinformationen zur Maßnahme"
+
+#: cms/models/offers/offer_version.py
+msgid "cost"
+msgstr "Kosten"
+
+#: cms/models/offers/offer_version.py
+msgid "Cost of this offer. Set to zero if the offer is free"
+msgstr ""
+"Kosten dieser Maßnahme. Auf Null setzen, wenn die Maßnahme kostenlos ist"
+
+#: cms/models/offers/offer_version.py
+msgid "Language"
+msgstr "Sprache"
+
+#: cms/models/offers/offer_version.py
+msgid "The language being taught in this offer"
+msgstr "Die Sprache, die in dieser Maßnahme unterrichtet wird"
+
+#: cms/models/offers/offer_version.py
+msgid "offer version"
+msgstr "Maßnahmenversion"
+
+#: cms/models/offers/offer_version.py
+msgid "offer versions"
+msgstr "Maßnahmenversionen"
+
+#: cms/models/offers/tag.py
+msgid "tag"
+msgstr "Tag"
+
+#: cms/models/offers/tag.py
+msgid "Title of the tag"
+msgstr "Titel des Tags"
+
+#: cms/models/offers/tag.py
+msgid "tags"
+msgstr "Tags"
+
+#: cms/models/organizations/contact.py
+msgid "name"
+msgstr "Name"
+
+#: cms/models/organizations/contact.py
+msgid "Name of the point-of-contact person"
+msgstr "Name der Kontaktperson"
+
+#: cms/models/organizations/contact.py cms/models/users/user.py
+msgid "email"
+msgstr "E-Mail"
+
+#: cms/models/organizations/contact.py
+msgid "Email address of the point-of-contact person"
+msgstr "E-Mail-Adresse der Kontaktperson"
+
+#: cms/models/organizations/contact.py
+msgid "phone number"
+msgstr "Telefonnummer"
+
+#: cms/models/organizations/contact.py
+msgid "Phone numbner of the point-of-contact person"
+msgstr "Telefonnummer der Kontaktperson"
+
+#: cms/models/organizations/contact.py
+msgid "offer contact"
+msgstr "Maßnahmenkontakt"
+
+#: cms/models/organizations/contact.py
+msgid "offer contacts"
+msgstr "Maßnahmenkontakte"
+
+#: cms/models/organizations/location.py
+msgid "address"
+msgstr "Adresse"
+
+#: cms/models/organizations/location.py
+msgid "Physical location where the offer takes place"
+msgstr "Physischer Ort, an dem die Maßnahme stattfindet"
+
+#: cms/models/organizations/location.py
+msgid "latitude"
+msgstr "Breitengrad"
+
+#: cms/models/organizations/location.py
+msgid "longitude"
+msgstr "Längengrad"
+
+#: cms/models/organizations/location.py
+msgid "location"
+msgstr "Ort"
+
+#: cms/models/organizations/location.py
+msgid "locations"
+msgstr "Orte"
+
+#: cms/models/organizations/organization.py
+msgid "organization name"
+msgstr "Name der Organisation"
+
+#: cms/models/organizations/organization.py
+msgid "Name of the organization"
+msgstr "Name der Organisation"
+
+#: cms/models/organizations/organization.py
+msgid "organization type"
+msgstr "Typ der Organisation"
+
+#: cms/models/organizations/organization.py
+msgid "Type of the organization"
+msgstr "Typ der Organisation"
+
+#: cms/models/organizations/organization.py
+msgid "website"
+msgstr "Website"
+
+#: cms/models/organizations/organization.py
+msgid "URL of the website or social media of the organization"
+msgstr "URL der Website oder sozialen Medien der Organisation"
+
+#: cms/models/organizations/organization.py
+msgid "organization"
+msgstr "Organisation"
+
+#: cms/models/organizations/organization.py
+msgid "organizations"
+msgstr "Organisationen"
+
+#: cms/models/users/user.py
+msgid "Valid email address for this user"
+msgstr "Gültige E-Mail-Adresse für diesen Benutzer"
+
+#: cms/models/users/user.py
+msgid "display name"
+msgstr "Anzeigename"
+
+#: cms/models/users/user.py
+msgid "This name will be shown as the author of votes, comments, etc."
+msgstr ""
+"Dieser Name wird als Autor von Bewertungen, Kommentaren, etc. angezeigt."
+
+#: cms/models/users/user.py
+msgid "user"
+msgstr "Benutzer"
+
+#: cms/models/users/user.py
+msgid "users"
+msgstr "Benutzer"
+
+#~ msgid "Django auth group"
+#~ msgstr "Django Auth-Gruppe"
+
+#~ msgid "role"
+#~ msgstr "Rolle"
+
+#~ msgid "roles"
+#~ msgstr "Rollen"
+
+#~ msgid "SVG image"
+#~ msgstr "SVG Bild"
+
+#~ msgid "GIF image"
+#~ msgstr "GIF Bild"
+
+#~ msgid "DOC document"
+#~ msgstr "DOC Dokument"
+
+#~ msgid "DOCX document"
+#~ msgstr "DOCX Dokument"
+
+#~ msgid "XLS document"
+#~ msgstr "XLS Dokument"
+
+#~ msgid "XLSX document"
+#~ msgstr "XLSX Dokument"
+
+#~ msgid "PPT document"
+#~ msgstr "PPT Dokument"
+
+#~ msgid "PPTX document"
+#~ msgstr "PPTX Dokument"
+
+#~ msgid "blob"
+#~ msgstr "Blob"

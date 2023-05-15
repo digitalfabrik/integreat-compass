@@ -123,3 +123,17 @@ function require_installed {
         fi
     fi
 }
+
+# This function applies different sed replacements to make sure the matched lines from grep are aligned and colored
+function format_grep_output {
+    while read -r line; do
+        echo "$line" | sed --regexp-extended \
+            -e "s/^([0-9])([:-])(.*)/\1\2      \3/"         `# Pad line numbers with 1 digit` \
+            -e "s/^([0-9]{2})([:-])(.*)/\1\2     \3/"       `# Pad line numbers with 2 digits` \
+            -e "s/^([0-9]{3})([:-])(.*)/\1\2    \3/"        `# Pad line numbers with 3 digits` \
+            -e "s/^([0-9]{4})([:-])(.*)/\1\2   \3/"         `# Pad line numbers with 4 digits` \
+            -e "s/^([0-9]{5})([:-])(.*)/\1\2  \3/"          `# Pad line numbers with 5 digits` \
+            -e "s/^([0-9]+):(.*)/\x1b[1;31m\1\2\x1b[0;39m/" `# Make matched line red` \
+            -e "s/^([0-9]+)-(.*)/\1\2/"                     `# Remove dash of unmatched line`
+    done
+}

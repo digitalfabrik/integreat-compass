@@ -37,6 +37,16 @@ function print_prefix {
     done
 }
 
+# This function prints the given input lines with a nice little border to separate it from the rest of the content.
+# Pipe your content to this function.
+function print_with_borders {
+    echo "┌──────────────────────────────────────"
+    while IFS= read -r line; do
+        echo "│ $line"
+    done
+    echo -e "└──────────────────────────────────────\n"
+}
+
 # This function prints the major version of a string in the format XX.YY.ZZ
 function major {
     # Split by "." and take the first element for the major version
