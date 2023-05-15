@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "webpack_loader",
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "integreat_compass.core.middleware.AccessControlMiddleware",
 ]
 
 ROOT_URLCONF = "integreat_compass.core.urls"
@@ -89,8 +91,49 @@ DATABASES = {
     }
 }
 
-
 AUTH_USER_MODEL = "cms.User"
+
+#########################
+# DJANGO WEBPACK LOADER #
+#########################
+
+#: Overwrite default bundle directory
+WEBPACK_LOADER = {
+    "DEFAULT": {
+        "BUNDLE_DIR_NAME": "",
+        "STATS_FILE": os.path.join(BASE_DIR, "webpack-stats.json"),
+    }
+}
+
+
+################
+# STATIC FILES #
+################
+
+#: This setting defines the additional locations the :mod:`django.contrib.staticfiles` app will traverse to collect
+#: static files for deployment or to serve them during development (see :setting:`django:STATICFILES_DIRS` and
+#: :doc:`Managing static files <django:howto/static-files/index>`).
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static/dist"),
+]
+
+#: The absolute path to the output directory where :mod:`django.contrib.staticfiles` will put static files for
+#: deployment (see :setting:`django:STATIC_ROOT` and :doc:`Managing static files <django:howto/static-files/index>`)
+#: In debug mode, this is not required since :mod:`django.contrib.staticfiles` can directly serve these files.
+STATIC_ROOT = os.environ.get("INTEGREAT_COMPASS_STATIC_ROOT")
+
+#: URL to use in development when referring to static files located in :setting:`STATICFILES_DIRS`
+#: (see :setting:`django:STATIC_URL` and :doc:`Managing static files <django:howto/static-files/index>`)
+STATIC_URL = "/static/"
+
+#: The list of finder backends that know how to find static files in various locations
+#: (see :setting:`django:STATICFILES_FINDERS`)
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

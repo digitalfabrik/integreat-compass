@@ -27,6 +27,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 node_modules/
+**/webpack-stats.json
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
