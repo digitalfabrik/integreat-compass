@@ -1,1 +1,1087 @@
-[]
+[
+  {
+    "model": "cms.language",
+    "pk": 1,
+    "fields": {
+      "native_name": "Englisch",
+      "english_name": "English"
+    }
+  },
+  {
+    "model": "cms.language",
+    "pk": 2,
+    "fields": {
+      "native_name": "Deutsch",
+      "english_name": "German"
+    }
+  },
+  {
+    "model": "cms.offerversion",
+    "pk": 1,
+    "fields": {
+      "offer": 1,
+      "offer_version_date": "2023-05-20T15:21:17.030Z",
+      "title": "Deutsch für Anfänger - Intensivkurs",
+      "description": "Dieser Intensivkurs bietet einen umfassenden Einstieg in die deutsche Sprache für Anfänger. Sie werden grundlegende Konversation, Grammatik und Vokabeln lernen, um sich im Alltag auf Deutsch verständigen zu können.",
+      "cost": 150,
+      "language": 2
+    }
+  },
+  {
+    "model": "cms.offerversion",
+    "pk": 2,
+    "fields": {
+      "offer": 2,
+      "offer_version_date": "2023-05-20T15:26:40.367Z",
+      "title": "Fortgeschrittenes Deutsch - Konversationskurs für die Arbeitswelt",
+      "description": "In unserem Konversationskurs \"Fortgeschrittenes Deutsch\" legen wir den Fokus auf die mündliche Kommunikation und das sprachliche Selbstbewusstsein in der Arbeitswelt. Der Kurs richtet sich an Personen, die bereits über grundlegende Deutschkenntnisse verfügen und ihre Sprachfertigkeiten gezielt für den beruflichen Kontext weiterentwickeln möchten.\r\n\r\nIm Kurs werden verschiedene Themen behandelt, die typische Situationen im Arbeitsumfeld widerspiegeln, wie zum Beispiel Bewerbungsgespräche, Präsentationen, Geschäftskorrespondenz und Teamarbeit. Durch gezielte Übungen und praxisnahe Rollenspiele werden Sie lernen, Ihre sprachlichen Fähigkeiten in diesen Situationen zu verbessern und anzuwenden.\r\n\r\nUnsere erfahrenen Lehrkräfte legen Wert auf eine interaktive Lernumgebung, in der Sie sowohl in Gruppenaktivitäten als auch in Einzelgesprächen Ihre Kommunikationsfähigkeiten stärken können. Darüber hinaus erhalten Sie wertvolles Feedback und individuelle Unterstützung, um Ihre sprachlichen Schwächen zu überwinden und Ihr Sprachniveau auf eine höhere Stufe zu heben.",
+      "cost": 250,
+      "language": 2
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
+      "last_login": "2023-05-20T15:15:17.338Z",
+      "is_superuser": true,
+      "email": "root@integreat.compass",
+      "display_name": "Root",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 1,
+    "fields": {
+      "tag": "Kinderbetreuung"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 2,
+    "fields": {
+      "tag": "Gesellschaft"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 3,
+    "fields": {
+      "tag": "Sprachkurs"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 4,
+    "fields": {
+      "tag": "Familie"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 5,
+    "fields": {
+      "tag": "Berufssprache"
+    }
+  },
+  {
+    "model": "cms.offer",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "organization": 1,
+      "offer_contact": 1,
+      "location": 1,
+      "group_type": "PRIVATE",
+      "mode_type": "HYBRID",
+      "tags": [2, 3]
+    }
+  },
+  {
+    "model": "cms.offer",
+    "pk": 2,
+    "fields": {
+      "creator": 1,
+      "organization": 2,
+      "offer_contact": 2,
+      "location": 2,
+      "group_type": "GROUP",
+      "mode_type": "IN_PERSON",
+      "tags": [5, 3]
+    }
+  },
+  {
+    "model": "cms.contact",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "contact_name": "Anna Müller",
+      "contact_email": "info@deutschkursbeispiel.de",
+      "contact_phone": "+49 123456789"
+    }
+  },
+  {
+    "model": "cms.contact",
+    "pk": 2,
+    "fields": {
+      "creator": 1,
+      "contact_name": "Peter Schmidt",
+      "contact_email": "info@deutschkursfortgeschritten.de",
+      "contact_phone": "+49 987654321"
+    }
+  },
+  {
+    "model": "cms.contact",
+    "pk": 3,
+    "fields": {
+      "creator": 1,
+      "contact_name": "Peter Schmidt",
+      "contact_email": "info@deutschkursfortgeschritten.de",
+      "contact_phone": "+49 987654321"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 1,
+    "fields": {
+      "address": "Musterstraße 123, 12345 Beispielstadt",
+      "lat": "51.339600",
+      "long": "12.371300"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 2,
+    "fields": {
+      "address": "Musterweg 456, 54321 Beispielstadt",
+      "lat": "52.520000",
+      "long": "13.405000"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 3,
+    "fields": {
+      "address": "Musterweg 456, 54321 Beispielstadt",
+      "lat": "52.520000",
+      "long": "13.405000"
+    }
+  },
+  {
+    "model": "cms.organization",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "org_name": "DeutschKurs Beispiel GmbH",
+      "org_type": "FOR_PROFIT",
+      "web_address": "https://www.deutschkursbeispiel.de"
+    }
+  },
+  {
+    "model": "cms.organization",
+    "pk": 2,
+    "fields": {
+      "creator": 1,
+      "org_name": "Sprachakademie Beispiel",
+      "org_type": "EV",
+      "web_address": "https://www.deutschkursfortgeschritten.de"
+    }
+  },
+  {
+    "model": "cms.organization",
+    "pk": 3,
+    "fields": {
+      "creator": 1,
+      "org_name": "Sprachakademie Beispiel",
+      "org_type": "EV",
+      "web_address": "https://www.deutschkursfortgeschritten.de"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-05-20T15:15:44.967Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "English",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-05-20T15:15:53.971Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "2",
+      "object_repr": "German",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2023-05-20T15:16:40.145Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "Kinderbetreuung",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2023-05-20T15:16:46.751Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Gesellschaft",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2023-05-20T15:16:50.729Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "Sprachkurs",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2023-05-20T15:16:52.933Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "Familie",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2023-05-20T15:25:01.934Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "5",
+      "object_repr": "Berufssprache",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2023-05-20T15:27:01.637Z",
+      "user": 1,
+      "content_type": 5,
+      "object_id": "3",
+      "object_repr": "Offer 3",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 1,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 1,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 1,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can change offer contact",
+      "content_type": 2,
+      "codename": "change_contact"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can delete offer contact",
+      "content_type": 2,
+      "codename": "delete_contact"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can view offer contact",
+      "content_type": 2,
+      "codename": "view_contact"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can change language",
+      "content_type": 3,
+      "codename": "change_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can delete language",
+      "content_type": 3,
+      "codename": "delete_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can view language",
+      "content_type": 3,
+      "codename": "view_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change location",
+      "content_type": 4,
+      "codename": "change_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete location",
+      "content_type": 4,
+      "codename": "delete_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view location",
+      "content_type": 4,
+      "codename": "view_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can change offer",
+      "content_type": 5,
+      "codename": "change_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can delete offer",
+      "content_type": 5,
+      "codename": "delete_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can view offer",
+      "content_type": 5,
+      "codename": "view_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can change offer details",
+      "content_type": 5,
+      "codename": "edit_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can change offer version",
+      "content_type": 6,
+      "codename": "change_offerversion"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can delete offer version",
+      "content_type": 6,
+      "codename": "delete_offerversion"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can view offer version",
+      "content_type": 6,
+      "codename": "view_offerversion"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can change offer version details",
+      "content_type": 6,
+      "codename": "edit_offer_version"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can change tag",
+      "content_type": 7,
+      "codename": "change_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can delete tag",
+      "content_type": 7,
+      "codename": "delete_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can view tag",
+      "content_type": 7,
+      "codename": "view_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can change report",
+      "content_type": 8,
+      "codename": "change_report"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can delete report",
+      "content_type": 8,
+      "codename": "delete_report"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can view report",
+      "content_type": 8,
+      "codename": "view_report"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can change organization",
+      "content_type": 9,
+      "codename": "change_organization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can delete organization",
+      "content_type": 9,
+      "codename": "delete_organization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can view organization",
+      "content_type": 9,
+      "codename": "view_organization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change document",
+      "content_type": 10,
+      "codename": "change_document"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete document",
+      "content_type": 10,
+      "codename": "delete_document"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view document",
+      "content_type": 10,
+      "codename": "view_document"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can upload documents",
+      "content_type": 10,
+      "codename": "upload_document"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change comment",
+      "content_type": 11,
+      "codename": "change_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete comment",
+      "content_type": 11,
+      "codename": "delete_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view comment",
+      "content_type": 11,
+      "codename": "view_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "can add a comment to an offer",
+      "content_type": 11,
+      "codename": "comment_on_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change vote",
+      "content_type": 12,
+      "codename": "change_vote"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete vote",
+      "content_type": 12,
+      "codename": "delete_vote"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view vote",
+      "content_type": 12,
+      "codename": "view_vote"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "View votes cast on offer version",
+      "content_type": 12,
+      "codename": "view_offer_votes"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can cast vote on offer version",
+      "content_type": 12,
+      "codename": "vote_on_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can change favorite",
+      "content_type": 13,
+      "codename": "change_favorite"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can delete favorite",
+      "content_type": 13,
+      "codename": "delete_favorite"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can view favorite",
+      "content_type": 13,
+      "codename": "view_favorite"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can add and remove favorite offers",
+      "content_type": 13,
+      "codename": "set_favorite_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 14,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 14,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 14,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 14,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 15,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 15,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 15,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 15,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 16,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 16,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 16,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 16,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 17,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 17,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 17,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 17,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 18,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 18,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 18,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 18,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "BOARD_MEMBER",
+      "permissions": [41, 42]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "INTEGRATION_SPECIALIST",
+      "permissions": [37, 46]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+      "name": "OFFER_PROVIDER",
+      "permissions": [33, 20]
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "cms",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "cms",
+      "model": "contact"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "cms",
+      "model": "language"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "cms",
+      "model": "location"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "cms",
+      "model": "offer"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "cms",
+      "model": "offerversion"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "cms",
+      "model": "tag"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "cms",
+      "model": "report"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "cms",
+      "model": "organization"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "cms",
+      "model": "document"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "cms",
+      "model": "comment"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "cms",
+      "model": "vote"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "cms",
+      "model": "favorite"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "26p8nknselodx8x4hnf73o8unzb9f11n",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSG8BsSl-34DYWCQqoGktCvjv2uTLnR7zzn3xULc1hq2QUuYM7swyU6_G8b0oLaDfI_t1nnqbV1m5LvCDzr41DM9r4f7d1DjqN9aSeXJgEJL1ifplLIghCNhBeR0doDSJAVQtM6IGkry0cTiJfhMpTj2_gC1Zjd3:1q0OIf:EdSq1krmYxOC38-Q7gc7hSIK66C01K6PInE4j65Rgns",
+      "expire_date": "2023-06-03T15:15:17.346Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "vb2mtj07aw9blo4blx7768f1zibxghjw",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSG8BsSl-34DYWCQqoGktCvjv2uTLnR7zzn3xULc1hq2QUuYM7swyU6_G8b0oLaDfI_t1nnqbV1m5LvCDzr41DM9r4f7d1DjqN9aSeXJgEJL1ifplLIghCNhBeR0doDSJAVQtM6IGkry0cTiJfhMpTj2_gC1Zjd3:1q0OGd:vXRAFX-EW_2jRyR8knuxdY5yKLHX_UhtUtQM3mJHa5w",
+      "expire_date": "2023-06-03T15:13:11.195Z"
+    }
+  }
+]

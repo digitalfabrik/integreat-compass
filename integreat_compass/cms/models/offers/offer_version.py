@@ -103,6 +103,6 @@ class OfferVersion(AbstractBaseModel):
         verbose_name = _("offer version")
         verbose_name_plural = _("offer versions")
         default_related_name = "offer_versions"
-        ordering = ["offer_version_date"]
+        ordering = ["-offer_version_date"]
         default_permissions = ("change", "delete", "view")
         permissions = [("edit_offer_version", "Can change offer version details")]

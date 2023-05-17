@@ -28,7 +28,7 @@ class Language(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Language: {self.english_name}"
+        return self.english_name
 
     def get_repr(self):
         """

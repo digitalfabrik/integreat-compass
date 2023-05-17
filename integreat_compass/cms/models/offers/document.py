@@ -37,13 +37,13 @@ class Document(AbstractBaseModel):
     offer_version = models.ForeignKey(
         OfferVersion, on_delete=models.CASCADE, null=False
     )
-    name = models.CharField(max_length=255, null=False)
     file = models.FileField(
         upload_to="documents/",
         validators=[file_size_limit],
         storage=FileSystemStorage(location=settings.MEDIA_ROOT),
         verbose_name=_("file"),
     )
+    file_name = models.CharField(max_length=255, null=False)
     file_size = models.IntegerField(verbose_name=_("file size"))
     file_type = models.CharField(
         choices=allowed_media.CHOICES, max_length=128, verbose_name=_("file type")
@@ -67,7 +67,7 @@ class Document(AbstractBaseModel):
         :return: A readable string representation of the document
         :rtype: str
         """
-        return self.name
+        return self.file_name
 
     def get_repr(self):
         """
@@ -78,12 +78,12 @@ class Document(AbstractBaseModel):
         :rtype: str
         """
         file_path = f"path: {self.file.path}, " if self.file else ""
-        return f"<Document (id: {self.id}, name: {self.name}, {file_path})>"
+        return f"<Document (id: {self.id}, name: {self.file_name}, {file_path})>"
 
     class Meta:
         verbose_name = _("document")
         verbose_name_plural = _("documents")
         default_related_name = "documents"
-        ordering = ["name"]
+        ordering = ["file_name"]
         default_permissions = ("change", "delete", "view")
         permissions = [("upload_document", "Can upload documents")]

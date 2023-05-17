@@ -14,8 +14,8 @@
     "fields": {
       "name": "INTEGRATION_SPECIALIST",
       "permissions": [
-        ["set_favorite_offer", "cms", "favorite"],
-        ["comment_on_offer", "cms", "comment"]
+        ["comment_on_offer", "cms", "comment"],
+        ["set_favorite_offer", "cms", "favorite"]
       ]
     }
   },
@@ -24,9 +24,8 @@
     "fields": {
       "name": "OFFER_PROVIDER",
       "permissions": [
-        ["edit_offer", "cms", "offer"],
-        ["edit_offer_version", "cms", "offerversion"],
-        ["upload_document", "cms", "document"]
+        ["upload_document", "cms", "document"],
+        ["edit_offer_version", "cms", "offerversion"]
       ]
     }
   }

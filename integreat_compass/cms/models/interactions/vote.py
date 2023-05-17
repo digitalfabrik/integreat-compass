@@ -11,7 +11,7 @@ class Vote(AbstractBaseModel):
     Data model representing a Vote.
     """
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
     offer_version = models.ForeignKey(OfferVersion, on_delete=models.CASCADE)
     approval = models.BooleanField(
         verbose_name=_("approval"),
@@ -30,7 +30,7 @@ class Vote(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Vote of user {self.user} on {self.offer_version}"
+        return f"Vote of user {self.creator} on {self.offer_version}"
 
     def get_repr(self):
         """
@@ -40,10 +40,10 @@ class Vote(AbstractBaseModel):
         :return: The canonical string representation of the page
         :rtype: str
         """
-        return f"<Vote (id: {self.id}, user: {self.user}, offer_version: {self.offer_version})>"
+        return f"<Vote (id: {self.id}, user: {self.creator}, offer_version: {self.offer_version})>"
 
     class Meta:
-        unique_together = (("user", "offer_version"),)
+        unique_together = (("creator", "offer_version"),)
         verbose_name = _("vote")
         verbose_name_plural = _("votes")
         default_related_name = "votes"

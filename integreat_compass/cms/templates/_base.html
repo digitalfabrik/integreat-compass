@@ -4,7 +4,7 @@
 {% block raw_content %}
     <div class="flex justify-between items-center shadow-md bg-white z-50 fixed w-screen top-0">
         <div class="container mx-auto flex items-center font-medium text-xl text-gray-500">
-            <a href="#">
+            <a href="{% url 'cms:public:index' %}">
                 <img src="{% static 'images/logo-integreat-compass.svg' %}"
                      width="200"
                      height="200"
@@ -15,18 +15,52 @@
             <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "All offers" %}</a>
             {% if perms.cms.edit_offer %}
                 <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "My Offers" %}</a>
-                <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "Add new offer" %}</a>
+                <a href="{% url 'cms:protected:new_offer' %}"
+                   class="ml-6 mr-4 hover:text-gray-900">{% translate "Add new offer" %}</a>
             {% endif %}
-            <div class="ml-auto mr-4 flex-align-right font-bold hover:text-gray-900">
-                {% if user.is_authenticated %}
-                    {{ user.display_name }}
-                {% else %}
-                    <a href="#">{% translate "Login" %}</a>
-                {% endif %}
-            </div>
+            {% if user.is_authenticated %}
+                <div class="ml-auto mr-4 flex-align-right font-bold hover:text-gray-900">
+                    <span class="text-primary">{{ user.display_name }}</span>
+                    <a href="{% url 'cms:public:logout' %}">({% translate "Logout" %})</a>
+                </div>
+            {% else %}
+                <div class="ml-auto mr-4 flex-align-right font-bold hover:text-gray-900">
+                    <a href="{% url 'cms:public:login' %}">{% translate "Login" %}</a>
+                </div>
+            {% endif %}
         </div>
     </div>
-    <div class="container mx-auto px-4 py-6 mt-4">
+    <div class="container mx-auto px-4 py-6 mt-28">
+        {% if messages %}
+            <div id="messages" class="mb-8">
+                {% for msg in messages %}
+                    {% if msg.level_tag == 'info' %}
+                        <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-500 px-4 py-3 mb-5"
+                             role="alert">
+                            <p>{{ msg.message }}</p>
+                        </div>
+                    {% endif %}
+                    {% if msg.level_tag == 'success' %}
+                        <div class="bg-green-100 border-l-4 border-green-500 text-green-500 px-4 py-3 mb-5"
+                             role="alert">
+                            <p>{{ msg.message }}</p>
+                        </div>
+                    {% endif %}
+                    {% if msg.level_tag == 'warning' %}
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-600 px-4 py-3 mb-5"
+                             role="alert">
+                            <p>{{ msg.message }}</p>
+                        </div>
+                    {% endif %}
+                    {% if msg.level_tag == 'error' %}
+                        <div class="bg-red-100 border-l-4 border-red-500 text-red-500 px-4 py-3 mb-5"
+                             role="alert">
+                            <p>{{ msg.message }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
         {% block content %}
         {% endblock content %}
     </div>

@@ -94,6 +94,10 @@ msgstr "For-Profit"
 msgid "registered association"
 msgstr "eingetragener Verein"
 
+#: cms/forms/custom_model_form.py
+msgid "Enter {} here"
+msgstr "{} hier eingeben"
+
 #: cms/models/interactions/comment.py cms/models/interactions/report.py
 #: cms/models/interactions/vote.py
 msgid "comment"
@@ -410,6 +414,10 @@ msgid "Add new offer"
 msgstr "Maßnahmen hinzufügen"
 
 #: cms/templates/_base.html
+msgid "Logout"
+msgstr "Abmelden"
+
+#: cms/templates/_base.html cms/templates/login.html
 msgid "Login"
 msgstr "Login"
 
@@ -424,6 +432,63 @@ msgstr "Ankommen weitergedacht."
 #: cms/templates/index.html
 msgid "Discover Integreat Compass"
 msgstr "Intgreat Kompass entdecken"
+
+#: cms/templates/login.html
+msgid "Email"
+msgstr "E-Mail"
+
+#: cms/templates/login.html
+msgid "Password"
+msgstr "Passwort"
+
+#: cms/templates/login.html
+msgid "Sign In"
+msgstr "Einloggen"
+
+#: cms/templates/offers/offer_form.html
+#, python-format
+msgid "Edit offer \"%(offer.public_version.title)s\""
+msgstr "Maßnahme \"%(offer.public_version.title)s\" bearbeiten"
+
+#: cms/templates/offers/offer_form.html
+msgid "Create new offer"
+msgstr "Maßnahmen hinzufügen"
+
+#: cms/templates/offers/offer_form.html
+msgid "Offer details"
+msgstr "Angaben zur Maßnahme"
+
+#: cms/templates/offers/offer_form.html
+msgid "Group and mode types"
+msgstr "Durchführung"
+
+#: cms/templates/offers/offer_form.html
+msgid "Contact information"
+msgstr "Kontaktdaten der Ansprechperson"
+
+#: cms/templates/offers/offer_form.html
+msgid "Information of organization"
+msgstr "Angaben der Organisation"
+
+#: cms/templates/offers/offer_form.html
+msgid "Submit offer application"
+msgstr "Maßnahmenbewerbung absenden"
+
+#: cms/views/offers/offer_form_view.py
+msgid ""
+"Application for the offer \"{}\" has successfully been submitted and will be "
+"reviewed shortly."
+msgstr ""
+"Die Maßnahmenbewerbung \"{}\" wurde erfolgreich übermittelt und wird in "
+"Kürze geprüft."
+
+#: core/settings.py
+msgid "German"
+msgstr "Deutsch"
+
+#: core/settings.py
+msgid "English"
+msgstr "Englisch"
 
 #~ msgid "Django auth group"
 #~ msgstr "Django Auth-Gruppe"

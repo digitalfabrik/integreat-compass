@@ -19,4 +19,4 @@ class CmsConfig(AppConfig):
         # pylint: disable-next=import-outside-toplevel
         from django.contrib.auth.models import Group
 
-        Group.__str__ = lambda self: _(self.name)
+        Group.__str__ = lambda self: self.name

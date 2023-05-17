@@ -9,7 +9,7 @@ class Tag(AbstractBaseModel):
     Data model representing a Tag.
     """
 
-    title = models.CharField(
+    tag = models.CharField(
         max_length=32, verbose_name=_("tag"), help_text=_("Title of the tag")
     )
 
@@ -21,7 +21,7 @@ class Tag(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Tag {self.title}"
+        return self.tag
 
     def get_repr(self):
         """
@@ -31,11 +31,11 @@ class Tag(AbstractBaseModel):
         :return: The canonical string representation of the page
         :rtype: str
         """
-        return f"<Tag (id: {self.id}, title: {self.title})>"
+        return f"<Tag (id: {self.id}, title: {self.tag})>"
 
     class Meta:
         verbose_name = _("tag")
         verbose_name_plural = _("tags")
         default_related_name = "tag"
-        ordering = ["title"]
+        ordering = ["tag"]
         default_permissions = ("change", "delete", "view")

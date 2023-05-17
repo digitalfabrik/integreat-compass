@@ -12,13 +12,13 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.slate,
-      redMuted: "#d55854",
       red: colors.red,
       orange: colors.orange,
       yellow: colors.yellow,
       green: colors.green,
       blue: colors.blue,
       violet: colors.violet,
+      primary: "#d55854",
     },
     extend: {
       colors: {
@@ -35,7 +35,7 @@ module.exports = {
           900: "#70737b",
         },
         background: {
-          50: "#ebe5e5",
+          50: "#fafafa",
           900: "#0a0011ab",
         },
       },

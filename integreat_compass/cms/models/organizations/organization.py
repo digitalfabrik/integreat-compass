@@ -12,7 +12,7 @@ class Organization(AbstractBaseModel):
     """
 
     creator = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-    name = models.CharField(
+    org_name = models.CharField(
         max_length=255,
         verbose_name=_("organization name"),
         help_text=_("Name of the organization"),
@@ -35,7 +35,7 @@ class Organization(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Organization {self.name}"
+        return f"Organization {self.org_name}"
 
     def get_repr(self):
         """
@@ -45,11 +45,11 @@ class Organization(AbstractBaseModel):
         :return: The canonical string representation of the page
         :rtype: str
         """
-        return f"<Organization (id: {self.id}, name: {self.name})>"
+        return f"<Organization (id: {self.id}, name: {self.org_name})>"
 
     class Meta:
         verbose_name = _("organization")
         verbose_name_plural = _("organizations")
         default_related_name = "organization"
-        ordering = ["name"]
+        ordering = ["org_name"]
         default_permissions = ("change", "delete", "view")

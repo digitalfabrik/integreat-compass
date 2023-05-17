@@ -11,16 +11,16 @@ class Contact(AbstractBaseModel):
     """
 
     creator = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-    name = models.CharField(
+    contact_name = models.CharField(
         max_length=255,
         verbose_name=_("name"),
         help_text=_("Name of the point-of-contact person"),
     )
-    email = models.EmailField(
+    contact_email = models.EmailField(
         verbose_name=_("email"),
         help_text=_("Email address of the point-of-contact person"),
     )
-    phone = models.CharField(
+    contact_phone = models.CharField(
         max_length=20,
         blank=True,
         verbose_name=_("phone number"),
@@ -35,7 +35,7 @@ class Contact(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Contact {self.name}"
+        return f"Contact {self.contact_name}"
 
     def get_repr(self):
         """
@@ -45,11 +45,11 @@ class Contact(AbstractBaseModel):
         :return: The canonical string representation of the page
         :rtype: str
         """
-        return f"<Contact (id: {self.id}, name: {self.name})>"
+        return f"<Contact (id: {self.id}, name: {self.contact_name})>"
 
     class Meta:
         verbose_name = _("offer contact")
         verbose_name_plural = _("offer contacts")
         default_related_name = "offer_contact"
-        ordering = ["name"]
+        ordering = ["contact_name"]
         default_permissions = ("change", "delete", "view")

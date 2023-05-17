@@ -84,6 +84,9 @@ function migrate_database {
         echo "✔ Finished database migrations" | print_success
         DATABASE_MIGRATED=1
     fi
+
+    # Load permissions fixture
+    deescalate_privileges integreat-compass-cli loaddata permissions
 }
 
 
