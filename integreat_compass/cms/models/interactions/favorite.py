@@ -11,7 +11,7 @@ class Favorite(AbstractBaseModel):
     Data model representing a Favorite.
     """
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
     offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -22,7 +22,7 @@ class Favorite(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Favorite (user: {self.user}, offer: {self.offer})"
+        return f"Favorite (user: {self.creator}, offer: {self.offer})"
 
     def get_repr(self):
         """
@@ -32,10 +32,10 @@ class Favorite(AbstractBaseModel):
         :return: The canonical string representation of the page
         :rtype: str
         """
-        return f"<Favorite (id: {self.id}, user: {self.user}, offer: {self.offer})>"
+        return f"<Favorite (id: {self.id}, user: {self.creator}, offer: {self.offer})>"
 
     class Meta:
-        unique_together = (("user", "offer"),)
+        unique_together = (("creator", "offer"),)
         verbose_name = _("favorite")
         verbose_name_plural = _("favorites")
         default_related_name = "favorite"

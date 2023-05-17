@@ -18,7 +18,7 @@ class Offer(AbstractBaseModel):
     organization = models.ForeignKey("Organization", on_delete=models.CASCADE)
     offer_contact = models.ForeignKey("Contact", on_delete=models.CASCADE)
     location = models.ForeignKey("Location", on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
     group_type = models.CharField(
         choices=offer_group_types.CHOICES,
         default=offer_group_types.GROUP,
@@ -88,4 +88,3 @@ class Offer(AbstractBaseModel):
         verbose_name = _("offer")
         verbose_name_plural = _("offers")
         default_permissions = ("change", "delete", "view")
-        permissions = [("edit_offer", "Can change offer details")]

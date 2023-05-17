@@ -37,13 +37,13 @@ class Document(AbstractBaseModel):
     offer_version = models.ForeignKey(
         OfferVersion, on_delete=models.CASCADE, null=False
     )
-    name = models.CharField(max_length=255, null=False)
     file = models.FileField(
         upload_to="documents/",
         validators=[file_size_limit],
         storage=FileSystemStorage(location=settings.MEDIA_ROOT),
         verbose_name=_("file"),
     )
+    name = models.CharField(max_length=255, null=False)
     file_size = models.IntegerField(verbose_name=_("file size"))
     file_type = models.CharField(
         choices=allowed_media.CHOICES, max_length=128, verbose_name=_("file type")

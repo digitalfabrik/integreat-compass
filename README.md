@@ -30,7 +30,16 @@ cd integreat-compass
 ````
 
 * Go to your browser and open the URL `http://localhost:8082`
-* Default user is "root" with password "root1234".
+* By default, the following users exist:
+
+| Email                                     | Group                  |
+|-------------------------------------------|------------------------|
+| root@integreat.compass                    | -                      |
+| board_member@integreat.compass            | BOARD_MEMBER           |
+| integration_specialist@integreat.compass  | INTEGRATION_SPECIALIST |
+| offer_provider@integreat.compass          | OFFER_PROVIDER         |
+
+All default users share the password `compass`.
 
 ## Project Architecture / Reference
 

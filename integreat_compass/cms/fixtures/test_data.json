@@ -1,1 +1,439 @@
-[]
+[
+  {
+    "model": "cms.language",
+    "pk": 1,
+    "fields": {
+      "native_name": "Englisch",
+      "english_name": "English"
+    }
+  },
+  {
+    "model": "cms.language",
+    "pk": 2,
+    "fields": {
+      "native_name": "Deutsch",
+      "english_name": "German"
+    }
+  },
+  {
+    "model": "cms.offerversion",
+    "pk": 1,
+    "fields": {
+      "offer": 1,
+      "offer_version_date": "2023-05-20T15:21:17.030Z",
+      "title": "Deutsch für Anfänger - Intensivkurs",
+      "description": "Dieser Intensivkurs bietet einen umfassenden Einstieg in die deutsche Sprache für Anfänger. Sie werden grundlegende Konversation, Grammatik und Vokabeln lernen, um sich im Alltag auf Deutsch verständigen zu können.",
+      "is_free": false,
+      "language": 2
+    }
+  },
+  {
+    "model": "cms.offerversion",
+    "pk": 2,
+    "fields": {
+      "offer": 2,
+      "offer_version_date": "2023-05-20T15:26:40.367Z",
+      "title": "Fortgeschrittenes Deutsch - Konversationskurs für die Arbeitswelt",
+      "description": "In unserem Konversationskurs \"Fortgeschrittenes Deutsch\" legen wir den Fokus auf die mündliche Kommunikation und das sprachliche Selbstbewusstsein in der Arbeitswelt. Der Kurs richtet sich an Personen, die bereits über grundlegende Deutschkenntnisse verfügen und ihre Sprachfertigkeiten gezielt für den beruflichen Kontext weiterentwickeln möchten.\r\n\r\nIm Kurs werden verschiedene Themen behandelt, die typische Situationen im Arbeitsumfeld widerspiegeln, wie zum Beispiel Bewerbungsgespräche, Präsentationen, Geschäftskorrespondenz und Teamarbeit. Durch gezielte Übungen und praxisnahe Rollenspiele werden Sie lernen, Ihre sprachlichen Fähigkeiten in diesen Situationen zu verbessern und anzuwenden.\r\n\r\nUnsere erfahrenen Lehrkräfte legen Wert auf eine interaktive Lernumgebung, in der Sie sowohl in Gruppenaktivitäten als auch in Einzelgesprächen Ihre Kommunikationsfähigkeiten stärken können. Darüber hinaus erhalten Sie wertvolles Feedback und individuelle Unterstützung, um Ihre sprachlichen Schwächen zu überwinden und Ihr Sprachniveau auf eine höhere Stufe zu heben.",
+      "is_free": false,
+      "language": 2
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
+      "last_login": "2023-05-26T13:04:40.742Z",
+      "is_superuser": true,
+      "email": "root@integreat.compass",
+      "display_name": "Root",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
+      "last_login": "2023-05-26T13:27:33.698Z",
+      "is_superuser": false,
+      "email": "offer_provider@integreat.compass",
+      "display_name": "Offer Provider",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [3],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "integration_specialist@integreat.compass",
+      "display_name": "Integration Specialist",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [2],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
+      "last_login": "2023-05-26T13:16:14.969Z",
+      "is_superuser": false,
+      "email": "board_member@integreat.compass",
+      "display_name": "Board Member",
+      "is_active": true,
+      "is_staff": false,
+      "groups": [1],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 1,
+    "fields": {
+      "title": "Kinderbetreuung"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 2,
+    "fields": {
+      "title": "Gesellschaft"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 3,
+    "fields": {
+      "title": "Sprachkurs"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 4,
+    "fields": {
+      "title": "Familie"
+    }
+  },
+  {
+    "model": "cms.tag",
+    "pk": 5,
+    "fields": {
+      "title": "Berufssprache"
+    }
+  },
+  {
+    "model": "cms.offer",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "organization": 1,
+      "offer_contact": 1,
+      "location": 1,
+      "group_type": "PRIVATE",
+      "mode_type": "HYBRID",
+      "tags": [2, 3]
+    }
+  },
+  {
+    "model": "cms.offer",
+    "pk": 2,
+    "fields": {
+      "creator": 1,
+      "organization": 2,
+      "offer_contact": 2,
+      "location": 2,
+      "group_type": "GROUP",
+      "mode_type": "IN_PERSON",
+      "tags": [5, 3]
+    }
+  },
+  {
+    "model": "cms.contact",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "name": "Anna Müller",
+      "email": "info@deutschkursbeispiel.de",
+      "phone": "+49 123456789"
+    }
+  },
+  {
+    "model": "cms.contact",
+    "pk": 2,
+    "fields": {
+      "creator": 1,
+      "name": "Peter Schmidt",
+      "email": "info@deutschkursfortgeschritten.de",
+      "phone": "+49 987654321"
+    }
+  },
+  {
+    "model": "cms.contact",
+    "pk": 3,
+    "fields": {
+      "creator": 1,
+      "name": "Peter Schmidt",
+      "email": "info@deutschkursfortgeschritten.de",
+      "phone": "+49 987654321"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 1,
+    "fields": {
+      "address": "Musterstraße 123, 12345 Beispielstadt",
+      "lat": "51.339600",
+      "long": "12.371300"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 2,
+    "fields": {
+      "address": "Musterweg 456, 54321 Beispielstadt",
+      "lat": "52.520000",
+      "long": "13.405000"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 3,
+    "fields": {
+      "address": "Musterweg 456, 54321 Beispielstadt",
+      "lat": "52.520000",
+      "long": "13.405000"
+    }
+  },
+  {
+    "model": "cms.organization",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "name": "DeutschKurs Beispiel GmbH",
+      "web_address": "https://www.deutschkursbeispiel.de"
+    }
+  },
+  {
+    "model": "cms.organization",
+    "pk": 2,
+    "fields": {
+      "creator": 1,
+      "name": "Sprachakademie Beispiel",
+      "web_address": "https://www.deutschkursfortgeschritten.de"
+    }
+  },
+  {
+    "model": "cms.organization",
+    "pk": 3,
+    "fields": {
+      "creator": 1,
+      "name": "Sprachakademie Beispiel",
+      "web_address": "https://www.deutschkursfortgeschritten.de"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "BOARD_MEMBER",
+      "permissions": [41, 42]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "INTEGRATION_SPECIALIST",
+      "permissions": [37, 46]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+      "name": "OFFER_PROVIDER",
+      "permissions": [33, 13, 17]
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "cms",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "cms",
+      "model": "contact"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "cms",
+      "model": "language"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "cms",
+      "model": "location"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "cms",
+      "model": "offer"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "cms",
+      "model": "offerversion"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "cms",
+      "model": "tag"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "cms",
+      "model": "report"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "cms",
+      "model": "organization"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "cms",
+      "model": "document"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "cms",
+      "model": "comment"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "cms",
+      "model": "vote"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "cms",
+      "model": "favorite"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "26p8nknselodx8x4hnf73o8unzb9f11n",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSG8BsSl-34DYWCQqoGktCvjv2uTLnR7zzn3xULc1hq2QUuYM7swyU6_G8b0oLaDfI_t1nnqbV1m5LvCDzr41DM9r4f7d1DjqN9aSeXJgEJL1ifplLIghCNhBeR0doDSJAVQtM6IGkry0cTiJfhMpTj2_gC1Zjd3:1q0OIf:EdSq1krmYxOC38-Q7gc7hSIK66C01K6PInE4j65Rgns",
+      "expire_date": "2023-06-03T15:15:17.346Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "snoefgyqywqrrh8ejsjy4s73772t0v0w",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGlm21_GHkj5nsPzZxQHkSHFSIe5OIqWA9s3Me7MQt7WGreMSpsKuzLLL75ZifmI7QHnEdp95ntu6TIkfCj9p5-Nc8HU73b-DGnvda0kiqVwyuGwcWZUAqTgVhUKJhiwopwfUOwRBHhw4JK-NHyRloY1hny_xHDeQ:1q2XTh:GH815sRYVbX-fuzgPYZqCgaVeBWs3tC_ndlSw5jAsN4",
+      "expire_date": "2023-06-09T13:27:33.699Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "vb2mtj07aw9blo4blx7768f1zibxghjw",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSG8BsSl-34DYWCQqoGktCvjv2uTLnR7zzn3xULc1hq2QUuYM7swyU6_G8b0oLaDfI_t1nnqbV1m5LvCDzr41DM9r4f7d1DjqN9aSeXJgEJL1ifplLIghCNhBeR0doDSJAVQtM6IGkry0cTiJfhMpTj2_gC1Zjd3:1q0OGd:vXRAFX-EW_2jRyR8knuxdY5yKLHX_UhtUtQM3mJHa5w",
+      "expire_date": "2023-06-03T15:13:11.195Z"
+    }
+  }
+]

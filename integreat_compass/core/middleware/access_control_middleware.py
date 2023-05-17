@@ -40,6 +40,7 @@ class AccessControlMiddleware:
         if (
             namespaces.PUBLIC not in resolver_match.namespaces
             and not request.user.is_authenticated
+            and "admin" not in resolver_match.namespaces
         ):
             return redirect_to_login(request.path)
         return self.get_response(request)

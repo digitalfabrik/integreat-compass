@@ -1,0 +1,40 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block title %}
+    {% translate "Login" %}
+{% endblock title %}
+{% block content %}
+    <div class="flex justify-center items-center">
+        <div class="w-1/3 bg-white shadow p-8">
+            <h2>{% translate "Login" %}</h2>
+            <form action="{% url 'cms:public:login' %}" method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                    <div class="bg-red-100 border-l-4 border-red-500 text-red-500 px-4 py-3 my-4"
+                         role="alert">
+                        <p>{% translate "The username or the password is incorrect." %} {% translate "Please try again." %}</p>
+                    </div>
+                {% endif %}
+                <div class="mb-4">
+                    <label for="{{ form.email.id_for_label }}">{{ form.username.label }}*</label>
+                    {% blocktranslate trimmed asvar username_placeholder %}
+                        Enter your email
+                    {% endblocktranslate %}
+                    {% render_field form.username placeholder=username_placeholder %}
+                </div>
+                <div class="mb-6">
+                    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}*</label>
+                    {% blocktranslate trimmed asvar password_placeholder %}
+                        Enter your password
+                    {% endblocktranslate %}
+                    {% render_field form.password placeholder=password_placeholder %}
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="btn" type="submit">{% translate "Sign In" %}</button>
+                </div>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+    </div>
+{% endblock content %}

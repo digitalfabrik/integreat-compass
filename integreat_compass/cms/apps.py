@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+from django.utils.translation import gettext as __
 from django.utils.translation import gettext_lazy as _
 
 
@@ -19,4 +20,4 @@ class CmsConfig(AppConfig):
         # pylint: disable-next=import-outside-toplevel
         from django.contrib.auth.models import Group
 
-        Group.__str__ = lambda self: _(self.name)
+        Group.__str__ = lambda self: __(self.name)

@@ -13,6 +13,8 @@ import os
 from distutils.util import strtobool
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,12 +42,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "webpack_loader",
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -92,6 +96,9 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = "cms.User"
+LOGIN_URL = "cms:public:login"
+LOGIN_REDIRECT_URL = "cms:public:index"
+LOGOUT_REDIRECT_URL = "cms:public:index"
 
 #########################
 # DJANGO WEBPACK LOADER #
@@ -151,7 +158,34 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "de"
+########################
+# INTERNATIONALIZATION #
+########################
+
+#: A list of all available languages with locale files for translated strings
+AVAILABLE_LANGUAGES = {"de": _("German"), "en": _("English")}
+
+#: The default UI languages
+DEFAULT_LANGUAGES = ["de", "en"]
+
+#: The list of languages which are available in the UI
+#: (see :setting:`django:LANGUAGES` and :doc:`django:topics/i18n/index`)
+LANGUAGES = [
+    (language, AVAILABLE_LANGUAGES[language])
+    for language in filter(
+        None,
+        (
+            language.strip()
+            for language in os.environ.get(
+                "INTEGREAT_CMS_LANGUAGES", "\n".join(DEFAULT_LANGUAGES)
+            ).splitlines()
+        ),
+    )
+]
+
+#: A list of directories where Django looks for translation files
+#: (see :setting:`django:LOCALE_PATHS` and :doc:`django:topics/i18n/index`)
+LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
 TIME_ZONE = "UTC"
 
