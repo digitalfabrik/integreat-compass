@@ -4,15 +4,108 @@
     {% translate "Home" %}
 {% endblock title %}
 {% block content %}
-    <div class="absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center bg-background-900 z-1">
-        <div class="flex flex-col justify-center gap-4 text-center">
-            <h1 class="font-bold text-5xl drop-shadow-md mb-12 text-white">{% translate "Arriving, reimagined." %}</h1>
-            <a href="#"
-               class="bg-primary hover:bg-red-500 text-white font-bold text-3xl py-4 px-4 rounded-2xl">{% translate "Discover Integreat Compass" %}</a>
-            <a href="{% url 'cms:protected:new_offer' %}"
-               class="bg-white hover:bg-gray-200 font-bold text-3xl py-4 px-4 rounded-2xl">{% translate "Add new offer" %}</a>
+    <div class="flex container mx-auto h-[calc(100vh-6rem)]">
+        <div class="hidden lg:block lg:w-2/12 py-8 pr-8 shadow-[10px_0_5px_-2px_rgba(0,0,0,0.1)]">
+            <h2 class="text-2xl font-semibold">{% translate "Filter" %}</h2>
+            <p class="text-gray-500">{% translate "Filter all offers" %}</p>
+            <div>
+                <input class="block w-full border border-gray-400 rounded-md">
+            </div>
+            <div class="pb-1">
+                <h3 class="text-gray-500 mt-10">{% translate "Categories" %}</h3>
+                <div>
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="checkbox" value="1">
+                            <span class="px-2">Lorem ipsum</span>
+                        </label>
+                    </div>
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="checkbox" value="1">
+                            <span class="px-2">Lorem ipsum dolor sit</span>
+                        </label>
+                    </div>
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="checkbox" value="1">
+                            <span class="px-2">Familie</span>
+                        </label>
+                    </div>
+                </div>
+                <br class="clear-both" />
+                <div class="mt-10">
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="radio" name="offers-attendance" id="1">
+                            <span class="px-2">{% translate "In-person" %}</span>
+                        </label>
+                    </div>
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="radio" name="offers-attendance" id="2">
+                            <span class="px-2">{% translate "Hybrid" %}</span>
+                        </label>
+                    </div>
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="radio" name="offers-attendance" id="3">
+                            <span class="px-2">{% translate "Online" %}</span>
+                        </label>
+                    </div>
+                </div>
+                <br class="clear-both" />
+                <div class="mt-10">
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="radio" name="offers-group" id="1">
+                            <span class="px-2">{% translate "Individual" %}</span>
+                        </label>
+                    </div>
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="radio" name="offers-group" id="2">
+                            <span class="px-2">{% translate "Hybrid" %}</span>
+                        </label>
+                    </div>
+                    <div class="tag">
+                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
+                            <input class="hidden absolute" type="radio" name="offers-group" id="3">
+                            <span class="px-2">{% translate "Group" %}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
-        <i icon-name="chevron-down"
-           class="text-white w-12 h-12 mb-4 absolute bottom-0 left-1/2 transform -translate-x-1/2"></i>
+        <div class="w-full py-4 lg:p-8 lg:pr-0">
+            <div class="mb-4 flex justify-between">
+                <div class="flex items-center">
+                    <h2 class="text-2xl font-semibold">{% translate "Offers" %}</h2>
+                    <span class="flex ml-4 text-gray-400 items-center">{% translate "35 out of 165 offers" %}</span>
+                </div>
+                <div>
+                    <span class="flex text-gray-500 items-center">{% translate "Sorted by" %}<i icon-name="chevron-down"></i></span>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-4">
+                <!-- TODO: for loop -->
+                <div id="offer-1"
+                     class="single-offer flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
+                    <div class="w-3/12 flex items-center">
+                        <img class="rounded-2xl" src="#">
+                    </div>
+                    <div class="py-2 px-4">
+                        <h3 class="font-bold">Lorem ipsum dolor sit amet consectetur</h3>
+                        <p class="text-gray-500 pb-1">Hilfe von Mensch zu Mensch e.V</p>
+                        <div class="pb-1">
+                            <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
+                            <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
+                            <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
+                        </div>
+                        <p class="text-gray-400">{% translate "Created 19th July 2022" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock content %}

@@ -1,0 +1,97 @@
+{% load i18n %}
+<div id="offer-detail-layover"
+     class="hidden mt-24 fixed items-center justify-center inset-0 bg-opacity-75 bg-gray-800 overflow-scroll z-50 cursor-pointer">
+    <div class="cursor-auto justify-center w-9/12 max-h-fit px-4 z-50 m-auto my-24">
+        <div class="bg-white opacity-100 content rounded-2xl shadow-md w-full">
+            <div class="flex items-center w-full rounded-2xl p-4">
+                <div>
+                    <h2 class="font-bold text-2xl font-default">Sprachkurs in München inkl. Kinderbetreuung</h2>
+                    <p class="text-gray-600">Hilfe von Mensch zu Mensch e.V.</p>
+                </div>
+                <button type="button"
+                        id="btn-close-offer-detail-layover"
+                        class="flex ml-auto bg-red-500 hover:bg-red-600 text-white">
+                    <i icon-name="x-square" class="h-8 w-8"></i>
+                </button>
+            </div>
+            <div class="w-full p-4">
+                <div class="md:flex mb-4 xl:mb-6">
+                    <div class="xl:flex mr-12">
+                        <div class="mr-8">
+                            <img class="rounded-2xl"
+                                 src="https://media.istockphoto.com/id/1421336388/de/foto/eine-gl%C3%BCckliche-sch%C3%B6ne-freiberuflerin-die-mit-ihrem-tablet-etwas-in-sozialen-netzwerken-liest.jpg?b=1&s=170667a&w=0&k=20&c=UaI-gfplUwJBALXycpDfb6LKIkEpv02osPjHdmY-L1g=">
+                        </div>
+                        <div class="mt-4 xl:mt-0 w-full text-gray-500">
+                            <h3 class="text-xl font-semibold">Kurzbeschreibung</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta voluptas repellat assumenda, eligendi, commodi, aut possimus quo eum esse quos exercitationem et provident incidunt fugiat? Sunt, porro! Cupiditate et vel ut non corporis, enim praesentium temporibus molestias distinctio voluptatibus! Sapiente ad molestias ut nesciunt.
+                            </p>
+                            <div class="pt-4">
+                                <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
+                                <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
+                                <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 xl:mt-0">
+                        <div class="text-gray-500">
+                            <div>
+                                <h3 class="text-xl font-semibold">{% translate "Contact person" %}</h3>
+                                <p>Frau Manuele Schwert</p>
+                                <p>Tel. 0000000000000</p>
+                                <p>vereindff@googlemail.com</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl mt-4 font-semibold">{% translate "Address" %}</h3>
+                                <p>EineWeltHaus</p>
+                                <p>Schwanthalerstraße 80</p>
+                                <p>80336 München</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:flex justify-between">
+                    <div class="w-1/2 mr-12 xl:mr-0 xl:w-1/3 text-gray-500">
+                        <h3 class="text-xl font-semibold">Rating</h3>
+                        <!-- TODO: Rating stars -->
+                        <span class="block text-xl"><span>52</span> {% translate "reviews" %}</span>
+                        <!-- TODO: reviews -->
+                        <span class="block text-xl mt-4">{% translate "Personal reviews" %}</span>
+                        <div class="flex justify-between">
+                            <p>{% translate "Create your own review" %}</p>
+                            <span><span id="offer-rating-used-words"></span>/<span>300</span> {% translate "characters" %}</span>
+                        </div>
+                        <form>
+                            <textarea id="offer-rating-textarea"
+                                      class="w-full bg-gray-200 resize-none rounded-2xl h-24"></textarea>
+                        </form>
+                    </div>
+                    <div class="w-1/2">
+                        <div class="mb-4">
+                            <ul class="flex flex-wrap -mb-px text-xl font-semibold text-gray-500 text-center"
+                                id="myTab"
+                                data-tabs-toggle="#myTabContent"
+                                role="tablist">
+                                <li class="mr-2" role="presentation">
+                                    <button class="inline-block p-4 xl:pt-0 border-b-2 rounded-t-lg"
+                                            id="profile-tab"
+                                            data-tabs-target="#profile"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="profile"
+                                            aria-selected="false">{% translate "Documents" %}</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="myTabContent">
+                            <div class="p-4"
+                                 id="profile"
+                                 role="tabpanel"
+                                 aria-labelledby="profile-tab"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

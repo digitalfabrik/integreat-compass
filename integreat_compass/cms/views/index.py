@@ -1,9 +1,8 @@
 from django.views.generic import TemplateView
 
-
 class IndexView(TemplateView):
     """
-    Start page of the project
+    View to see all offers
     """
 
     template_name = "index.html"
