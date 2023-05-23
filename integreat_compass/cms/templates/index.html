@@ -3,16 +3,127 @@
 {% block title %}
     {% translate "Home" %}
 {% endblock title %}
+{% block container %}
+    mx-auto
+{% endblock container %}
 {% block content %}
-    <div class="absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center bg-background-900 z-1">
-        <div class="flex flex-col justify-center gap-4 text-center">
-            <h1 class="font-bold text-5xl drop-shadow-md mb-12 text-white">{% translate "Arriving, reimagined." %}</h1>
-            <a href="#"
-               class="bg-primary hover:bg-red-500 text-white font-bold text-3xl py-4 px-4 rounded-2xl">{% translate "Discover Integreat Compass" %}</a>
-            <a href="{% url 'cms:protected:new_offer' %}"
-               class="bg-white hover:bg-gray-200 font-bold text-3xl py-4 px-4 rounded-2xl">{% translate "Add new offer" %}</a>
+    <div class="flex">
+        <div class="pl-12 hidden lg:block fixed top-24 bottom-0 bg-white lg:w-3/12 py-8 pr-8 shadow-[10px_0_5px_-2px_rgba(0,0,0,0.1)]">
+            <form id="filter-form" action="{% url 'cms:public:index' %}" method="get">
+                <h2 class="text-2xl font-semibold">{% translate "Filter" %}</h2>
+                <p class="text-gray-500">{% translate "Filter all offers" %}</p>
+                <div>
+                    <input id="search"
+                           placeholder="{% translate "Search" %}"
+                           name="search"
+                           type="text"
+                           class="filter-element block w-full px-1 border border-gray-400 rounded-md">
+                </div>
+                <div class="pb-1">
+                    <h3 class="text-gray-500 mt-10">{% translate "Categories" %}</h3>
+                    <div class="flex flex-wrap gap-x-4">
+                        {% for tag in tags %}
+                            <div>
+                                <input id="{{ tag.id }}"
+                                       name="tags"
+                                       class="filter-element hidden peer"
+                                       type="checkbox"
+                                       {% if tag.id|stringformat:"i" in filtered_tags %}checked{% endif %}
+                                       value="{{ tag.id }}">
+                                <label for="{{ tag.id }}"
+                                       class="px-4 py-2 text-lg rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:text-white peer-checked:border-none">
+                                    {{ tag }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-4">
+                        <ul class="items-center w-full border border-gray-500 rounded-full flex shadow-inner">
+                            {% for group_type in offer_group_types %}
+                                {% if group_type.1 != "both" %}
+                                    <li class="w-full text-center">
+                                        <div class="items-center">
+                                            <input id="group-{{ group_type.0 }}"
+                                                   name="group"
+                                                   class="filter-element hidden peer"
+                                                   type="checkbox"
+                                                   {% if group_type.0 in filtered_group_types %}checked{% endif %}
+                                                   value="{{ group_type.0 }}">
+                                            <label for="group-{{ group_type.0 }}"
+                                                   class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                                {{ group_type.1 }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <ul class="items-center w-full border border-gray-500 rounded-full flex shadow-inner">
+                            {% for mode_type in offer_mode_types %}
+                                <li class="w-full text-center">
+                                    <div class="items-center">
+                                        <input id="mode-{{ mode_type.0 }}"
+                                               class="filter-element hidden peer"
+                                               type="checkbox"
+                                               name="mode"
+                                               {% if mode_type.0 in filtered_mode_types %}checked{% endif %}
+                                               value="{{ mode_type.0 }}">
+                                        <label for="mode-{{ mode_type.0 }}"
+                                               class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                            {{ mode_type.1 }}
+                                        </label>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </form>
+            </div>
         </div>
-        <i icon-name="chevron-down"
-           class="text-white w-12 h-12 mb-4 absolute bottom-0 left-1/2 transform -translate-x-1/2"></i>
+        <div class="mr-12 w-full lg:ml-[25vw] lg:w-9/12 justify-end lg:pr-0">
+            <div class="pl-12">
+                <div class="mb-4">
+                    <div class="flex items-center">
+                        <h2 class="text-2xl font-semibold">{% translate "Offers" %}</h2>
+                        <span class="flex ml-4 text-gray-400 items-center">{{ offers|length }}
+                            {% translate "offers" %}
+                        </span>
+                    </div>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    {% if offers %}
+                        {% for offer in offers %}
+                            <div id="offer-{{ offer.id }}"
+                                 class="single-offer bg-white flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
+                                <div class="w-4/12 flex items-center">
+                                    {% if offer.public_version.title_image %}
+                                        <img class="rounded-2xl"
+                                             src="{{ offer.public_version.title_image.url }}"
+                                             width="100%"
+                                             height="100%"
+                                             alt="">
+                                    {% endif %}
+                                </div>
+                                <div class="w-8/12 py-2 px-4">
+                                    <h3 class="font-bold">{{ offer.public_version.title }}</h3>
+                                    <p class="text-gray-500 pb-1">{{ offer.organization.name }}</p>
+                                    <div class="pb-1">
+                                        {% for tag in offer.tags.all %}
+                                            <span class="text-white bg-primary rounded-2xl px-3 py-1 leading-8">{{ tag }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    <p class="text-gray-400">{{ offer.public_version.offer_version_date }}</p>
+                                </div>
+                            </div>
+                            {% include "overlay/offer-detail-overlay.html" %}
+                        {% endfor %}
+                    {% else %}
+                        {% translate "No offers could be found" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock content %}

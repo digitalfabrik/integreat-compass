@@ -4,7 +4,7 @@ from django.urls import include, path
 from ..views import authentication, index
 
 urlpatterns = [
-    path("", index.IndexView.as_view(), name="index"),
+    path("", index.IndexListView.as_view(), name="index"),
     path(
         "accounts/",
         include(
