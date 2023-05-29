@@ -72,6 +72,29 @@ jobs:
       - run:
           name: Check black code style
           command: black --check .
+  compile-translations:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install gettext
+          command: sudo apt-get update && sudo apt-get install gettext
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Compile translation file
+          command: |
+            cd integreat_compass
+            integreat-compass-cli compilemessages --settings=integreat_compass.core.circleci_settings
+      - persist_to_workspace:
+          root: .
+          paths:
+            - integreat_compass/locale/*/LC_MESSAGES/django.mo
   djlint:
     docker:
       - image: cimg/python:3.9.16
@@ -133,6 +156,94 @@ jobs:
       - run:
           name: Run pylint
           command: ./tools/pylint.sh
+  webpack:
+    docker:
+      - image: "cimg/node:lts"
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Compile and bundle CSS and JS
+          command: npm run prod
+      - persist_to_workspace:
+          root: .
+          paths:
+            - integreat_compass/static/dist
+            - integreat_compass/webpack-stats.json
+  build-package:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Build integreat-compass package
+          command: python3 -m build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+  bump-dev-version:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Bump version
+          command: |
+            # Install recent version of pip
+            echo "Upgrade pip to make sure 'pip index' is available"
+            pip install --upgrade pip
+            # Check which versions of integreat-compass are available on the TestPyPI repository
+            AVAILABLE_VERSIONS=$(pip index versions integreat-compass --pre -i https://test.pypi.org/simple/)
+            echo "Current available versions on TestPyPI: ${AVAILABLE_VERSIONS}"
+            CURRENT_ALPHA_VERSION=$(echo "${AVAILABLE_VERSIONS}" | head -n 1)
+            echo "Most recent version on TestPyPI: ${CURRENT_ALPHA_VERSION}"
+            CURRENT_ALPHA_VERSION=$(echo "${CURRENT_ALPHA_VERSION}" | sed "s/integreat-compass (\([^()]*\)a0)/\1-alpha/")
+            echo "Version converted to alternative format: ${CURRENT_ALPHA_VERSION}"
+            # Get current prod version
+            CURRENT_VERSION=$(python -c "import integreat_compass; print(integreat_compass.__version__)")
+            echo "Current production version: ${CURRENT_VERSION}"
+            # Bump version to current alpha version if it is newer
+            # Attention: exit(True) in Python means exit(1) which is False in Bash :)
+            if python -c "from looseversion import LooseVersion; exit(LooseVersion('${CURRENT_VERSION}') > LooseVersion('${CURRENT_ALPHA_VERSION}'))"; then
+              echo "Bump to the currently existing version"
+              bumpver update -n --set-version="${CURRENT_ALPHA_VERSION}" --no-commit
+            fi
+            # Bump version to next alpha version
+            echo "Bump to the next version"
+            bumpver update -n -t alpha --no-commit
+      - persist_to_workspace:
+          root: .
+          paths:
+            - pyproject.toml
+            - integreat_compass/__init__.py
+  publish-package:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Publish integreat-compass package to (Test-)PyPI
+          command: twine upload --non-interactive ./dist/integreat-compass-*.tar.gz
 
 workflows:
   develop:
@@ -145,6 +256,12 @@ workflows:
           filters:
             branches:
               ignore: main
+      - webpack:
+          requires:
+            - npm-install
+      - compile-translations:
+          requires:
+            - pip-install
       - black:
           requires:
             - pip-install
@@ -169,6 +286,31 @@ workflows:
           filters:
             branches:
               ignore: main
+      - bump-dev-version:
+          filters:
+            branches:
+              only:
+                - develop
+                - /.*-publish-dev-package/
+          requires:
+            - pip-install
+      - build-package:
+          name: build-dev-package
+          requires:
+            - webpack
+            - compile-translations
+            - bump-dev-version
+      - publish-package:
+          name: publish-dev-package
+          context: pypi-test
+          filters:
+            branches:
+              only:
+                - develop
+                - /.*-publish-dev-package/
+          requires:
+            - build-dev-package
+
   main:
     jobs:
       - pip-install:
