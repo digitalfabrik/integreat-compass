@@ -12,7 +12,7 @@ class Comment(AbstractBaseModel):
     Data model representing a Comment.
     """
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    creator = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     offer_version = models.ForeignKey(OfferVersion, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     comment = models.TextField(
@@ -43,7 +43,7 @@ class Comment(AbstractBaseModel):
         :return: The canonical string representation of the page
         :rtype: str
         """
-        return f"<Comment (id: {self.id}, user: {self.user}, offer_version: {self.offer_version})>"
+        return f"<Comment (id: {self.id}, user: {self.creator}, offer_version: {self.offer_version})>"
 
     class Meta:
         verbose_name = _("comment")

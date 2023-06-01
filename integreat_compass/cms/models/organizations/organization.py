@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from ...constants import organization_types
 from ..abstract_base_model import AbstractBaseModel
 from ..users.user import User
 
@@ -16,11 +15,6 @@ class Organization(AbstractBaseModel):
         max_length=255,
         verbose_name=_("organization name"),
         help_text=_("Name of the organization"),
-    )
-    org_type = models.CharField(
-        choices=organization_types.CHOICES,
-        verbose_name=_("organization type"),
-        help_text=_("Type of the organization"),
     )
     web_address = models.URLField(
         verbose_name=_("website"),

@@ -21,7 +21,7 @@ class Tag(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Tag {self.title}"
+        return self.title
 
     def get_repr(self):
         """

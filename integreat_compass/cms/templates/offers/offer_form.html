@@ -1,0 +1,132 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% load render_bundle from webpack_loader %}
+{% block title %}
+    {% if offer_version_form.instance.id %}
+        {% blocktranslate trimmed with offer_title=offer_version_form.instance.title %}
+            Edit offer "{{ offer_title }}"
+        {% endblocktranslate %}
+    {% else %}
+        {% translate "Create new offer" %}
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    <form enctype="multipart/form-data"
+          method="post"
+          id="offer_form"
+          data-unsaved-warning>
+        {% csrf_token %}
+        <div class="w-full flex flex-wrap justify-between mb-6 gap-2">
+            <h1 class="heading">
+                {% if offer_version_form.instance.id %}
+                    {% blocktranslate trimmed with offer_title=offer_version_form.instance.title %}
+                        Edit offer "{{ offer_title }}"
+                    {% endblocktranslate %}
+                {% else %}
+                    {% translate "Create new offer" %}
+                {% endif %}
+            </h1>
+        </div>
+        <div class="grid xl:grid-cols-2 gap-x-24">
+            {% with WIDGET_ERROR_CLASS="border-red-500" %}
+                <div class="flex flex-col gap-8">
+                    <div>
+                        <h2>{% translate "Offer details" %}</h2>
+                        {% for field in offer_version_form %}
+                            <div>
+                                <label for="{{ field.id_for_label }}"
+                                       {% if field.field.required %}class="field-required"{% endif %}>
+                                    {{ field.label }}
+                                </label>
+                                {% render_field field %}
+                                <div class="help-text">{{ field.help_text }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <label for="{{ offer_form.tags.id_for_label }}">{{ offer_form.tags.label }}</label>
+                        <div class="flex flex-wrap gap-4">
+                            {% for choice in offer_form.tags %}
+                                <div>
+                                    {{ choice.tag }}
+                                    <label for="{{ choice.id_for_label }}"
+                                           class="px-4 py-2 text-lg bg-white rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:text-white peer-checked:border-none">
+                                        {{ choice.choice_label }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="help-text">{{ offer_form.tags.help_text }}</div>
+                    </div>
+                    <div>
+                        <label class="w-full">{% translate "Group and mode types" %}</label>
+                        <div class="md:flex md:gap-4">
+                            {% for field in offer_form %}
+                                {% if field != offer_form.tags %}
+                                    <div class="w-full mb-4 md:w-1/2 md:mb-0">
+                                        <ul class="items-center w-full border border-gray-500 rounded-full flex shadow-inner">
+                                            {% for choice in field %}
+                                                <li class="w-full text-center">
+                                                    <div class="items-center">
+                                                        {{ choice.tag }}
+                                                        <label for="{{ choice.id_for_label }}"
+                                                               class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                                            {{ choice.choice_label }}
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        {% for field in location_form %}
+                            <div>
+                                <label for="{{ field.id_for_label }}"
+                                       {% if field.field.required %}class="field-required"{% endif %}>
+                                    {{ field.label }}
+                                </label>
+                                {% render_field field %}
+                                <div class="help-text">{{ field.help_text }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="flex flex-col gap-8">
+                    <div>
+                        <h2>{% translate "Contact information" %}</h2>
+                        {% for field in contact_form %}
+                            <div>
+                                <label for="{{ field.id_for_label }}"
+                                       {% if field.field.required %}class="field-required"{% endif %}>
+                                    {{ field.label }}
+                                </label>
+                                {% render_field field %}
+                                <div class="help-text">{{ field.help_text }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <h2>{% translate "Information of organization" %}</h2>
+                        {% for field in organization_form %}
+                            <div>
+                                <label for="{{ field.id_for_label }}"
+                                       {% if field.field.required %}class="field-required"{% endif %}>
+                                    {{ field.label }}
+                                </label>
+                                {% render_field field %}
+                                <div class="help-text">{{ field.help_text }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn">{% translate "Submit offer application" %}</button>
+                </div>
+            {% endwith %}
+        </div>
+    </form>
+{% endblock content %}

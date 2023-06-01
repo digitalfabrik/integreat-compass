@@ -82,17 +82,17 @@ msgstr "angenommen"
 msgid "decision pending"
 msgstr "Entscheidung ausstehend"
 
-#: cms/constants/organization_types.py
-msgid "non-profit"
-msgstr "Non-Profit"
+#: cms/forms/custom_model_form.py
+msgid "Enter {} here"
+msgstr "{} hier eingeben"
 
-#: cms/constants/organization_types.py
-msgid "for-profit"
-msgstr "For-Profit"
+#: cms/forms/offers/offer_version_form.py
+msgid "Yes"
+msgstr "Ja"
 
-#: cms/constants/organization_types.py
-msgid "registered association"
-msgstr "eingetragener Verein"
+#: cms/forms/offers/offer_version_form.py
+msgid "No"
+msgstr "Nein"
 
 #: cms/models/interactions/comment.py cms/models/interactions/report.py
 #: cms/models/interactions/vote.py
@@ -244,13 +244,12 @@ msgid "Detailed information about the offer"
 msgstr "Detailinformationen zur Maßnahme"
 
 #: cms/models/offers/offer_version.py
-msgid "cost"
-msgstr "Kosten"
+msgid "Free offer"
+msgstr "Kostenfreie Maßnahme"
 
 #: cms/models/offers/offer_version.py
-msgid "Cost of this offer. Set to zero if the offer is free"
-msgstr ""
-"Kosten dieser Maßnahme. Auf Null setzen, wenn die Maßnahme kostenlos ist"
+msgid "Whether this offer is free or not"
+msgstr "Legen Sie fest, ob diese Maßnahme kostenfrei angeboten wird"
 
 #: cms/models/offers/offer_version.py
 msgid "Language"
@@ -345,14 +344,6 @@ msgid "Name of the organization"
 msgstr "Name der Organisation"
 
 #: cms/models/organizations/organization.py
-msgid "organization type"
-msgstr "Typ der Organisation"
-
-#: cms/models/organizations/organization.py
-msgid "Type of the organization"
-msgstr "Typ der Organisation"
-
-#: cms/models/organizations/organization.py
 msgid "website"
 msgstr "Website"
 
@@ -410,8 +401,32 @@ msgid "Add new offer"
 msgstr "Maßnahmen hinzufügen"
 
 #: cms/templates/_base.html
+msgid "Logout"
+msgstr "Abmelden"
+
+#: cms/templates/_base.html cms/templates/authentication/login.html
 msgid "Login"
 msgstr "Login"
+
+#: cms/templates/authentication/login.html
+msgid "The username or the password is incorrect."
+msgstr "Der Benutzername oder das Passwort sind inkorrekt."
+
+#: cms/templates/authentication/login.html
+msgid "Please try again."
+msgstr "Bitte erneut versuchen."
+
+#: cms/templates/authentication/login.html
+msgid "Enter your email"
+msgstr "Email eingeben"
+
+#: cms/templates/authentication/login.html
+msgid "Enter your password"
+msgstr "Passwort eingeben"
+
+#: cms/templates/authentication/login.html
+msgid "Sign In"
+msgstr "Einloggen"
 
 #: cms/templates/index.html
 msgid "Home"
@@ -424,6 +439,79 @@ msgstr "Ankommen weitergedacht."
 #: cms/templates/index.html
 msgid "Discover Integreat Compass"
 msgstr "Intgreat Kompass entdecken"
+
+#: cms/templates/offers/offer_form.html
+#, python-format
+msgid "Edit offer \"%(offer_title)s\""
+msgstr "Maßnahme \"%(offer_title)s\" bearbeiten"
+
+#: cms/templates/offers/offer_form.html
+msgid "Create new offer"
+msgstr "Maßnahmen hinzufügen"
+
+#: cms/templates/offers/offer_form.html
+msgid "Offer details"
+msgstr "Angaben zur Maßnahme"
+
+#: cms/templates/offers/offer_form.html
+msgid "Group and mode types"
+msgstr "Durchführung"
+
+#: cms/templates/offers/offer_form.html
+msgid "Contact information"
+msgstr "Kontaktdaten der Ansprechperson"
+
+#: cms/templates/offers/offer_form.html
+msgid "Information of organization"
+msgstr "Angaben der Organisation"
+
+#: cms/templates/offers/offer_form.html
+msgid "Submit offer application"
+msgstr "Maßnahmenbewerbung absenden"
+
+#: cms/views/offers/offer_form_view.py
+msgid ""
+"Application for the offer \"{}\" has successfully been submitted and will be "
+"reviewed shortly."
+msgstr ""
+"Die Maßnahmenbewerbung \"{}\" wurde erfolgreich übermittelt und wird in "
+"Kürze geprüft."
+
+#: core/settings.py
+msgid "German"
+msgstr "Deutsch"
+
+#: core/settings.py
+msgid "English"
+msgstr "Englisch"
+
+#~ msgid "Email"
+#~ msgstr "E-Mail"
+
+#~ msgid "Password"
+#~ msgstr "Passwort"
+
+#~ msgid "non-profit"
+#~ msgstr "Non-Profit"
+
+#~ msgid "for-profit"
+#~ msgstr "For-Profit"
+
+#~ msgid "registered association"
+#~ msgstr "eingetragener Verein"
+
+#~ msgid "cost"
+#~ msgstr "Kosten"
+
+#~ msgid "Cost of this offer. Set to zero if the offer is free"
+#~ msgstr ""
+#~ "Kosten dieser Maßnahme. Auf Null setzen, wenn die Maßnahme kostenlos ist"
+
+#~ msgid "organization type"
+#~ msgstr "Typ der Organisation"
+
+#~ msgid "Type of the organization"
+#~ msgstr "Typ der Organisation"
 
 #~ msgid "Django auth group"
 #~ msgstr "Django Auth-Gruppe"

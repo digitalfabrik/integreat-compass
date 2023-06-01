@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext as __
 from django.utils.translation import gettext_lazy as _
 
 from ..abstract_base_model import AbstractBaseModel
@@ -28,7 +29,7 @@ class Language(AbstractBaseModel):
         :return: A readable string representation of the page
         :rtype: str
         """
-        return f"Language: {self.english_name}"
+        return __(self.english_name)
 
     def get_repr(self):
         """
