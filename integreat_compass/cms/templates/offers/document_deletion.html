@@ -1,0 +1,10 @@
+<div id="{{ widget.attrs.id }}">
+    {% for group, options, index in widget.optgroups %}
+        {% for option in options %}
+            <div class="document-deletion-checkbox">
+                <i icon-name="minus-circle" class="w-4 h-4 cursor-pointer text-red-700"></i>
+                {% include option.template_name with widget=option %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>

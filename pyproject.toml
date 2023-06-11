@@ -27,7 +27,9 @@ dependencies = [
     "django-debug-toolbar",
     "django-webpack-loader",
     "django-widget-tweaks",
+    "pillow",
     "psycopg[binary]",
+    "python-magic",
 ]
 keywords = ["integration", "Compass", "Integreat"]
 license = { text = "Apache2 2.0 License" }
@@ -62,8 +64,10 @@ pinned = [
     "django-debug-toolbar==4.1.0",
     "django-webpack-loader==1.8.1",
     "django-widget-tweaks==1.4.12",
+    "pillow==9.5.0",
     "psycopg==3.1.9",
     "psycopg-binary==3.1.9",
+    "python-magic==0.4.27",
     "sqlparse==0.4.4",
     "typing_extensions==4.5.0",
 ]

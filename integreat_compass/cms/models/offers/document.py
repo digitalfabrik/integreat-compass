@@ -1,32 +1,12 @@
 from django.conf import settings
-from django.core.exceptions import ValidationError
-from django.core.files.storage import FileSystemStorage
 from django.db import models
-from django.template.defaultfilters import filesizeformat
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
 from ...constants import allowed_media
 from ..abstract_base_model import AbstractBaseModel
+from ..validators import file_size_limit
 from .offer_version import OfferVersion
-
-
-def file_size_limit(value):
-    """
-    This function checks if the uploaded file exceeds the file size limit
-
-    :param value: the size of upload file
-    :type value: int
-
-    :raises ~django.core.exceptions.ValidationError: when the file size exceeds the size given in the settings.
-
-    """
-    if value.size > settings.MEDIA_MAX_UPLOAD_SIZE:
-        raise ValidationError(
-            _("File too large. Size should not exceed {}.").format(
-                filesizeformat(settings.MEDIA_MAX_UPLOAD_SIZE)
-            )
-        )
 
 
 class Document(AbstractBaseModel):
@@ -34,14 +14,9 @@ class Document(AbstractBaseModel):
     Data model representing a Language.
     """
 
-    offer_version = models.ForeignKey(
-        OfferVersion, on_delete=models.CASCADE, null=False
-    )
+    offer_versions = models.ManyToManyField(OfferVersion)
     file = models.FileField(
-        upload_to="documents/",
-        validators=[file_size_limit],
-        storage=FileSystemStorage(location=settings.MEDIA_ROOT),
-        verbose_name=_("file"),
+        upload_to="documents/", validators=[file_size_limit], verbose_name=_("file")
     )
     name = models.CharField(max_length=255, null=False)
     file_size = models.IntegerField(verbose_name=_("file size"))

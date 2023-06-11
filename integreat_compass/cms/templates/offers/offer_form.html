@@ -35,15 +35,35 @@
                     <div>
                         <h2>{% translate "Offer details" %}</h2>
                         {% for field in offer_version_form %}
-                            <div>
-                                <label for="{{ field.id_for_label }}"
-                                       {% if field.field.required %}class="field-required"{% endif %}>
-                                    {{ field.label }}
-                                </label>
-                                {% render_field field %}
-                                <div class="help-text">{{ field.help_text }}</div>
-                            </div>
+                            {% if field.name != "documents_to_remove" %}
+                                <div>
+                                    <label for="{{ field.id_for_label }}"
+                                           {% if field.field.required %}class="field-required"{% endif %}>
+                                        {{ field.label }}
+                                    </label>
+                                    {% render_field field %}
+                                    <div class="help-text">{{ field.help_text }}</div>
+                                </div>
+                            {% endif %}
                         {% endfor %}
+                    </div>
+                    <div>
+                        <label class="w-full">{% translate "Additional informative material" %}</label>
+                        {% render_field offer_version_form.documents_to_remove %}
+                        <div id="file-name-list" class="text-gray-500 font-medium"></div>
+                        <label for="document-upload-zone"
+                               class="z-5 flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer text-gray-500 duration-100 hover:text-gray-600 hover:border-gray-400">
+                            <div class="-z-5 flex flex-col items-center justify-center pt-5 pb-6">
+                                <i icon-name="upload" class="w-10 h-10 mb-2"></i>
+                                <p class="mb-2 text-sm">{% translate "Click to upload or drag and drop" %}</p>
+                                <p class="text-xs">{% translate "PDF, PNG or JPG" %}</p>
+                            </div>
+                            <input type="file"
+                                   id="document-upload-zone"
+                                   name="document-upload-zone"
+                                   class="hidden"
+                                   multiple="">
+                        </label>
                     </div>
                     <div>
                         <label for="{{ offer_form.tags.id_for_label }}">{{ offer_form.tags.label }}</label>

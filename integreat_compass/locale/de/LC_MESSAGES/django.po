@@ -86,6 +86,14 @@ msgstr "Entscheidung ausstehend"
 msgid "Enter {} here"
 msgstr "{} hier eingeben"
 
+#: cms/forms/offers/document_upload_form.py
+msgid "The file type {} is not allowed."
+msgstr "Das Dateiformat {} ist nicht erlaubt."
+
+#: cms/forms/offers/document_upload_form.py
+msgid "Allowed file types"
+msgstr "Erlaubte Dateiformate"
+
 #: cms/forms/offers/offer_version_form.py
 msgid "Yes"
 msgstr "Ja"
@@ -154,10 +162,6 @@ msgstr "Stimme"
 #: cms/models/interactions/vote.py
 msgid "votes"
 msgstr "Stimmen"
-
-#: cms/models/offers/document.py
-msgid "File too large. Size should not exceed {}."
-msgstr "Datei zu groß. Größe darf {} nicht überschreiten."
 
 #: cms/models/offers/document.py
 msgid "file"
@@ -234,6 +238,14 @@ msgstr "Titel"
 #: cms/models/offers/offer_version.py
 msgid "Title of this offer"
 msgstr "Titel dieser Maßnahme"
+
+#: cms/models/offers/offer_version.py
+msgid "title image"
+msgstr "Titelbild"
+
+#: cms/models/offers/offer_version.py
+msgid "Choose a title image for this offer"
+msgstr "Titelbild dieser Maßnahme auswählen"
 
 #: cms/models/offers/offer_version.py
 msgid "description"
@@ -380,6 +392,10 @@ msgstr "Benutzer"
 msgid "users"
 msgstr "Benutzer"
 
+#: cms/models/validators.py
+msgid "File too large. Size should not exceed {}."
+msgstr "Datei zu groß. Größe darf {} nicht überschreiten."
+
 #: cms/templates/_base.html
 msgid "Logo"
 msgstr "Logo"
@@ -440,6 +456,10 @@ msgstr "Ankommen weitergedacht."
 msgid "Discover Integreat Compass"
 msgstr "Intgreat Kompass entdecken"
 
+#: cms/templates/offers/image_picker.html
+msgid "Select title image"
+msgstr "Titelbild auswählen"
+
 #: cms/templates/offers/offer_form.html
 #, python-format
 msgid "Edit offer \"%(offer_title)s\""
@@ -452,6 +472,18 @@ msgstr "Maßnahmen hinzufügen"
 #: cms/templates/offers/offer_form.html
 msgid "Offer details"
 msgstr "Angaben zur Maßnahme"
+
+#: cms/templates/offers/offer_form.html
+msgid "Additional informative material"
+msgstr "Zusätzliches Informationsmaterial"
+
+#: cms/templates/offers/offer_form.html
+msgid "Click to upload or drag and drop"
+msgstr "Klicken zum Auswählen oder per Drag & Drop ablegen"
+
+#: cms/templates/offers/offer_form.html
+msgid "PDF, PNG or JPG"
+msgstr "PDF, PNG oder JPG"
 
 #: cms/templates/offers/offer_form.html
 msgid "Group and mode types"
