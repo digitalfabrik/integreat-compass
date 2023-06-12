@@ -40,6 +40,7 @@ dev = [
     "black",
     "build",
     "bumpver",
+    "django-livereload-server",
     "djlint",
     "isort",
     "pylint",

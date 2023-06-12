@@ -11,7 +11,8 @@
                      alt="{% translate "Logo" %}"
                      class="h-24 w-48">
             </a>
-            <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "Dashboard" %}</a>
+            <a href="{% url 'cms:protected:votes' %}"
+               class="ml-6 mr-4 hover:text-gray-900">{% translate "Dashboard" %}</a>
             <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "All offers" %}</a>
             {% if perms.cms.edit_offer %}
                 <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "My Offers" %}</a>

@@ -421,6 +421,18 @@ msgstr "Abmelden"
 msgid "Login"
 msgstr "Login"
 
+#: cms/templates/includes/dashboard_navbar.html
+msgid "Applications"
+msgstr "Bewerbungen"
+
+#: cms/templates/includes/dashboard_navbar.html
+msgid "Reports"
+msgstr "Meldungen"
+
+#: cms/templates/includes/dashboard_navbar.html
+msgid "Declined"
+msgstr "Blockiert"
+
 #: cms/templates/index.html
 msgid "Home"
 msgstr "Start"
@@ -432,6 +444,50 @@ msgstr "Ankommen weitergedacht."
 #: cms/templates/index.html
 msgid "Discover Integreat Compass"
 msgstr "Intgreat Kompass entdecken"
+
+#: cms/templates/interactions/vote_form.html
+msgid "short description"
+msgstr "Kurzbeschreibung"
+
+#: cms/templates/interactions/vote_form.html
+msgid "created at"
+msgstr "Erstellt:"
+
+#: cms/templates/interactions/vote_form.html
+msgid "You have approved this application"
+msgstr "Du hast diese Bewerbung angenommen."
+
+#: cms/templates/interactions/vote_form.html
+msgid "You have declined this application"
+msgstr "Du hast diese Bewerbung abgelehnt"
+
+#: cms/templates/interactions/vote_form.html
+msgid "Your vote is still pending"
+msgstr "Deine Bewertung ist ausstehend"
+
+#: cms/templates/interactions/vote_form.html
+msgid "approves"
+msgstr "Zusagen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "declines"
+msgstr "Absagen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "pending"
+msgstr "Offen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "to homepage"
+msgstr "zur Webseite"
+
+#: cms/templates/interactions/vote_form.html
+msgid "accept"
+msgstr "Annehmen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "decline"
+msgstr "Ablehnen"
 
 #: cms/templates/login.html
 msgid "Email"

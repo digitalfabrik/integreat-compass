@@ -36,6 +36,7 @@ class OfferVersion(AbstractBaseModel):
         verbose_name=_("Language"),
         help_text=_("The language being taught in this offer"),
     )
+    created_at = models.DateTimeField(default=timezone.now)
 
     @cached_property
     def documents(self):
@@ -67,10 +68,9 @@ class OfferVersion(AbstractBaseModel):
         """
         max_votes = (
             settings.NEW_OFFER_GREMIUM_SIZE
-            if self.is_initial_version()
+            if self.is_initial_version
             else settings.CHANGED_OFFER_GREMIUM_SIZE
         )
-
         if self.votes.filter(approval=True).count() > max_votes // 2:
             return offer_version_states.APPROVED
 
