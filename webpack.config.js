@@ -16,9 +16,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          process.env.NODE_ENV !== "production"
-            ? "style-loader"
-            : MiniCssExtractPlugin.loader,
+          process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
           "sass-loader",
@@ -86,6 +84,10 @@ module.exports = {
   },
 
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css",
+    }),
     new BundleTracker({ filename: "./integreat_compass/webpack-stats.json" }),
   ],
 };
