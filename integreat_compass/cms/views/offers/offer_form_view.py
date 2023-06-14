@@ -33,7 +33,7 @@ class OfferFormView(TemplateView):
     def _get_forms(offer_id, **kwargs):
         if offer_id:
             offer = Offer.objects.get(id=offer_id)
-            offer_version = offer.versions.first()
+            offer_version = list(offer.versions.select_related())[-1]
             offer_contact = offer.offer_contact
             offer_location = offer.location
             offer_organization = offer.organization
