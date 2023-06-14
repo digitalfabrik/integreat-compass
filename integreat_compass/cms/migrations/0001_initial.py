@@ -208,13 +208,13 @@ class Migration(migrations.Migration):
                 (
                     "lat",
                     models.DecimalField(
-                        decimal_places=6, max_digits=9, verbose_name="latitude"
+                        decimal_places=7, max_digits=10, verbose_name="latitude"
                     ),
                 ),
                 (
                     "long",
                     models.DecimalField(
-                        decimal_places=6, max_digits=9, verbose_name="longitude"
+                        decimal_places=7, max_digits=10, verbose_name="longitude"
                     ),
                 ),
             ],
