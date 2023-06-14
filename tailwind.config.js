@@ -1,10 +1,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: [
-    "./integreat_compass/cms/templates/**/*.html",
-    "./integreat_compass/static/src/js/**/*.{js,ts,tsx}",
-  ],
+  content: ["./integreat_compass/cms/templates/**/*.html", "./integreat_compass/static/src/js/**/*.{js,ts,tsx}"],
   theme: {
     colors: {
       transparent: "transparent",
@@ -44,14 +41,7 @@ module.exports = {
         "integreat-logo": "url('../images/logo-integreat-compass.svg')",
       },
       fontFamily: {
-        "default": [
-          "Roboto",
-          "Raleway",
-          "Lateef",
-          "Noto Sans SC",
-          "sans-serif",
-          "Noto Sans Ethiopic",
-        ],
+        "default": ["Roboto", "Raleway", "Lateef", "Noto Sans SC", "sans-serif", "Noto Sans Ethiopic"],
         "content": ["Open Sans", "sans-serif"],
         "content-rtl": ["Lateef", "sans-serif"],
         "content-sc": ["Noto Sans SC", "sans-serif"],

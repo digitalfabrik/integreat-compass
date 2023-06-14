@@ -65,7 +65,7 @@
                         <div class="md:flex md:gap-4">
                             {% for field in offer_form %}
                                 {% if field != offer_form.tags %}
-                                    <div class="w-full mb-4 md:w-1/2 md:mb-0">
+                                    <div class="w-full mb-4 md:w-1/2 md:mb-0 {{ field.name }}">
                                         <ul class="items-center w-full border border-gray-500 rounded-full flex shadow-inner">
                                             {% for choice in field %}
                                                 <li class="w-full text-center">
@@ -84,8 +84,8 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div>
-                        {% for field in location_form %}
+                    <div id="location-form-wrapper">
+                        {% with location_form.address as field %}
                             <div>
                                 <label for="{{ field.id_for_label }}"
                                        {% if field.field.required %}class="field-required"{% endif %}>
@@ -94,7 +94,12 @@
                                 {% render_field field %}
                                 <div class="help-text">{{ field.help_text }}</div>
                             </div>
-                        {% endfor %}
+                        {% endwith %}
+                        <div class="hidden">
+                            {% render_field location_form.lat %}
+                            {% render_field location_form.long %}
+                        </div>
+                        <div id="map" class="aspect-video"></div>
                     </div>
                 </div>
                 <div class="flex flex-col gap-8">
