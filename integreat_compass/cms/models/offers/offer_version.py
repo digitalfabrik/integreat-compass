@@ -37,8 +37,8 @@ class OfferVersion(AbstractBaseModel):
         max_length=255, verbose_name=_("title"), help_text=_("Title of this offer")
     )
     title_image = models.ImageField(
-        default=settings.DEFAULT_TITLE_IMAGE,
         blank=True,
+        null=True,
         upload_to="images/",
         validators=[file_size_limit],
         verbose_name=_("title image"),

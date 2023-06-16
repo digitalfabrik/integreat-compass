@@ -10,7 +10,7 @@ const getCoordinateInputFields = () => {
 
 const getCoordinates = () => {
     const [latitudeInput, longitudeInput] = getCoordinateInputFields();
-    if (latitudeInput.value && longitudeInput.value) {
+    if (latitudeInput?.value && longitudeInput?.value) {
         return new LngLat(longitudeInput.valueAsNumber, latitudeInput.valueAsNumber);
     }
     return null;
@@ -104,6 +104,7 @@ window.addEventListener("load", () => {
         }
     });
 
+    let isAutomaticEventFire = true;
     modeSwitch.addEventListener("click", () => {
         const locationFormWrapper = document.getElementById("location-form-wrapper");
         if (!locationFormWrapper) {
@@ -114,8 +115,11 @@ window.addEventListener("load", () => {
             locationFormWrapper.classList.add("hidden");
         } else {
             locationFormWrapper.classList.remove("hidden");
-            searchBar.focus();
-            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+            if (!isAutomaticEventFire) {
+                searchBar.focus();
+                window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+            }
+            isAutomaticEventFire = false;
         }
 
         const [lat, long] = getCoordinateInputFields();

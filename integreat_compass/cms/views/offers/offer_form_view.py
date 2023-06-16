@@ -33,7 +33,7 @@ class OfferFormView(TemplateView):
     def _get_forms(offer_id, **kwargs):
         if offer_id:
             offer = Offer.objects.get(id=offer_id)
-            offer_version = list(offer.versions.select_related())[-1]
+            offer_version = offer.latest_version
             offer_contact = offer.offer_contact
             offer_location = offer.location
             offer_organization = offer.organization
@@ -103,8 +103,8 @@ class OfferFormView(TemplateView):
 
         :raises ~django.core.exceptions.PermissionDenied: If user does not have the permission to edit the specific page
 
-        :return: The rendered template response
-        :rtype: ~django.template.response.TemplateResponse
+        :return: Redirect to list of user's offers
+        :rtype: ~django.http.HttpResponseRedirect
         """
         forms = self._get_forms(
             kwargs.get("pk"),
@@ -154,4 +154,4 @@ class OfferFormView(TemplateView):
                 'Application for the offer "{}" has successfully been submitted and will be reviewed shortly.'
             ).format(offer_version_instance.title),
         )
-        return redirect("cms:protected:edit_offer", **{"pk": offer_form.instance.id})
+        return redirect("cms:protected:my_offers")

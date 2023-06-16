@@ -1,7 +1,7 @@
 import logging
 
 from django import forms
-from django.conf import settings
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from ...models import Document, OfferVersion
@@ -26,11 +26,6 @@ class CustomImageField(forms.ClearableFileInput):
     """
 
     template_name = "offers/image_picker.html"
-
-    def get_context(self, name, value, attrs):
-        context = super().get_context(name, value, attrs)
-        context["default_title_image"] = settings.DEFAULT_TITLE_IMAGE
-        return context
 
 
 class OfferVersionForm(CustomModelForm):
@@ -82,7 +77,7 @@ class OfferVersionForm(CustomModelForm):
         """
         cleaned_data = super().clean()
         if cleaned_data["title_image"] is False:
-            cleaned_data["title_image"] = settings.DEFAULT_TITLE_IMAGE
+            cleaned_data["title_image"] = ""
         return cleaned_data
 
     def save(self, commit=True):
@@ -103,6 +98,7 @@ class OfferVersionForm(CustomModelForm):
             for field in self.Meta.fields:
                 if getattr(self.instance, field) != getattr(original_instance, field):
                     self.instance.pk = None
+                    self.instance.offer_version_date = timezone.now()
                     break
 
         offer_version = super().save(commit=commit)
