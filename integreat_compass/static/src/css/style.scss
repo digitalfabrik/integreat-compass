@@ -38,7 +38,7 @@ h2 {
 [multiple],
 textarea,
 select {
-    @apply w-full rounded text-xl text-gray-800 border-gray-500 shadow-md;
+    @apply scroll-mt-40 w-full rounded text-xl text-gray-800 border-gray-500 shadow-md;
     &:focus {
         @apply bg-white border-blue-500 ring-blue-500 #{!important};
     }

@@ -168,6 +168,10 @@ AVAILABLE_LANGUAGES = {"de": _("German"), "en": _("English")}
 #: The default UI languages
 DEFAULT_LANGUAGES = ["de", "en"]
 
+#: The default offer language
+DEFAULT_OFFER_LANGUAGE = {"native_name": "Deutsch", "english_name": "German"}
+
+
 #: The list of languages which are available in the UI
 #: (see :setting:`django:LANGUAGES` and :doc:`django:topics/i18n/index`)
 LANGUAGES = [

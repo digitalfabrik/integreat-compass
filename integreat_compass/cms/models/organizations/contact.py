@@ -14,17 +14,17 @@ class Contact(AbstractBaseModel):
     name = models.CharField(
         max_length=255,
         verbose_name=_("name"),
-        help_text=_("Name of the point-of-contact person"),
+        help_text=_("Name of the responsible contact person"),
     )
     email = models.EmailField(
         verbose_name=_("email"),
-        help_text=_("Email address of the point-of-contact person"),
+        help_text=_("Email address of the responsible contact person"),
     )
     phone = models.CharField(
         max_length=20,
         blank=True,
         verbose_name=_("phone number"),
-        help_text=_("Phone numbner of the point-of-contact person"),
+        help_text=_("Phone numbner of the responsible contact person"),
     )
 
     def __str__(self):
