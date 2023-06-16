@@ -236,7 +236,7 @@ MEDIA_MAX_UPLOAD_SIZE = int(
 )
 
 #: The default offer title image
-DEFAULT_TITLE_IMAGE = "fallback_title_image.png"
+DEFAULT_TITLE_IMAGE = "images/fallback_title_image.png"
 
 # Voting system settings
 

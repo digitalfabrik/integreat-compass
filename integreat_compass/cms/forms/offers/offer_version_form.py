@@ -1,7 +1,7 @@
 import logging
 
 from django import forms
-from django.conf import settings
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from ...models import Document, OfferVersion
@@ -26,11 +26,6 @@ class CustomImageField(forms.ClearableFileInput):
     """
 
     template_name = "offers/image_picker.html"
-
-    def get_context(self, name, value, attrs):
-        context = super().get_context(name, value, attrs)
-        context["default_title_image"] = settings.DEFAULT_TITLE_IMAGE
-        return context
 
 
 class OfferVersionForm(CustomModelForm):
@@ -73,18 +68,6 @@ class OfferVersionForm(CustomModelForm):
             else Document.objects.none()
         )
 
-    def clean(self):
-        """
-        Validate form fields which depend on each other, see :meth:`django.forms.Form.clean`:
-
-        :return: The cleaned form data
-        :rtype: dict
-        """
-        cleaned_data = super().clean()
-        if cleaned_data["title_image"] is False:
-            cleaned_data["title_image"] = settings.DEFAULT_TITLE_IMAGE
-        return cleaned_data
-
     def save(self, commit=True):
         """
         This method extends the default ``save()``-method of the base :class:`~django.forms.ModelForm`
@@ -103,6 +86,7 @@ class OfferVersionForm(CustomModelForm):
             for field in self.Meta.fields:
                 if getattr(self.instance, field) != getattr(original_instance, field):
                     self.instance.pk = None
+                    self.instance.offer_version_date = timezone.now()
                     break
 
         offer_version = super().save(commit=commit)
