@@ -9,6 +9,20 @@ from ..abstract_base_model import AbstractBaseModel
 from .language import Language
 
 
+def get_default_language():
+    """
+    Helper function to get or create the default offer language.
+
+    :return: pk of the default offer language
+    :rtype: int
+    """
+    language, _ = Language.objects.get_or_create(
+        native_name=settings.DEFAULT_OFFER_LANGUAGE["native_name"],
+        defaults=settings.DEFAULT_OFFER_LANGUAGE,
+    )
+    return language.pk
+
+
 class OfferVersion(AbstractBaseModel):
     """
     Data model representing a Language.
@@ -32,6 +46,7 @@ class OfferVersion(AbstractBaseModel):
     )
     language = models.ForeignKey(
         Language,
+        default=get_default_language,
         on_delete=models.CASCADE,
         verbose_name=_("Language"),
         help_text=_("The language being taught in this offer"),
