@@ -284,24 +284,24 @@ msgid "name"
 msgstr "Name"
 
 #: cms/models/organizations/contact.py
-msgid "Name of the point-of-contact person"
-msgstr "Name der Kontaktperson"
+msgid "Name of the responsible contact person"
+msgstr "Name der Ansprechperson"
 
 #: cms/models/organizations/contact.py cms/models/users/user.py
 msgid "email"
 msgstr "E-Mail"
 
 #: cms/models/organizations/contact.py
-msgid "Email address of the point-of-contact person"
-msgstr "E-Mail-Adresse der Kontaktperson"
+msgid "Email address of the responsible contact person"
+msgstr "E-Mail-Adresse der Ansprechperson"
 
 #: cms/models/organizations/contact.py
 msgid "phone number"
 msgstr "Telefonnummer"
 
 #: cms/models/organizations/contact.py
-msgid "Phone numbner of the point-of-contact person"
-msgstr "Telefonnummer der Kontaktperson"
+msgid "Phone numbner of the responsible contact person"
+msgstr "Telefonnummer der Ansprechperson"
 
 #: cms/models/organizations/contact.py
 msgid "offer contact"

@@ -245,6 +245,21 @@ jobs:
           name: Publish integreat-compass package to (Test-)PyPI
           command: twine upload --non-interactive ./dist/integreat-compass-*.tar.gz
 
+  check-translations:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install translation requirements
+          command: sudo apt-get update && sudo apt-get install gettext pcregrep
+      - run:
+          name: Check translation file for missing or empty entries
+          command: ./tools/check_translations.sh
+
 workflows:
   develop:
     jobs:
@@ -311,6 +326,9 @@ workflows:
           requires:
             - build-dev-package
 
+      - check-translations:
+          requires:
+            - pip-install
   main:
     jobs:
       - pip-install:

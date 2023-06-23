@@ -111,7 +111,7 @@ class Migration(migrations.Migration):
                 (
                     "name",
                     models.CharField(
-                        help_text="Name of the point-of-contact person",
+                        help_text="Name of the responsible contact person",
                         max_length=255,
                         verbose_name="name",
                     ),
@@ -119,7 +119,7 @@ class Migration(migrations.Migration):
                 (
                     "email",
                     models.EmailField(
-                        help_text="Email address of the point-of-contact person",
+                        help_text="Email address of the responsible contact person",
                         max_length=254,
                         verbose_name="email",
                     ),
@@ -128,7 +128,7 @@ class Migration(migrations.Migration):
                     "phone",
                     models.CharField(
                         blank=True,
-                        help_text="Phone numbner of the point-of-contact person",
+                        help_text="Phone numbner of the responsible contact person",
                         max_length=20,
                         verbose_name="phone number",
                     ),
@@ -332,6 +332,7 @@ class Migration(migrations.Migration):
                 (
                     "language",
                     models.ForeignKey(
+                        default=integreat_compass.cms.models.offers.offer_version.get_default_language,
                         help_text="The language being taught in this offer",
                         on_delete=django.db.models.deletion.CASCADE,
                         to="cms.language",

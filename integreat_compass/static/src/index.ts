@@ -1,4 +1,5 @@
 import "./css/style.scss";
+import "./js/field-validation";
 import "./js/map";
 import { createIconsAt } from "./js/utils/create-icons";
 
