@@ -5,106 +5,112 @@
 {% endblock title %}
 {% block content %}
     <div class="flex container mx-auto h-[calc(100vh-6rem)]">
-        <div class="hidden lg:block lg:w-2/12 py-8 pr-8 shadow-[10px_0_5px_-2px_rgba(0,0,0,0.1)]">
-            <h2 class="text-2xl font-semibold">{% translate "Filter" %}</h2>
-            <p class="text-gray-500">{% translate "Filter all offers" %}</p>
-            <div>
-                <input class="block w-full border border-gray-400 rounded-md">
-            </div>
-            <div class="pb-1">
-                <h3 class="text-gray-500 mt-10">{% translate "Categories" %}</h3>
+        <div class="hidden lg:block fixed top-24 bottom-0 bg-white lg:w-3/12 py-8 pr-8 shadow-[10px_0_5px_-2px_rgba(0,0,0,0.1)]">
+            <form action="{% url 'cms:public:index' %}" method="post">
+                <h2 class="text-2xl font-semibold">{% translate "Filter" %}</h2>
+                <p class="text-gray-500">{% translate "Filter all offers" %}</p>
                 <div>
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="checkbox" value="1">
-                            <span class="px-2">Lorem ipsum</span>
-                        </label>
-                    </div>
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="checkbox" value="1">
-                            <span class="px-2">Lorem ipsum dolor sit</span>
-                        </label>
-                    </div>
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="checkbox" value="1">
-                            <span class="px-2">Familie</span>
-                        </label>
-                    </div>
+                    <input id="offer-search"
+                           placeholder="{% translate "Search" %}"
+                           name="offer-search"
+                           type="text"
+                           class="block w-full px-1 border border-gray-400 rounded-md">
                 </div>
-                <br class="clear-both" />
-                <div class="mt-10">
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="radio" name="offers-attendance" id="1">
-                            <span class="px-2">{% translate "In-person" %}</span>
-                        </label>
+                <div class="pb-1">
+                    <h3 class="text-gray-500 mt-10">{% translate "Categories" %}</h3>
+                    {% csrf_token %}
+                    <div class="flex flex-wrap gap-x-4">
+                        {% for tag in tags %}
+                            <div>
+                                <input id="{{ tag.id }}"
+                                       name="offer-tags"
+                                       class="hidden peer"
+                                       type="checkbox"
+                                       value="{{ tag.id }}">
+                                <label for="{{ tag.id }}"
+                                       class="px-4 py-2 text-lg bg-white rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:text-white peer-checked:border-none">
+                                    {{ tag }}
+                                </label>
+                            </div>
+                        {% endfor %}
                     </div>
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="radio" name="offers-attendance" id="2">
-                            <span class="px-2">{% translate "Hybrid" %}</span>
-                        </label>
+                    <div class="mt-4">
+                        <ul class="items-center w-full border border-gray-500 rounded-full flex shadow-inner">
+                            {% for group_type in offer_group_types %}
+                                <li class="w-full text-center">
+                                    <div class="items-center">
+                                        <input id="group-type-{{ group_type.0 }}"
+                                               class="hidden peer"
+                                               type="radio"
+                                               name="group-type"
+                                               value="{{ group_type.0 }}">
+                                        <label for="group-type-{{ group_type.0 }}"
+                                               class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                            {{ group_type.1 }}
+                                        </label>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </div>
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="radio" name="offers-attendance" id="3">
-                            <span class="px-2">{% translate "Online" %}</span>
-                        </label>
+                    <div class="mt-4">
+                        <ul class="items-center w-full border border-gray-500 rounded-full flex shadow-inner">
+                            {% for mode_type in offer_mode_types %}
+                                <li class="w-full text-center">
+                                    <div class="items-center">
+                                        <input id="mode-type-{{ mode_type.0 }}"
+                                               class="hidden peer"
+                                               type="radio"
+                                               name="mode-type"
+                                               value="{{ mode_type.0 }}">
+                                        <label for="mode-type-{{ mode_type.0 }}"
+                                               class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                            {{ mode_type.1 }}
+                                        </label>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </div>
-                </div>
-                <br class="clear-both" />
-                <div class="mt-10">
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="radio" name="offers-group" id="1">
-                            <span class="px-2">{% translate "Individual" %}</span>
-                        </label>
+                    <div class="mt-4">
+                        <button class="btn" type="submit">{% translate "Submit" %}</button>
                     </div>
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="radio" name="offers-group" id="2">
-                            <span class="px-2">{% translate "Hybrid" %}</span>
-                        </label>
-                    </div>
-                    <div class="tag">
-                        <label class="float-left rounded-2xl leading-6 mt-2 mr-2 shadow-md hover:cursor-pointer hover:shadow-xl">
-                            <input class="hidden absolute" type="radio" name="offers-group" id="3">
-                            <span class="px-2">{% translate "Group" %}</span>
-                        </label>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-        <div class="w-full py-4 lg:p-8 lg:pr-0">
-            <div class="mb-4 flex justify-between">
+        <div class="w-full ml-[25vw] w-9/12 py-4 lg:p-8 lg:pr-0">
+            <div class="mb-4">
                 <div class="flex items-center">
                     <h2 class="text-2xl font-semibold">{% translate "Offers" %}</h2>
-                    <span class="flex ml-4 text-gray-400 items-center">{% translate "35 out of 165 offers" %}</span>
-                </div>
-                <div>
-                    <span class="flex text-gray-500 items-center">{% translate "Sorted by" %}<i icon-name="chevron-down"></i></span>
+                    <span class="flex ml-4 text-gray-400 items-center">{{ offers|length }}
+                        {% translate "offers" %}
+                    </span>
                 </div>
             </div>
             <div class="grid lg:grid-cols-2 gap-4">
-                <!-- TODO: for loop -->
-                <div id="offer-1"
-                     class="single-offer flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
-                    <div class="w-3/12 flex items-center">
-                        <img class="rounded-2xl" src="#">
-                    </div>
-                    <div class="py-2 px-4">
-                        <h3 class="font-bold">Lorem ipsum dolor sit amet consectetur</h3>
-                        <p class="text-gray-500 pb-1">Hilfe von Mensch zu Mensch e.V</p>
-                        <div class="pb-1">
-                            <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
-                            <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
-                            <span class="text-white bg-[#E46C70] rounded-2xl px-3 py-1">Familie</span>
+                {% for offer in offers %}
+                    <div id="offer-{{ offer.id }}"
+                         class="single-offer flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
+                        <div class="w-4/12 flex items-center">
+                            <img class="rounded-2xl"
+                                 src="{{ offer.versions.first.title_image.url }}"
+                                 width="100%"
+                                 height="100%"
+                                 alt="">
                         </div>
-                        <p class="text-gray-400">{% translate "Created 19th July 2022" %}</p>
+                        <div class="py-2 px-4">
+                            <h3 class="font-bold">{{ offer.versions.first.title }}</h3>
+                            <p class="text-gray-500 pb-1">{{ offer.organization.name }}</p>
+                            <div class="pb-1">
+                                {% for tag in offer.tags.all %}
+                                    <span class="text-white bg-primary rounded-2xl px-3 py-1 leading-8">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                            <p class="text-gray-400">{{ offer.versions.first.offer_version_date }}</p>
+                        </div>
                     </div>
-                </div>
+                    {% include "layover/offer-detail-layover.html" %}
+                {% endfor %}
             </div>
         </div>
     </div>

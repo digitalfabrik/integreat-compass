@@ -14,26 +14,24 @@
             <a href="{% url 'cms:public:index' %}"
                class="ml-6 mr-4 hover:text-gray-900">{% translate "All offers" %}</a>
             <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "Dashboard" %}</a>
-            <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "All offers" %}</a>
             {% if perms.cms.change_offer %}
                 <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "My Offers" %}</a>
                 <a href="{% url 'cms:protected:new_offer' %}"
                    class="ml-6 mr-4 hover:text-gray-900">{% translate "Add new offer" %}</a>
             {% endif %}
             {% if user.is_authenticated %}
-                <div class="ml-auto mr-4 flex-align-right font-bold hover:text-gray-900">
+                <div class="ml-auto flex-align-right font-bold hover:text-gray-900">
                     <span class="text-primary">{{ user.display_name }}</span>
                     <a href="{% url 'cms:public:logout' %}">({% translate "Logout" %})</a>
                 </div>
             {% else %}
-                <div class="ml-auto mr-4 flex-align-right font-bold hover:text-gray-900">
+                <div class="ml-auto flex-align-right font-bold hover:text-gray-900">
                     <a href="{% url 'cms:public:login' %}">{% translate "Login" %}</a>
                 </div>
             {% endif %}
-<<<<<<< HEAD
         </div>
     </div>
-    <div class="container mx-auto px-4 py-6 mt-28">
+    <div class="container mx-auto py-6 mt-24">
         {% if messages %}
             <div id="messages" class="mb-8">
                 {% for msg in messages %}
@@ -64,18 +62,6 @@
                 {% endfor %}
             </div>
         {% endif %}
-=======
-            <div class="ml-auto flex-align-right font-bold hover:text-gray-900">
-                {% if user.is_authenticated %}
-                    {{ user.display_name }}
-                {% else %}
-                    <a href="#">{% translate "Login" %}</a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    <div class="pt-24 bg-white">
->>>>>>> Add offers view and filters
         {% block content %}
         {% endblock content %}
     </div>

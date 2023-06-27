@@ -227,7 +227,7 @@ msgstr "Wählen Sie aus, in welchem Modus Unterricht angeboten wird"
 msgid "offer"
 msgstr "Maßnahme"
 
-#: cms/models/offers/offer.py
+#: cms/models/offers/offer.py cms/templates/index.html
 msgid "offers"
 msgstr "Maßnahmen"
 
@@ -401,18 +401,18 @@ msgid "Logo"
 msgstr "Logo"
 
 #: cms/templates/_base.html
-msgid "Dashboard"
-msgstr "Dashboard"
-
-#: cms/templates/_base.html
 msgid "All offers"
 msgstr "Alle Maßnahmen"
+
+#: cms/templates/_base.html
+msgid "Dashboard"
+msgstr "Dashboard"
 
 #: cms/templates/_base.html
 msgid "My Offers"
 msgstr "Meine Maßnahmen"
 
-#: cms/templates/_base.html cms/templates/index.html
+#: cms/templates/_base.html
 msgid "Add new offer"
 msgstr "Maßnahmen hinzufügen"
 
@@ -449,12 +449,44 @@ msgid "Home"
 msgstr "Start"
 
 #: cms/templates/index.html
-msgid "Arriving, reimagined."
-msgstr "Ankommen weitergedacht."
+msgid "Filter"
+msgstr "Filter"
 
 #: cms/templates/index.html
-msgid "Discover Integreat Compass"
-msgstr "Intgreat Kompass entdecken"
+msgid "Filter all offers"
+msgstr "Alle Maßnahmen filtern"
+
+#: cms/templates/index.html
+msgid "Search"
+msgstr "Suchen"
+
+#: cms/templates/index.html
+msgid "Categories"
+msgstr "Kategorien"
+
+#: cms/templates/index.html
+msgid "Submit"
+msgstr "Senden"
+
+#: cms/templates/index.html
+msgid "Offers"
+msgstr "Maßnahmen"
+
+#: cms/templates/layover/offer-detail-layover.html
+msgid "Short description"
+msgstr "Kurzbeschreibung"
+
+#: cms/templates/layover/offer-detail-layover.html
+msgid "Contact person"
+msgstr "Kontaktperson"
+
+#: cms/templates/layover/offer-detail-layover.html
+msgid "Address"
+msgstr "Adresse"
+
+#: cms/templates/layover/offer-detail-layover.html
+msgid "Documents"
+msgstr "Dokumente"
 
 #: cms/templates/offers/image_picker.html
 msgid "Select title image"
@@ -516,6 +548,36 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "reviews"
+#~ msgstr "Bewertung"
+
+#~ msgid "Personal reviews"
+#~ msgstr "Eigene Bewertung"
+
+#~ msgid "Create your own review"
+#~ msgstr "Vergasse eine eigene Bewertung"
+
+#~ msgid "characters"
+#~ msgstr "Zeichen"
+
+#~ msgid "%(amount_of_offers)s offers"
+#~ msgstr "%(amount_of_offers)s Maßnahmen"
+
+#~ msgid ""
+#~ "\n"
+#~ "                        %(amount_of_offers)s offers\n"
+#~ "                        "
+#~ msgstr ""
+#~ "\n"
+#~ "                        %(amount_of_offers)s Maßnahmen\n"
+#~ "                        "
+
+#~ msgid "Arriving, reimagined."
+#~ msgstr "Ankommen weitergedacht."
+
+#~ msgid "Discover Integreat Compass"
+#~ msgstr "Intgreat Kompass entdecken"
 
 #~ msgid "Email"
 #~ msgstr "E-Mail"
