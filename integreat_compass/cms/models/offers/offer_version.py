@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 from ...constants import offer_version_states
 from ..abstract_base_model import AbstractBaseModel
+from ..validators import file_size_limit
 from .language import Language
 
 
@@ -34,6 +35,14 @@ class OfferVersion(AbstractBaseModel):
     offer_version_date = models.DateTimeField(default=timezone.now, null=False)
     title = models.CharField(
         max_length=255, verbose_name=_("title"), help_text=_("Title of this offer")
+    )
+    title_image = models.ImageField(
+        default=settings.DEFAULT_TITLE_IMAGE,
+        blank=True,
+        upload_to="images/",
+        validators=[file_size_limit],
+        verbose_name=_("title image"),
+        help_text=_("Choose a title image for this offer"),
     )
     description = models.TextField(
         verbose_name=_("description"),

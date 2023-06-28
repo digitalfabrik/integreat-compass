@@ -137,3 +137,6 @@ dmypy.json
 
 # IDEs
 .idea/
+
+# Media files
+integreat_compass/media/*/*

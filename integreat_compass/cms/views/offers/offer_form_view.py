@@ -10,6 +10,7 @@ from django.views.generic import TemplateView
 from ...decorators import permission_required
 from ...forms import (
     ContactForm,
+    DocumentUploadForm,
     LocationForm,
     OfferForm,
     OfferVersionForm,
@@ -108,11 +109,17 @@ class OfferFormView(TemplateView):
         forms = self._get_forms(
             kwargs.get("pk"),
             data=request.POST,
+            files=request.FILES,
             additional_instance_attributes={"creator": request.user},
         )
 
-        if not all(form.is_valid() for form in forms.values()):
-            for form in forms:
+        new_document_forms = [
+            DocumentUploadForm(instance=None, data=request.POST, initial={"file": file})
+            for file in request.FILES.getlist("document-upload-zone")
+        ]
+
+        if not all(form.is_valid() for form in [*forms.values(), *new_document_forms]):
+            for form in [*forms.values(), *new_document_forms]:
                 form.add_error_messages(request)
 
             return render(
@@ -135,6 +142,11 @@ class OfferFormView(TemplateView):
 
         offer_version_form.instance.offer = offer_form.save()
         offer_version_instance = offer_version_form.save()
+
+        for document_form in new_document_forms:
+            document = document_form.save()
+            document.offer_versions.add(offer_version_instance)
+            document.save()
 
         messages.success(
             request,

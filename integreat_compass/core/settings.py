@@ -224,6 +224,9 @@ MEDIA_MAX_UPLOAD_SIZE = int(
     os.environ.get("INTEGREAT_COMPASS_MEDIA_MAX_UPLOAD_SIZE", 3 * 1024 * 1024)
 )
 
+#: The default offer title image
+DEFAULT_TITLE_IMAGE = "fallback_title_image.png"
+
 # Voting system settings
 
 #: Maximum votes cast on new offers

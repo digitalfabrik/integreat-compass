@@ -1,0 +1,26 @@
+{% load i18n %}
+<div class="title-image-preview-container relative rounded rounded-3xl overflow-hidden {% if widget.value == default_title_image or not widget.value.url.strip %}hidden{% endif %}">
+    <img id="title-image-preview"
+         src="{% if widget.value != default_title_image %}{{ widget.value.url }}{% endif %}"
+         alt="Current title image"
+         height="200"
+         width="200"
+         class="object-cover w-full h-full" />
+    <div class="darken absolute top-0 left-0 right-0 bottom-0 bg-gray-900 opacity-0 duration-200"></div>
+    <i icon-name="x"
+       id="title-image-reset"
+       class="w-20 h-20 text-red-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer opacity-0 duration-200"></i>
+</div>
+<label class="rounded text-medium font-medium px-4 py-2 border-2 inline-block text-gray-600 !cursor-pointer hover:text-white hover:bg-gray-600">
+    <input id="title-image-picker"
+           type="{{ widget.type }}"
+           name="{{ widget.name }}"
+           class="hidden"
+           accept="image/*"
+           {% include "django/forms/widgets/attrs.html" %} />
+    {% translate "Select title image" %}
+    <input type="checkbox"
+           name="{{ widget.checkbox_name }}"
+           id="{{ widget.checkbox_id }}"
+           class="hidden" />
+</label>

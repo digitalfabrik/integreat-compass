@@ -1,5 +1,7 @@
 import "./css/style.scss";
 import "./js/field-validation";
+import "./js/display_filenames";
+import "./js/image_picker";
 import "./js/map";
 import { createIconsAt } from "./js/utils/create-icons";
 

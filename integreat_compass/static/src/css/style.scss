@@ -124,6 +124,17 @@ label:not([for]) {
     }
 }
 
+.document-deletion-checkbox {
+    label {
+        display: inline;
+        @apply font-medium text-gray-500 text-lg;
+        cursor: auto;
+    }
+    input {
+        @apply hidden;
+    }
+}
+
 /***********
  * BUTTONS *
  ***********/
@@ -179,6 +190,25 @@ input[type="submit"] {
         &:disabled,
         &[disabled] {
             @apply text-gray-400 cursor-not-allowed;
+        }
+    }
+}
+
+/**************
+* TITLE IMAGE *
+**************/
+
+.title-image-preview-container {
+    width: 16rem;
+    height: 16rem;
+    overflow: hidden;
+
+    &:hover {
+        .darken {
+            @apply opacity-60;
+        }
+        svg {
+            @apply opacity-100;
         }
     }
 }
