@@ -16,17 +16,18 @@ const getCoordinates = () => {
     return null;
 };
 
-export const updateField = (fieldName: string, value: number) => {
+export const updateField = (fieldName: string, value: string) => {
     const field = document.getElementById(`id_location-${fieldName}`) as HTMLInputElement;
-    if (value && field.value !== value.toString()) {
-        field.value = value.toString();
+    if (value && field.value !== value) {
+        field.value = value;
     }
 };
 
 const updateCoordinates = (marker: Marker) => {
     const lngLat = marker.getLngLat();
-    updateField("long", lngLat.lng);
-    updateField("lat", lngLat.lat);
+    const maxCoordinatePrecision = 7;
+    updateField("long", lngLat.lng.toFixed(maxCoordinatePrecision));
+    updateField("lat", lngLat.lat.toFixed(maxCoordinatePrecision));
 };
 
 window.addEventListener("load", () => {

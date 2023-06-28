@@ -16,10 +16,10 @@ class Location(AbstractBaseModel):
         help_text=_("Physical location where the offer takes place"),
     )
     lat = models.DecimalField(
-        max_digits=9, decimal_places=6, verbose_name=_("latitude")
+        max_digits=10, decimal_places=7, verbose_name=_("latitude")
     )
     long = models.DecimalField(
-        max_digits=9, decimal_places=6, verbose_name=_("longitude")
+        max_digits=10, decimal_places=7, verbose_name=_("longitude")
     )
 
     def __str__(self):
