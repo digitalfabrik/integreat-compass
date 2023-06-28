@@ -76,7 +76,6 @@ class OfferVersionForm(CustomModelForm):
     def clean(self):
         """
         Validate form fields which depend on each other, see :meth:`django.forms.Form.clean`:
-        If the file type is invalid, add a :class:`~django.core.exceptions.ValidationError`.
 
         :return: The cleaned form data
         :rtype: dict

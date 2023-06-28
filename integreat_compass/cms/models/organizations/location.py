@@ -10,16 +10,24 @@ class Location(AbstractBaseModel):
     """
 
     address = models.TextField(
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
         verbose_name=_("address"),
         help_text=_("Physical location where the offer takes place"),
     )
     lat = models.DecimalField(
-        max_digits=10, decimal_places=7, verbose_name=_("latitude")
+        blank=True,
+        null=True,
+        max_digits=10,
+        decimal_places=7,
+        verbose_name=_("latitude"),
     )
     long = models.DecimalField(
-        max_digits=10, decimal_places=7, verbose_name=_("longitude")
+        blank=True,
+        null=True,
+        max_digits=10,
+        decimal_places=7,
+        verbose_name=_("longitude"),
     )
 
     def __str__(self):

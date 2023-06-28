@@ -24,7 +24,7 @@ class Contact(AbstractBaseModel):
         max_length=20,
         blank=True,
         verbose_name=_("phone number"),
-        help_text=_("Phone numbner of the responsible contact person"),
+        help_text=_("Phone number of the responsible contact person"),
     )
 
     def __str__(self):
