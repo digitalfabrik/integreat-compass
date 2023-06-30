@@ -89,6 +89,7 @@ class OfferVersionForm(CustomModelForm):
         """
         This method extends the default ``save()``-method of the base :class:`~django.forms.ModelForm`
         to manage the ManyToMany relation with :class:`~integrat_compass.cms.models.offers.document.Document`.
+        and to ensure a new instance is created instead of updating the old one.
 
         :param commit: Whether or not the changes should be written to the database
         :type commit: bool
@@ -96,8 +97,20 @@ class OfferVersionForm(CustomModelForm):
         :return: The saved region object
         :rtype: ~integreat_cms.cms.models.offers.offer_version.OfferVersion
         """
-        offer_version = super().save(commit=commit)
-        for document in self.cleaned_data["documents_to_remove"]:
-            document.offer_versions.remove(offer_version)
+        original_instance = None
+        if self.instance.pk:
+            original_instance = OfferVersion.objects.get(pk=self.instance.pk)
+            for field in self.Meta.fields:
+                if getattr(self.instance, field) != getattr(original_instance, field):
+                    self.instance.pk = None
+                    break
 
+        offer_version = super().save(commit=commit)
+
+        to_remove = [offer_version] + [original_instance] if original_instance else []
+        for document in self.cleaned_data["documents_to_remove"]:
+            for instance in to_remove:
+                document.offer_versions.remove(instance)
+
+        offer_version = super().save(commit=commit)
         return offer_version
