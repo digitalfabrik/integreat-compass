@@ -107,10 +107,7 @@
                     <div id="location-form-wrapper">
                         {% with location_form.address as field %}
                             <div>
-                                <label for="{{ field.id_for_label }}"
-                                       {% if field.field.required %}class="field-required"{% endif %}>
-                                    {{ field.label }}
-                                </label>
+                                <label for="{{ field.id_for_label }}" class="field-required">{{ field.label }}&nbsp;</label>
                                 {% render_field field %}
                                 <div class="help-text">{{ field.help_text }}</div>
                             </div>

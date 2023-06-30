@@ -127,7 +127,7 @@ class Migration(migrations.Migration):
                     "phone",
                     models.CharField(
                         blank=True,
-                        help_text="Phone numbner of the responsible contact person",
+                        help_text="Phone number of the responsible contact person",
                         max_length=20,
                         verbose_name="phone number",
                     ),
@@ -200,20 +200,30 @@ class Migration(migrations.Migration):
                 (
                     "address",
                     models.TextField(
+                        blank=True,
                         help_text="Physical location where the offer takes place",
+                        null=True,
                         verbose_name="address",
                     ),
                 ),
                 (
                     "lat",
                     models.DecimalField(
-                        decimal_places=7, max_digits=10, verbose_name="latitude"
+                        blank=True,
+                        decimal_places=7,
+                        max_digits=10,
+                        null=True,
+                        verbose_name="latitude",
                     ),
                 ),
                 (
                     "long",
                     models.DecimalField(
-                        decimal_places=7, max_digits=10, verbose_name="longitude"
+                        blank=True,
+                        decimal_places=7,
+                        max_digits=10,
+                        null=True,
+                        verbose_name="longitude",
                     ),
                 ),
             ],

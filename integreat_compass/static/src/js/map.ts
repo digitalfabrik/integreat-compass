@@ -114,7 +114,14 @@ window.addEventListener("load", () => {
             locationFormWrapper.classList.add("hidden");
         } else {
             locationFormWrapper.classList.remove("hidden");
+            searchBar.focus();
+            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
         }
+
+        const [lat, long] = getCoordinateInputFields();
+        lat.required = !onlineCheckbox.checked;
+        long.required = !onlineCheckbox.checked;
+        searchBar.required = !onlineCheckbox.checked;
     });
     modeSwitch.dispatchEvent(new Event("click"));
 });

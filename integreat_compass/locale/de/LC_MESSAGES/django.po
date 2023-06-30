@@ -94,6 +94,10 @@ msgstr "Das Dateiformat {} ist nicht erlaubt."
 msgid "Allowed file types"
 msgstr "Erlaubte Dateiformate"
 
+#: cms/forms/offers/location_form.py
+msgid "A valid address is required."
+msgstr "Eine gültige Adresse ist erforderlich."
+
 #: cms/forms/offers/offer_version_form.py
 msgid "Yes"
 msgstr "Ja"
@@ -312,7 +316,7 @@ msgid "phone number"
 msgstr "Telefonnummer"
 
 #: cms/models/organizations/contact.py
-msgid "Phone numbner of the responsible contact person"
+msgid "Phone number of the responsible contact person"
 msgstr "Telefonnummer der Ansprechperson"
 
 #: cms/models/organizations/contact.py
