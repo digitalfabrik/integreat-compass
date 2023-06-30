@@ -44,6 +44,7 @@ dev = [
     "bumpver",
     "djlint",
     "isort",
+    "looseversion",
     "pylint",
     "pylint-django",
     "pylint-per-file-ignores",
@@ -57,6 +58,7 @@ dev = [
     "sphinxcontrib-django",
     "sphinx-last-updated-by-git",
     "sphinx-rtd-theme",
+    "twine",
 ]
 pinned = [
     "asgiref==3.6.0",
@@ -146,6 +148,7 @@ dev-pinned = [
     "tomli==2.0.1",
     "tomlkit==0.11.8",
     "tqdm==4.65.0",
+    "twine==4.0.2",
     "urllib3==2.0.2",
     "wrapt==1.15.0",
     "zipp==3.15.0",
