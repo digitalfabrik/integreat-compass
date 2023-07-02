@@ -27,11 +27,15 @@
                 <div class="ml-auto mr-4 flex-align-right font-bold hover:text-gray-900">
                     <a href="{% url 'cms:public:login' %}">{% translate "Login" %}</a>
                 </div>
+                <div class="ml-4 mr-4 flex-align-right font-bold hover:text-gray-900">
+                    <a href="{% url 'cms:public:register' %}"
+                       class="text-primary hover:text-gray-900">{% translate "Register" %}</a>
+                </div>
             {% endif %}
         </div>
     </div>
     <div class="container mx-auto px-4 py-6 mt-28">
-        {% if messages %}
+        {% if messages and not messages_suppressed %}
             <div id="messages" class="mb-8">
                 {% for msg in messages %}
                     {% if msg.level_tag == 'info' %}

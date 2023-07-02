@@ -1,7 +1,7 @@
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
-from ..views import index
+from ..views import authentication, index
 
 urlpatterns = [
     path("", index.IndexView.as_view(), name="index"),
@@ -17,6 +17,16 @@ urlpatterns = [
                     name="login",
                 ),
                 path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+                path(
+                    "register/",
+                    authentication.RegistrationView.as_view(),
+                    name="register",
+                ),
+                path(
+                    "activate-account/<uidb64>/<token>/",
+                    authentication.AccountActivationView.as_view(),
+                    name="activate_account",
+                ),
             ]
         ),
     ),
