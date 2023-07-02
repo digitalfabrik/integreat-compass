@@ -15,6 +15,8 @@ from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
 
+from .logging_formatter import ColorFormatter, RequestFormatter
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -238,3 +240,72 @@ NEW_OFFER_GREMIUM_SIZE = int(
 CHANGED_OFFER_GREMIUM_SIZE = int(
     os.environ.get("INTEGREAT_COMPASS_CHANGED_OFFER_GREMIUM_SIZE", 4)
 )
+
+###########
+# LOGGING #
+###########
+
+#: The log level for integreat-cms django apps
+LOG_LEVEL = os.environ.get("INTEGREAT_COMPASS_LOG_LEVEL", "DEBUG" if DEBUG else "INFO")
+
+#: The file path of the logfile. Needs to be writable by the application.
+LOGFILE = os.environ.get(
+    "INTEGREAT_COMPASS_LOGFILE", os.path.join(BASE_DIR, "integreat-compass.log")
+)
+
+#: Logging configuration dictionary (see :setting:`django:LOGGING`)
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "console-colored": {
+            "()": ColorFormatter,
+            "format": "{asctime} {levelname} {name} - {message}",
+            "datefmt": "%b %d %H:%M:%S",
+            "style": "{",
+        },
+        "management-command": {
+            "()": ColorFormatter,
+            "format": "{message}",
+            "style": "{",
+        },
+        "logfile": {
+            "()": RequestFormatter,
+            "format": "{asctime} {levelname:7} {name} - {message}",
+            "datefmt": "%b %d %H:%M:%S",
+            "style": "{",
+        },
+    },
+    "filters": {
+        "require_debug_true": {"()": "django.utils.log.RequireDebugTrue"},
+        "require_debug_false": {"()": "django.utils.log.RequireDebugFalse"},
+    },
+    "handlers": {
+        "console-colored": {
+            "filters": ["require_debug_true"],
+            "class": "logging.StreamHandler",
+            "formatter": "console-colored",
+        },
+        "management-command": {
+            "filters": ["require_debug_true"],
+            "class": "logging.StreamHandler",
+            "formatter": "management-command",
+        },
+        "logfile": {
+            "class": "logging.FileHandler",
+            "filename": LOGFILE,
+            "formatter": "logfile",
+        },
+    },
+    "loggers": {
+        "integreat_compass": {
+            "handlers": ["console-colored", "logfile"],
+            "level": LOG_LEVEL,
+        },
+        "integreat_compass.core.management.commands": {
+            "handlers": ["management-command", "logfile"],
+            "level": LOG_LEVEL,
+            "propagate": False,
+        },
+    },
+}
