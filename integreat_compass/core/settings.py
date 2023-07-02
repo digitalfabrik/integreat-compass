@@ -183,7 +183,7 @@ LANGUAGES = [
         (
             language.strip()
             for language in os.environ.get(
-                "INTEGREAT_CMS_LANGUAGES", "\n".join(DEFAULT_LANGUAGES)
+                "INTEGREAT_COMPASS_LANGUAGES", "\n".join(DEFAULT_LANGUAGES)
             ).splitlines()
         ),
     )
@@ -309,3 +309,57 @@ LOGGING = {
         },
     },
 }
+
+##########
+# EMAILS #
+##########
+
+#: The backend to use for sending emails (see :setting:`django:EMAIL_BACKEND` and :doc:`django:topics/email`)
+EMAIL_BACKEND = (
+    "django.core.mail.backends.console.EmailBackend"
+    if DEBUG
+    else "django.core.mail.backends.smtp.EmailBackend"
+)
+
+#: Default email address to use for various automated correspondence from the site manager(s)
+#: (see :setting:`django:DEFAULT_FROM_EMAIL`)
+DEFAULT_FROM_EMAIL = os.environ.get(
+    "INTEGREAT_COMPASS_SERVER_EMAIL", "noreply@example.com"
+)
+
+#: The email address that error messages come from, such as those sent to :attr:`~integreat_compass.core.settings.ADMINS`.
+#: (see :setting:`django:SERVER_EMAIL`)
+SERVER_EMAIL = os.environ.get("INTEGREAT_COMPASS_SERVER_EMAIL", "noreply@example.com")
+
+#: A list of all the people who get code error notifications. When :attr:`~integreat_compass.core.settings.DEBUG` is ``False``,
+#: Django emails these people the details of exceptions raised in the request/response cycle.
+ADMINS = [("Integreat Compass Helpdesk", "tech@integreat-compass.de")]
+
+#: The host to use for sending email (see :setting:`django:EMAIL_HOST`)
+EMAIL_HOST = os.environ.get("INTEGREAT_COMPASS_EMAIL_HOST", "localhost")
+
+#: Password to use for the SMTP server defined in :attr:`~integreat_compass.core.settings.EMAIL_HOST`
+#: (see :setting:`django:EMAIL_HOST_PASSWORD`). If empty, Django won’t attempt authentication.
+EMAIL_HOST_PASSWORD = os.environ.get("INTEGREAT_COMPASS_EMAIL_HOST_PASSWORD")
+
+#: Username to use for the SMTP server defined in :attr:`~integreat_compass.core.settings.EMAIL_HOST`
+#: (see :setting:`django:EMAIL_HOST_USER`). If empty, Django won’t attempt authentication.
+EMAIL_HOST_USER = os.environ.get("INTEGREAT_COMPASS_EMAIL_HOST_USER", SERVER_EMAIL)
+
+#: Port to use for the SMTP server defined in :attr:`~integreat_compass.core.settings.EMAIL_HOST`
+#: (see :setting:`django:EMAIL_PORT`)
+EMAIL_PORT = int(os.environ.get("INTEGREAT_COMPASS_EMAIL_PORT", 587))
+
+#: Whether to use a TLS (secure) connection when talking to the SMTP server.
+#: This will use Opportunistic TLS (STARTTLS command after starting a plain text connection).
+#: (see :setting:`django:EMAIL_USE_TLS`)
+EMAIL_USE_TLS = bool(
+    strtobool(os.environ.get("INTEGREAT_COMPASS_EMAIL_USE_TLS", "True"))
+)
+
+#: Whether to use an implicit TLS (secure) connection when talking to the SMTP server.
+#: In most email documentation this type of TLS connection is referred to as SSL. It is generally used on port 465.
+#: (see :setting:`django:EMAIL_USE_SSL`)
+EMAIL_USE_SSL = bool(
+    strtobool(os.environ.get("INTEGREAT_COMPASS_EMAIL_USE_SSL", "False"))
+)
