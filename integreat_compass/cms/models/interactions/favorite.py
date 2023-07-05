@@ -39,5 +39,4 @@ class Favorite(AbstractBaseModel):
         verbose_name = _("favorite")
         verbose_name_plural = _("favorites")
         default_related_name = "favorite"
-        default_permissions = ("change", "delete", "view")
-        permissions = [("set_favorite_offer", "Can add and remove favorite offers")]
+        default_permissions = ("add", "delete", "view")

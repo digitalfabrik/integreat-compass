@@ -50,5 +50,4 @@ class Comment(AbstractBaseModel):
         verbose_name_plural = _("comments")
         default_related_name = "comments"
         ordering = ["date"]
-        default_permissions = ("change", "delete", "view")
-        permissions = [("comment_on_offer", "can add a comment to an offer")]
+        default_permissions = ("add", "delete", "view")

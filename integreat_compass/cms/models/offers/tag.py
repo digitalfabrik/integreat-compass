@@ -38,4 +38,3 @@ class Tag(AbstractBaseModel):
         verbose_name_plural = _("tags")
         default_related_name = "tag"
         ordering = ["title"]
-        default_permissions = ("change", "delete", "view")

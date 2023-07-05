@@ -87,4 +87,3 @@ class Offer(AbstractBaseModel):
     class Meta:
         verbose_name = _("offer")
         verbose_name_plural = _("offers")
-        default_permissions = ("change", "delete", "view")
