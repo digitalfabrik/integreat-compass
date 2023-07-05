@@ -513,6 +513,10 @@ msgstr ""
 "Die Maßnahmenbewerbung \"{}\" wurde erfolgreich übermittelt und wird in "
 "Kürze geprüft."
 
+#: core/apps.py
+msgid "Core"
+msgstr "Core"
+
 #: core/settings.py
 msgid "German"
 msgstr "Deutsch"

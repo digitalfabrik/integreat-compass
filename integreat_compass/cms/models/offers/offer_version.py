@@ -60,6 +60,11 @@ class OfferVersion(AbstractBaseModel):
         verbose_name=_("Language"),
         help_text=_("The language being taught in this offer"),
     )
+    state = models.BooleanField(
+        choices=offer_version_states.CHOICES,
+        default=offer_version_states.PENDING,
+        null=True,
+    )
 
     @cached_property
     def documents(self):
@@ -75,33 +80,14 @@ class OfferVersion(AbstractBaseModel):
     def is_initial_version(self):
         """
         Check if this offer version is the first version for its corresponding offer.
+        Also returns true if no approved version exists.
 
         :returns: True if this offer version is the first version for its corresponding offer, False otherwise.
         :rtype: bool
         """
-        return self.offer.versions.count() == 1
-
-    @cached_property
-    def state(self):
-        """
-        Returns the state of the offer version based on the votes cast on it
-
-        :return: State of the offer version (one of :attr:`~integreat_compass.cms.constants.offer_version_states.CHOICES`)
-        :rtype: str
-        """
-        max_votes = (
-            settings.NEW_OFFER_GREMIUM_SIZE
-            if self.is_initial_version()
-            else settings.CHANGED_OFFER_GREMIUM_SIZE
+        return self.offer.versions.count() == 1 or not self.offer.versions.filter(
+            state=offer_version_states.APPROVED
         )
-
-        if self.votes.filter(approval=True).count() > max_votes // 2:
-            return offer_version_states.APPROVED
-
-        if self.votes.filter(approval=False).count() > max_votes // 2:
-            return offer_version_states.REJECTED
-
-        return offer_version_states.PENDING
 
     def __str__(self):
         """
