@@ -1,0 +1,24 @@
+# Include all non-python files in the integreat_compass directory
+graft integreat_compass
+
+# Exclude the static source files since we only need the compiled files in integreat_compass/static/dist
+prune integreat_compass/static/src
+
+# Exclude media files
+prune integreat_compass/media
+
+# Exclude development settings
+exclude integreat_compass/core/*_settings.py
+
+# Exclude test data
+exclude integreat_compass/cms/fixtures/test_*.json
+
+# Exclude byte code cache files
+global-exclude *.py[co]
+global-exclude __pycache__
+
+# Exclude existing log file
+exclude integreat_compass/integreat-compass.log
+
+# Exclude source of translation file
+exclude integreat_compass/locale/*/LC_MESSAGES/django.po

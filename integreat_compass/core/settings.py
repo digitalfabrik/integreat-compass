@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from distutils.util import strtobool
 from pathlib import Path
+from urllib.parse import urlparse
 
 from django.utils.translation import gettext_lazy as _
 
@@ -31,7 +32,14 @@ DEBUG = bool(strtobool(os.environ.get("INTEGREAT_COMPASS_DEBUG", "False")))
 SECRET_KEY = os.environ.get("INTEGREAT_COMPASS_SECRET_KEY", "dummy" if DEBUG else "")
 
 BASE_URL = os.environ.get("INTEGREAT_COMPASS_BASE_URL", "http://localhost:8082")
-ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]"]
+HOSTNAME = urlparse(BASE_URL).hostname
+
+#: This is a security measure to prevent HTTP Host header attacks, which are possible even under many seemingly-safe
+ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", HOSTNAME] + [
+    x.strip()
+    for x in os.environ.get("INTEGREAT_COMPASS_ALLOWED_HOSTS", "").splitlines()
+    if x
+]
 
 # Application definition
 
