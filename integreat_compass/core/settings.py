@@ -45,6 +45,7 @@ ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", HOSTNAME] + [
 
 INSTALLED_APPS = [
     "integreat_compass.cms",
+    "integreat_compass.core",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
