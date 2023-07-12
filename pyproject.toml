@@ -115,6 +115,7 @@ dev-pinned = [
     "platformdirs==3.5.1",
     "pluggy==1.0.0",
     "pprintpp==0.4.0",
+    "pre-commit==3.3.2",
     "Pygments==2.15.1",
     "pylint==2.17.4",
     "pylint-django==2.5.3",

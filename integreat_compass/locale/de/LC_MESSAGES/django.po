@@ -408,6 +408,11 @@ msgstr "Logo"
 msgid "Dashboard"
 msgstr "Dashboard"
 
+#: cms/templates/_base.html cms/templates/includes/dashboard_navbar.html
+#: cms/templates/interactions/vote_form.html
+msgid "Applications"
+msgstr "Bewerbungen"
+
 #: cms/templates/_base.html
 msgid "All offers"
 msgstr "Alle Maßnahmen"
@@ -448,6 +453,14 @@ msgstr "Passwort eingeben"
 msgid "Sign In"
 msgstr "Einloggen"
 
+#: cms/templates/includes/dashboard_navbar.html
+msgid "Reports"
+msgstr "Meldungen"
+
+#: cms/templates/includes/dashboard_navbar.html
+msgid "Declined"
+msgstr "Blockiert"
+
 #: cms/templates/index.html
 msgid "Home"
 msgstr "Start"
@@ -459,6 +472,50 @@ msgstr "Ankommen weitergedacht."
 #: cms/templates/index.html
 msgid "Discover Integreat Compass"
 msgstr "Intgreat Kompass entdecken"
+
+#: cms/templates/interactions/vote_form.html
+msgid "Short description"
+msgstr "Kurzbeschreibung"
+
+#: cms/templates/interactions/vote_form.html
+msgid "created at"
+msgstr "Erstellt am:"
+
+#: cms/templates/interactions/vote_form.html
+msgid "You have approved this application"
+msgstr "Du hast diese Bewerbung angenommen."
+
+#: cms/templates/interactions/vote_form.html
+msgid "You have declined this application"
+msgstr "Du hast diese Bewerbung abgelehnt"
+
+#: cms/templates/interactions/vote_form.html
+msgid "You have not voted on this application yet"
+msgstr "Du hast über diese Bewerbung noch nicht abgestimmt."
+
+#: cms/templates/interactions/vote_form.html
+msgid "Approves"
+msgstr "Zusagen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "Declines"
+msgstr "Absagen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "Pending"
+msgstr "Offen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "to homepage"
+msgstr "zur Webseite"
+
+#: cms/templates/interactions/vote_form.html
+msgid "Accept"
+msgstr "Annehmen"
+
+#: cms/templates/interactions/vote_form.html
+msgid "Decline"
+msgstr "Ablehnen"
 
 #: cms/templates/offers/image_picker.html
 msgid "Select title image"
@@ -505,6 +562,10 @@ msgstr "Angaben der Organisation"
 msgid "Submit offer application"
 msgstr "Maßnahmenbewerbung absenden"
 
+#: cms/views/interactions/vote_form_view.py
+msgid "Your vote on \"{}\" has successfully been submitted."
+msgstr "Deine Abstimmung zu \"{}\" wurde erfolgreich gespeichert."
+
 #: cms/views/offers/offer_form_view.py
 msgid ""
 "Application for the offer \"{}\" has successfully been submitted and will be "
@@ -524,6 +585,18 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "Your vote was saved successfully."
+#~ msgstr "Deine Bewertung wurde erfolgreich gespeichert."
+
+#~ msgid "decline"
+#~ msgstr "Ablehnen"
+
+#~ msgid "declines"
+#~ msgstr "Absagen"
+
+#~ msgid "Your vote is still pending"
+#~ msgstr "Deine Bewertung ist ausstehend"
 
 #~ msgid "Email"
 #~ msgstr "E-Mail"
