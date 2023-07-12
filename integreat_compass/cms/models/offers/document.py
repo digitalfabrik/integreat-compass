@@ -60,5 +60,4 @@ class Document(AbstractBaseModel):
         verbose_name_plural = _("documents")
         default_related_name = "documents"
         ordering = ["name"]
-        default_permissions = ("change", "delete", "view")
-        permissions = [("upload_document", "Can upload documents")]
+        default_permissions = ("add", "delete", "view")

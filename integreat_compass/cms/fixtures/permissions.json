@@ -4,8 +4,8 @@
     "fields": {
       "name": "BOARD_MEMBER",
       "permissions": [
-        ["view_offer_votes", "cms", "vote"],
-        ["vote_on_offer", "cms", "vote"]
+        ["view_vote", "cms", "vote"],
+        ["add_vote", "cms", "vote"]
       ]
     }
   },
@@ -14,8 +14,8 @@
     "fields": {
       "name": "INTEGRATION_SPECIALIST",
       "permissions": [
-        ["comment_on_offer", "cms", "comment"],
-        ["set_favorite_offer", "cms", "favorite"]
+        ["add_comment", "cms", "comment"],
+        ["add_favorite", "cms", "favorite"]
       ]
     }
   },
@@ -24,7 +24,7 @@
     "fields": {
       "name": "OFFER_PROVIDER",
       "permissions": [
-        ["upload_document", "cms", "document"],
+        ["add_document", "cms", "document"],
         ["change_offer", "cms", "offer"]
       ]
     }

@@ -39,4 +39,4 @@ class Report(AbstractBaseModel):
         verbose_name = _("report")
         verbose_name_plural = _("reports")
         default_related_name = "reports"
-        default_permissions = ("change", "delete", "view")
+        default_permissions = ("add", "view")

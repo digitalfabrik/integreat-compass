@@ -46,4 +46,3 @@ class Language(AbstractBaseModel):
         verbose_name_plural = _("languages")
         default_related_name = "language"
         ordering = ["english_name"]
-        default_permissions = ("change", "delete", "view")
