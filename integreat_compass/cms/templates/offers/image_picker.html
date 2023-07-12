@@ -1,5 +1,5 @@
 {% load i18n %}
-<div class="title-image-preview-container relative rounded rounded-3xl overflow-hidden {% if not widget.value.url.strip %}hidden{% endif %}">
+<div class="title-image-preview-container relative rounded rounded-3xl overflow-hidden {% if not widget.value %}hidden{% endif %}">
     <img id="title-image-preview"
          src="{% if widget.value %}{{ widget.value.url }}{% endif %}"
          alt="Current title image"
