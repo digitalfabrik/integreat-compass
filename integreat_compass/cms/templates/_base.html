@@ -14,7 +14,8 @@
             <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "Dashboard" %}</a>
             <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "All offers" %}</a>
             {% if perms.cms.change_offer %}
-                <a href="#" class="ml-6 mr-4 hover:text-gray-900">{% translate "My Offers" %}</a>
+                <a href="{% url 'cms:protected:my_offers' %}"
+                   class="ml-6 mr-4 hover:text-gray-900">{% translate "My Offers" %}</a>
                 <a href="{% url 'cms:protected:new_offer' %}"
                    class="ml-6 mr-4 hover:text-gray-900">{% translate "Add new offer" %}</a>
             {% endif %}

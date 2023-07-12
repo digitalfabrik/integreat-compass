@@ -35,7 +35,7 @@ class Offer(AbstractBaseModel):
     @cached_property
     def public_version(self):
         """
-        Returns the latest approved version of an offer, it such a version exists.
+        Returns the latest approved version of an offer, if such a version exists.
 
         :return: OfferVersion or ``None``
         :rtype: ~integreat_compass.cms.models.offers.offer_version.OfferVersion
@@ -45,6 +45,16 @@ class Offer(AbstractBaseModel):
             if version.state == offer_version_states.APPROVED:
                 return version
         return None
+
+    @cached_property
+    def latest_version(self):
+        """
+        Returns the latest version of an offer.
+
+        :return: OfferVersion
+        :rtype: ~integreat_compass.cms.models.offers.offer_version.OfferVersion
+        """
+        return self.versions.select_related().first()
 
     @cached_property
     def comments(self):
@@ -58,7 +68,7 @@ class Offer(AbstractBaseModel):
         comments = Comment.objects.filter(offer_version__in=versions)
         comments_info = []
         for comment in comments:
-            is_latest_version = comment.offer_version == versions[0]
+            is_latest_version = comment.offer_version == self.latest_version
             comments_info.append(
                 {"comment": comment, "is_latest_version": is_latest_version}
             )
