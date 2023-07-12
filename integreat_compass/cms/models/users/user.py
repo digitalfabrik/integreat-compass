@@ -18,7 +18,13 @@ class CustomUserManager(BaseUserManager):
     """
 
     def create_user(
-        self, email, display_name, password=None, group=None, **extra_fields
+        self,
+        email,
+        display_name,
+        password=None,
+        group=None,
+        is_active=False,
+        **extra_fields,
     ):
         """
         Create a new user and ensure they are added to the correct group (if any)
@@ -38,17 +44,24 @@ class CustomUserManager(BaseUserManager):
         :param extra_fields: additional fields
         :type extra_fields: dict
 
+        :param is_active: Whether this user should be active
+        :type is_active: bool
+
         :return: the newly created user
         :rtype: ~integreat_compass.cms.models.users.user.User
         """
         email = self.normalize_email(email)
-        user = self.model(email=email, display_name=display_name, **extra_fields)
-
-        if group and group in group_names.CHOICES:
-            user.groups.add(Group.objects.get(name=group))
+        user = self.model(
+            email=email, display_name=display_name, is_active=is_active, **extra_fields
+        )
 
         user.set_password(password)
         user.save(using=self._db)
+
+        if group and group in dict(group_names.CHOICES):
+            user.groups.add(Group.objects.get(name=group))
+            user.save()
+
         return user
 
     def create_superuser(self, email, display_name, password=None, **extra_fields):

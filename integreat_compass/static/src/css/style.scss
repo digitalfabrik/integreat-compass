@@ -135,6 +135,10 @@ label:not([for]) {
     }
 }
 
+.errorlist {
+    @apply bg-red-100 border-l-4 border-red-500 text-red-500 px-4 py-3 mb-5;
+}
+
 /***********
  * BUTTONS *
  ***********/
