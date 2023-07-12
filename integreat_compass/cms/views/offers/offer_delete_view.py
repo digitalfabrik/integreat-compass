@@ -22,8 +22,7 @@ class OfferDeleteView(PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy("cms:protected:my_offers")
 
     def get_permission_required(self):
-        offer_instance = Offer.objects.filter(pk=self.request.POST.get("pk")).first()
-        if offer_instance.creator != self.request.user:
+        if self.get_object().creator != self.request.user:
             raise PermissionDenied()
         return ["cms.change_offer"]
 
