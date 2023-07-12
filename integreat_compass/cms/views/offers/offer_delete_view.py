@@ -28,13 +28,10 @@ class OfferDeleteView(PermissionRequiredMixin, DeleteView):
         return ["cms.change_offer"]
 
     def form_valid(self, form, *args, **kwargs):
-        title = (
-            Offer.objects.filter(pk=self.request.POST.get("pk"))
-            .first()
-            .latest_version.title
-        )
         messages.success(
             self.request,
-            _('The offer "{}" has successfully been deleted.').format(title),
+            _('The offer "{}" has successfully been deleted.').format(
+                self.object.latest_version.title
+            ),
         )
         return super().form_valid(form)
