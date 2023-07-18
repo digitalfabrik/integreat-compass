@@ -1,3 +1,9 @@
+[![CircleCI](https://circleci.com/gh/digitalfabrik/integreat-compass.svg?style=shield)](https://circleci.com/gh/digitalfabrik/integreat-compass)
+[![Pylint](https://img.shields.io/badge/pylint-10.00-brightgreen)](https://www.pylint.org/)
+![Coverage](https://img.shields.io/codeclimate/coverage/digitalfabrik/integreat-compass)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+
 # Integreat Compass
 
 This is a Django 4 based web application, a project powered by [Tür an Tür – Digitalfabrik gGmbH](https://tuerantuer.de/digitalfabrik/). The main goal is to develop an application that gathers courses that job center employees can pass on in counseling sessions to refugees and newcomers.
