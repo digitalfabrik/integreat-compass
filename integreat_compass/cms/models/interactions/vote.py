@@ -47,8 +47,4 @@ class Vote(AbstractBaseModel):
         verbose_name = _("vote")
         verbose_name_plural = _("votes")
         default_related_name = "votes"
-        default_permissions = ("change", "delete", "view")
-        permissions = [
-            ("view_offer_votes", "View votes cast on offer version"),
-            ("vote_on_offer", "Can cast vote on offer version"),
-        ]
+        default_permissions = ("add", "view")
