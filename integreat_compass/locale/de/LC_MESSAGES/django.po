@@ -106,6 +106,25 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nein"
 
+#: cms/forms/registration_form.py
+msgid "Confirm password"
+msgstr "Passwort bestätigen"
+
+#: cms/forms/registration_form.py
+msgid "Passwords do not match."
+msgstr "Die Passwörter stimmen nicht überein."
+
+#: cms/forms/registration_form.py
+msgid ""
+"An account for the email \"{}\" does already exist. Did you mean to log in?"
+msgstr ""
+"Ein Account mit der Email \"{}\" existiert bereits. Wollten Sie sich "
+"stattdessen anmelden?"
+
+#: cms/forms/registration_form.py
+msgid "The display name \"{}\" is already taken."
+msgstr "Der Anzeigename \"{}\" ist bereits vergeben."
+
 #: cms/models/interactions/comment.py cms/models/interactions/report.py
 #: cms/models/interactions/vote.py
 msgid "comment"
@@ -428,6 +447,10 @@ msgstr "Abmelden"
 msgid "Login"
 msgstr "Login"
 
+#: cms/templates/_base.html
+msgid "Register"
+msgstr "Registrieren"
+
 #: cms/templates/authentication/login.html
 msgid "The username or the password is incorrect."
 msgstr "Der Benutzername oder das Passwort sind inkorrekt."
@@ -447,6 +470,45 @@ msgstr "Passwort eingeben"
 #: cms/templates/authentication/login.html
 msgid "Sign In"
 msgstr "Einloggen"
+
+#: cms/templates/authentication/registration.html
+msgid "Registration"
+msgstr "Registrierung"
+
+#: cms/templates/authentication/registration.html
+msgid "Register as an Offer Provider"
+msgstr "Als Maßnahmen-Anbieter registrieren"
+
+#: cms/templates/authentication/registration.html
+msgid "Sign Up"
+msgstr "Registrieren"
+
+#: cms/templates/emails/activation_email.html
+#: cms/templates/emails/activation_email.txt
+msgid "Welcome"
+msgstr "Willkommen"
+
+#: cms/templates/emails/activation_email.html
+#: cms/templates/emails/activation_email.txt
+msgid ""
+"You are receiving this e-mail because you created an account with Integreat "
+"Compass."
+msgstr ""
+"Sie erhalten diese Email da Sie einen Account im Integreat Compass angelegt "
+"haben."
+
+#: cms/templates/emails/activation_email.html
+#: cms/templates/emails/activation_email.txt
+msgid "Please use the link below to activate your account."
+msgstr "Nutzen Sie den folgenden Link um Ihren Account zu aktivieren."
+
+#: cms/templates/emails/activation_email.txt
+msgid ""
+"If using the link above does not work, please copy the URL and paste "
+"it into the address bar of your browser."
+msgstr ""
+"Falls obiger Link nicht funktioniert, kopieren Sie die URL bitte und fügen "
+"Sie sie in der Adresszeile Ihres Browsers ein."
 
 #: cms/templates/index.html
 msgid "Home"
@@ -505,6 +567,49 @@ msgstr "Angaben der Organisation"
 msgid "Submit offer application"
 msgstr "Maßnahmenbewerbung absenden"
 
+#: cms/utils/email_utils.py
+msgid "Activate your account"
+msgstr "Aktivieren Sie Ihren Account"
+
+#: cms/utils/email_utils.py
+msgid "activation mail"
+msgstr "Aktivierungs-Mail"
+
+#: cms/views/authentication/account_activation_view.py
+msgid "You are already logged in."
+msgstr "Sie sind bereits eingeloggt."
+
+#: cms/views/authentication/account_activation_view.py
+msgid "The account you are trying to activate does not exist."
+msgstr "Der Account den Sie versuchen zu aktivieren existiert nicht."
+
+#: cms/views/authentication/account_activation_view.py
+msgid "Your account has been successfully activated."
+msgstr "Ihr Account wurde erfolgreich freigeschalten."
+
+#: cms/views/authentication/account_activation_view.py
+msgid "This account activation link is invalid."
+msgstr "Der Accountaktivierungslink ist ungültig."
+
+#: cms/views/authentication/account_activation_view.py
+msgid "It may have already been used."
+msgstr "Möglicherweise wurde er bereits verwendet."
+
+#: cms/views/authentication/account_activation_view.py
+msgid ""
+"Please contact an administrator to request a new link to activate your "
+"account."
+msgstr ""
+"Bitte kontaktieren Sie einen Administrator um einen neuen Link anzufordern."
+
+#: cms/views/authentication/registration_view.py
+msgid ""
+"A confirmation email has been sent to \"{}\". Please use the link in the "
+"email to activate your account."
+msgstr ""
+"Wir haben eine Bestätigungsmail an \"{}\" gesandt. Bitten nutzen Sie "
+"den Link in der E-Mail, um Ihren Account zu aktivieren."
+
 #: cms/views/offers/offer_form_view.py
 msgid ""
 "Application for the offer \"{}\" has successfully been submitted and will be "
@@ -536,9 +641,6 @@ msgstr "Englisch"
 
 #~ msgid "for-profit"
 #~ msgstr "For-Profit"
-
-#~ msgid "registered association"
-#~ msgstr "eingetragener Verein"
 
 #~ msgid "cost"
 #~ msgstr "Kosten"

@@ -8,3 +8,4 @@ from .offers.location_form import LocationForm
 from .offers.offer_form import OfferForm
 from .offers.offer_version_form import OfferVersionForm
 from .offers.organization_form import OrganizationForm
+from .registration_form import RegistrationForm
