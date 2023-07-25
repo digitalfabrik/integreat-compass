@@ -371,30 +371,6 @@
     }
   },
   {
-    "model": "auth.group",
-    "pk": 1,
-    "fields": {
-      "name": "BOARD_MEMBER",
-      "permissions": [38, 37]
-    }
-  },
-  {
-    "model": "auth.group",
-    "pk": 2,
-    "fields": {
-      "name": "INTEGRATION_SPECIALIST",
-      "permissions": [34, 39]
-    }
-  },
-  {
-    "model": "auth.group",
-    "pk": 3,
-    "fields": {
-      "name": "OFFER_PROVIDER",
-      "permissions": [31, 15]
-    }
-  },
-  {
     "model": "contenttypes.contenttype",
     "pk": 1,
     "fields": {
