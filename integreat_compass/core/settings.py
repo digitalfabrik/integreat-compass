@@ -254,7 +254,7 @@ CHANGED_OFFER_GREMIUM_SIZE = int(
 # LOGGING #
 ###########
 
-#: The log level for integreat-cms django apps
+#: The log level for integreat-compass django apps
 LOG_LEVEL = os.environ.get("INTEGREAT_COMPASS_LOG_LEVEL", "DEBUG" if DEBUG else "INFO")
 
 #: The file path of the logfile. Needs to be writable by the application.

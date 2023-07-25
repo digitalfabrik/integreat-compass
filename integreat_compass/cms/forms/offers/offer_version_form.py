@@ -78,7 +78,7 @@ class OfferVersionForm(CustomModelForm):
         :type commit: bool
 
         :return: The saved region object
-        :rtype: ~integreat_cms.cms.models.offers.offer_version.OfferVersion
+        :rtype: ~integreat_compass.cms.models.offers.offer_version.OfferVersion
         """
         original_instance = None
         if self.instance.pk:

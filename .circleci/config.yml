@@ -316,7 +316,6 @@ jobs:
       - run:
           name: Publish integreat-compass package to (Test-)PyPI
           command: twine upload --non-interactive ./dist/integreat-compass-*.tar.gz
-
   check-translations:
     docker:
       - image: cimg/python:3.9.16
@@ -331,6 +330,103 @@ jobs:
       - run:
           name: Check translation file for missing or empty entries
           command: ./tools/check_translations.sh
+  bump-version:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install requirements
+          command: sudo apt-get update && sudo apt-get install pcregrep
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Request installation access token to authorize as Deliverino app
+          command: echo "export DELIVERINO_ACCESS_TOKEN=$(./.circleci/scripts/get_access_token.py)" >> $BASH_ENV
+      - run:
+          name: Config git repository to commit & push as Deliverino app
+          command: |
+            git config user.name "deliverino[bot]"
+            git config user.email "62934656+deliverino[bot]@users.noreply.github.com"
+            git remote set-url origin "https://x-access-token:$DELIVERINO_ACCESS_TOKEN@github.com/digitalfabrik/integreat-compass.git"
+      - run:
+          name: Bump version
+          command: bumpver update --tag=final
+      - run:
+          name: Get tag of newly created version
+          command: |
+            eval $(bumpver show --env -n)
+            echo "export CURRENT_VERSION=$CURRENT_VERSION" >> $BASH_ENV
+      - run:
+          name: Tag and push commit
+          command: |
+            git tag --annotate "${CURRENT_VERSION}"
+            git push origin --follow-tags "${CURRENT_VERSION}" HEAD
+      - run:
+          name: Merge version bump into develop
+          command: git checkout develop && git merge main --commit --no-edit && git push
+  create-release:
+    docker:
+      - image: cimg/python:3.9.16
+    resource_class: small
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install requirements
+          command: sudo apt-get update && sudo apt-get install pcregrep
+      - run:
+          name: Enable virtual environment
+          command: echo "source .venv/bin/activate" >> $BASH_ENV
+      - run:
+          name: Request installation access token to authorize as Deliverino app
+          command: echo "export DELIVERINO_ACCESS_TOKEN=$(./.circleci/scripts/get_access_token.py)" >> $BASH_ENV
+      - run:
+          name: Get previous version tag
+          command: |
+            PREV_TAG=$(git describe --abbrev=0 --tags "${CIRCLE_TAG}^") || PREV_TAG="3dc00abb0799ecd9d97480594b58330ec77cf43e"
+            echo "export PREV_TAG=\"${PREV_TAG}\"" >> $BASH_ENV
+      - run:
+          name: Get contributors
+          command: |
+            CONTRIBUTORS=$(./.circleci/scripts/get_contributors.py "${DELIVERINO_ACCESS_TOKEN}" "${PREV_TAG}" "${CIRCLE_TAG}" -v)
+            echo "export CONTRIBUTORS=\"${CONTRIBUTORS}\"" >> $BASH_ENV
+      - run:
+          name: Create release as Deliverino app
+          command: ./.circleci/scripts/create_release.py "${DELIVERINO_ACCESS_TOKEN}" "${CIRCLE_TAG}" "${PREV_TAG}" "${CONTRIBUTORS}" ./dist/integreat-compass-*.tar.gz
+  notify-mattermost:
+    docker:
+      - image: cimg/base:stable
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Install requirements
+          command: sudo apt-get update && sudo apt-get install pcregrep
+      - run:
+          name: Notify mattermost about release
+          command: |
+            # Build notification message
+            MM_MESSAGE="##### Integreat Compass version [${CIRCLE_TAG}](https://github.com/digitalfabrik/integreat-compass/releases/tag/${CIRCLE_TAG}) has been released successfully :tada:"
+            # Send message to mattermost
+            STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" -X POST -H 'Content-type: application/json' \
+              --data \
+              "{
+                \"channel\": \"releases\",
+                \"username\": \"circleci\",
+                \"icon_emoji\": \":integreat-compass:\",
+                \"text\": \"${MM_MESSAGE}\"
+              }" "${MM_WEBHOOK}")
+            if [ "$STATUS" -ne "200" ]; then
+              echo "Notification not sent due to an error (HTTP status: ${STATUS})."
+              exit 1
+            fi
+            echo "Notification sent!"
 
 workflows:
   develop:
@@ -425,6 +521,10 @@ workflows:
           filters:
             branches:
               only: main
+      - bump-version:
+          context: deliverino
+          requires:
+            - pip-install-main
   deploy:
     jobs:
       - pip-install:
@@ -434,3 +534,52 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
+      - npm-install:
+          name: npm-install-deploy
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+      - webpack:
+          name: webpack-deploy
+          requires:
+            - npm-install-deploy
+          filters:
+            tags:
+              only: /.*/
+      - compile-translations:
+          name: compile-translations-deploy
+          requires:
+            - pip-install-deploy
+          filters:
+            tags:
+              only: /.*/
+      - build-package:
+          requires:
+            - webpack-deploy
+            - compile-translations-deploy
+          filters:
+            tags:
+              only: /.*/
+      - publish-package:
+          context: pypi
+          requires:
+            - build-package
+          filters:
+            tags:
+              only: /.*/
+      - create-release:
+          context: deliverino
+          requires:
+            - publish-package
+          filters:
+            tags:
+              only: /.*/
+      - notify-mattermost:
+          context: mattermost
+          requires:
+            - create-release
+          filters:
+            tags:
+              only: /.*/
