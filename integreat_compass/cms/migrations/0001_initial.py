@@ -322,7 +322,7 @@ class Migration(migrations.Migration):
                     "title_image",
                     models.ImageField(
                         blank=True,
-                        default="fallback_title_image.png",
+                        null=True,
                         help_text="Choose a title image for this offer",
                         upload_to="images/",
                         validators=[

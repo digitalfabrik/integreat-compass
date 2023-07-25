@@ -10,6 +10,7 @@ urlpatterns = [
         "offers/",
         include(
             [
+                path("my/", offers.MyOffersListView.as_view(), name="my_offers"),
                 path("new/", offers.OfferFormView.as_view(), name="new_offer"),
                 path(
                     "<int:pk>/",
@@ -19,7 +20,12 @@ urlpatterns = [
                                 "edit/",
                                 offers.OfferFormView.as_view(),
                                 name="edit_offer",
-                            )
+                            ),
+                            path(
+                                "delete/",
+                                offers.OfferDeleteView.as_view(),
+                                name="delete_offer",
+                            ),
                         ]
                     ),
                 ),

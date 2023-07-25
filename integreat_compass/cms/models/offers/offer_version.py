@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.templatetags.static import static
 from django.utils import timezone
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
@@ -37,8 +38,8 @@ class OfferVersion(AbstractBaseModel):
         max_length=255, verbose_name=_("title"), help_text=_("Title of this offer")
     )
     title_image = models.ImageField(
-        default=settings.DEFAULT_TITLE_IMAGE,
         blank=True,
+        null=True,
         upload_to="images/",
         validators=[file_size_limit],
         verbose_name=_("title image"),
@@ -87,6 +88,20 @@ class OfferVersion(AbstractBaseModel):
         """
         return self.offer.versions.count() == 1 or not self.offer.versions.filter(
             state=offer_version_states.APPROVED
+        )
+
+    @cached_property
+    def title_image_url(self):
+        """
+        Return either the verion's title image or, if empty, the static fallback
+
+        :returns: the image URL
+        :rtype: str
+        """
+        return (
+            self.title_image.url
+            if self.title_image
+            else static(settings.DEFAULT_TITLE_IMAGE)
         )
 
     def __str__(self):

@@ -1,4 +1,5 @@
 import "./css/style.scss";
+import "./js/confirm-deletion";
 import "./js/field-validation";
 import "./js/display_filenames";
 import "./js/image_picker";
