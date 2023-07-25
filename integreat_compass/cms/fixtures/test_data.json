@@ -249,7 +249,7 @@
     "pk": 1,
     "fields": {
       "name": "BOARD_MEMBER",
-      "permissions": [41, 42]
+      "permissions": [38, 37]
     }
   },
   {
@@ -257,7 +257,7 @@
     "pk": 2,
     "fields": {
       "name": "INTEGRATION_SPECIALIST",
-      "permissions": [37, 46]
+      "permissions": [34, 39]
     }
   },
   {
@@ -265,7 +265,7 @@
     "pk": 3,
     "fields": {
       "name": "OFFER_PROVIDER",
-      "permissions": [33, 13, 17]
+      "permissions": [31, 15]
     }
   },
   {
