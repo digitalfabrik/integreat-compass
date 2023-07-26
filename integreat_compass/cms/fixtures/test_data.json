@@ -20,7 +20,6 @@
     "pk": 1,
     "fields": {
       "offer": 1,
-      "offer_version_date": "2023-05-20T15:21:17.030Z",
       "title": "Deutsch für Anfänger - Intensivkurs",
       "description": "Dieser Intensivkurs bietet einen umfassenden Einstieg in die deutsche Sprache für Anfänger. Sie werden grundlegende Konversation, Grammatik und Vokabeln lernen, um sich im Alltag auf Deutsch verständigen zu können.",
       "is_free": false,
@@ -32,11 +31,23 @@
     "pk": 2,
     "fields": {
       "offer": 2,
-      "offer_version_date": "2023-05-20T15:26:40.367Z",
       "title": "Fortgeschrittenes Deutsch - Konversationskurs für die Arbeitswelt",
       "description": "In unserem Konversationskurs \"Fortgeschrittenes Deutsch\" legen wir den Fokus auf die mündliche Kommunikation und das sprachliche Selbstbewusstsein in der Arbeitswelt. Der Kurs richtet sich an Personen, die bereits über grundlegende Deutschkenntnisse verfügen und ihre Sprachfertigkeiten gezielt für den beruflichen Kontext weiterentwickeln möchten.\r\n\r\nIm Kurs werden verschiedene Themen behandelt, die typische Situationen im Arbeitsumfeld widerspiegeln, wie zum Beispiel Bewerbungsgespräche, Präsentationen, Geschäftskorrespondenz und Teamarbeit. Durch gezielte Übungen und praxisnahe Rollenspiele werden Sie lernen, Ihre sprachlichen Fähigkeiten in diesen Situationen zu verbessern und anzuwenden.\r\n\r\nUnsere erfahrenen Lehrkräfte legen Wert auf eine interaktive Lernumgebung, in der Sie sowohl in Gruppenaktivitäten als auch in Einzelgesprächen Ihre Kommunikationsfähigkeiten stärken können. Darüber hinaus erhalten Sie wertvolles Feedback und individuelle Unterstützung, um Ihre sprachlichen Schwächen zu überwinden und Ihr Sprachniveau auf eine höhere Stufe zu heben.",
       "is_free": false,
-      "language": 2
+      "language": 2,
+      "created_at": "2023-05-20T15:26:40.367Z"
+    }
+  },
+  {
+    "model": "cms.offerversion",
+    "pk": 3,
+    "fields": {
+      "offer": 2,
+      "title": "Fortgeschrittenes Deutsch - Konversationskurs für die Arbeitswelt - überarbeitet",
+      "description": "Neu: In unserem Konversationskurs \"Fortgeschrittenes Deutsch\" legen wir den Fokus auf die mündliche Kommunikation und das sprachliche Selbstbewusstsein in der Arbeitswelt. Der Kurs richtet sich an Personen, die bereits über grundlegende Deutschkenntnisse verfügen und ihre Sprachfertigkeiten gezielt für den beruflichen Kontext weiterentwickeln möchten.\r\n\r\nIm Kurs werden verschiedene Themen behandelt, die typische Situationen im Arbeitsumfeld widerspiegeln, wie zum Beispiel Bewerbungsgespräche, Präsentationen, Geschäftskorrespondenz und Teamarbeit. Durch gezielte Übungen und praxisnahe Rollenspiele werden Sie lernen, Ihre sprachlichen Fähigkeiten in diesen Situationen zu verbessern und anzuwenden.\r\n\r\nUnsere erfahrenen Lehrkräfte legen Wert auf eine interaktive Lernumgebung, in der Sie sowohl in Gruppenaktivitäten als auch in Einzelgesprächen Ihre Kommunikationsfähigkeiten stärken können. Darüber hinaus erhalten Sie wertvolles Feedback und individuelle Unterstützung, um Ihre sprachlichen Schwächen zu überwinden und Ihr Sprachniveau auf eine höhere Stufe zu heben.",
+      "is_free": true,
+      "language": 2,
+      "created_at": "2023-05-22T15:26:40.367Z"
     }
   },
   {
@@ -48,6 +59,81 @@
       "is_superuser": true,
       "email": "root@integreat.compass",
       "display_name": "Root",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [1],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
+      "last_login": "2023-05-20T15:15:17.338Z",
+      "is_superuser": true,
+      "email": "root2@integreat.compass",
+      "display_name": "Root2",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [1],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
+      "last_login": "2023-05-20T15:15:17.338Z",
+      "is_superuser": true,
+      "email": "root3@integreat.compass",
+      "display_name": "Root3",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [1],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
+      "last_login": "2023-05-20T15:15:17.338Z",
+      "is_superuser": true,
+      "email": "root4@integreat.compass",
+      "display_name": "Root4",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [1],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
+      "last_login": "2023-05-20T15:15:17.338Z",
+      "is_superuser": true,
+      "email": "root5@integreat.compass",
+      "display_name": "Root5",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
+      "last_login": "2023-05-20T15:15:17.338Z",
+      "is_superuser": true,
+      "email": "root6@integreat.compass",
+      "display_name": "Root6",
       "is_active": true,
       "is_staff": true,
       "groups": [],
@@ -242,6 +328,46 @@
       "creator": 1,
       "name": "Sprachakademie Beispiel",
       "web_address": "https://www.deutschkursfortgeschritten.de"
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "offer_version": 3,
+      "approval": 1,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 2,
+    "fields": {
+      "creator": 2,
+      "offer_version": 1,
+      "approval": 1,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 3,
+    "fields": {
+      "creator": 3,
+      "offer_version": 1,
+      "approval": 1,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 4,
+    "fields": {
+      "creator": 4,
+      "offer_version": 1,
+      "approval": 1,
+      "comment": ""
     }
   },
   {

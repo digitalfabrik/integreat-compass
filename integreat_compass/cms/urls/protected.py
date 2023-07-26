@@ -3,7 +3,7 @@ URLconf for login-protected views of the cms package.
 """
 from django.urls import include, path
 
-from ..views import offers
+from ..views import interactions, offers
 
 urlpatterns = [
     path(
@@ -31,5 +31,15 @@ urlpatterns = [
                 ),
             ]
         ),
-    )
+    ),
+    path(
+        "applications/",
+        include(
+            [
+                path("", interactions.VoteFormView.as_view(), name="votes"),
+                path("reports/", interactions.VoteFormView.as_view(), name="reports"),
+                path("declined/", interactions.VoteFormView.as_view(), name="declined"),
+            ]
+        ),
+    ),
 ]

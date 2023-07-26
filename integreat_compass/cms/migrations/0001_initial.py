@@ -306,10 +306,7 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                (
-                    "offer_version_date",
-                    models.DateTimeField(default=django.utils.timezone.now),
-                ),
+                ("created_at", models.DateTimeField(default=django.utils.timezone.now)),
                 (
                     "title",
                     models.CharField(
@@ -380,7 +377,8 @@ class Migration(migrations.Migration):
             options={
                 "verbose_name": "offer version",
                 "verbose_name_plural": "offer versions",
-                "ordering": ["-offer_version_date"],
+                "ordering": ["offer", "-created_at"],
+                "default_permissions": (),
                 "default_related_name": "offer_versions",
             },
         ),
