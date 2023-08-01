@@ -96,7 +96,7 @@ class RegistrationForm(CustomModelForm):
         :type commit: bool
 
         :return: The saved region object
-        :rtype: ~integreat_cms.cms.models.offers.offer_version.OfferVersion
+        :rtype: ~integreat_compass.cms.models.offers.offer_version.OfferVersion
         """
         cleaned_data = self.cleaned_data
         new_user = User.objects.create_user(

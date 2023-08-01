@@ -43,8 +43,8 @@ def load_test_data_transactional(transactional_db, django_db_blocker):
     :type django_db_blocker: :fixture:`django_db_blocker`
     """
     with django_db_blocker.unblock():
-        call_command("loaddata", "integreat_cms/cms/fixtures/test_data.json")
-        call_command("loaddata", "integreat_cms/cms/fixtures/permissions.json")
+        call_command("loaddata", "integreat_compass/cms/fixtures/test_data.json")
+        call_command("loaddata", "integreat_compass/cms/fixtures/permissions.json")
 
 
 # pylint: disable=redefined-outer-name
