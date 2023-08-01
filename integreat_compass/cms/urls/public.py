@@ -23,6 +23,23 @@ urlpatterns = [
                     name="register",
                 ),
                 path(
+                    "reset-password/",
+                    include(
+                        [
+                            path(
+                                "",
+                                authentication.PasswordResetRequestView.as_view(),
+                                name="password_reset_request",
+                            ),
+                            path(
+                                "<uidb64>/<token>/",
+                                authentication.PasswordResetConfirmView.as_view(),
+                                name="password_reset_confirm",
+                            ),
+                        ]
+                    ),
+                ),
+                path(
                     "activate-account/<uidb64>/<token>/",
                     authentication.AccountActivationView.as_view(),
                     name="activate_account",

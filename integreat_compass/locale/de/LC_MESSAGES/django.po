@@ -82,6 +82,30 @@ msgstr "angenommen"
 msgid "decision pending"
 msgstr "Entscheidung ausstehend"
 
+#: cms/forms/authentication/password_reset_request_form.py
+#: cms/templates/authentication/login.html
+msgid "Enter your email"
+msgstr "Email eingeben"
+
+#: cms/forms/authentication/registration_form.py
+msgid "Confirm password"
+msgstr "Passwort bestätigen"
+
+#: cms/forms/authentication/registration_form.py
+msgid "Passwords do not match."
+msgstr "Die Passwörter stimmen nicht überein."
+
+#: cms/forms/authentication/registration_form.py
+msgid ""
+"An account for the email \"{}\" does already exist. Did you mean to log in?"
+msgstr ""
+"Ein Account mit der Email \"{}\" existiert bereits. Wollten Sie sich "
+"stattdessen anmelden?"
+
+#: cms/forms/authentication/registration_form.py
+msgid "The display name \"{}\" is already taken."
+msgstr "Der Anzeigename \"{}\" ist bereits vergeben."
+
 #: cms/forms/custom_model_form.py
 msgid "Enter {} here"
 msgstr "{} hier eingeben"
@@ -105,25 +129,6 @@ msgstr "Ja"
 #: cms/forms/offers/offer_version_form.py
 msgid "No"
 msgstr "Nein"
-
-#: cms/forms/registration_form.py
-msgid "Confirm password"
-msgstr "Passwort bestätigen"
-
-#: cms/forms/registration_form.py
-msgid "Passwords do not match."
-msgstr "Die Passwörter stimmen nicht überein."
-
-#: cms/forms/registration_form.py
-msgid ""
-"An account for the email \"{}\" does already exist. Did you mean to log in?"
-msgstr ""
-"Ein Account mit der Email \"{}\" existiert bereits. Wollten Sie sich "
-"stattdessen anmelden?"
-
-#: cms/forms/registration_form.py
-msgid "The display name \"{}\" is already taken."
-msgstr "Der Anzeigename \"{}\" ist bereits vergeben."
 
 #: cms/models/interactions/comment.py cms/models/interactions/report.py
 #: cms/models/interactions/vote.py
@@ -461,16 +466,32 @@ msgid "Please try again."
 msgstr "Bitte erneut versuchen."
 
 #: cms/templates/authentication/login.html
-msgid "Enter your email"
-msgstr "Email eingeben"
-
-#: cms/templates/authentication/login.html
 msgid "Enter your password"
 msgstr "Passwort eingeben"
 
 #: cms/templates/authentication/login.html
+msgid "Forgot password?"
+msgstr "Passwort vergessen?"
+
+#: cms/templates/authentication/login.html
 msgid "Sign In"
 msgstr "Einloggen"
+
+#: cms/templates/authentication/password_reset_confirm.html
+msgid "Set a new password"
+msgstr "Neues Passwort festlegen"
+
+#: cms/templates/authentication/password_reset_confirm.html
+msgid "Set password"
+msgstr "Passwort festlegen"
+
+#: cms/templates/authentication/password_reset_request.html
+msgid "Request password reset"
+msgstr "Passwortrücksetzung anfordern"
+
+#: cms/templates/authentication/password_reset_request.html
+msgid "Request reset"
+msgstr "Rücksetzung anfordern"
 
 #: cms/templates/authentication/registration.html
 msgid "Registration"
@@ -504,12 +525,34 @@ msgid "Please use the link below to activate your account."
 msgstr "Nutzen Sie den folgenden Link um Ihren Account zu aktivieren."
 
 #: cms/templates/emails/activation_email.txt
+#: cms/templates/emails/password_reset_email.txt
 msgid ""
 "If using the link above does not work, please copy the URL and paste it into "
 "the address bar of your browser."
 msgstr ""
 "Falls obiger Link nicht funktioniert, kopieren Sie die URL bitte und fügen "
 "Sie sie in der Adresszeile Ihres Browsers ein."
+
+#: cms/templates/emails/password_reset_email.html
+#: cms/templates/emails/password_reset_email.txt
+msgid "Hello"
+msgstr "Hallo"
+
+#: cms/templates/emails/password_reset_email.html
+#: cms/templates/emails/password_reset_email.txt
+msgid ""
+"You are receiving this e-mail because you requested a password reset in "
+"Integreat Compass. If you did not perform this action, please ignore this "
+"email."
+msgstr ""
+"Sie erhalten diese Email da Sie eine Passwortrücksetzung im Integreat "
+"Compass beantragt haben. Falls Sie dies nicht getan haben sollten, "
+"ignorieren Sie diese Email bitte."
+
+#: cms/templates/emails/password_reset_email.html
+#: cms/templates/emails/password_reset_email.txt
+msgid "Use the link below to set a new password."
+msgstr "Nutzen Sie den folgenden Link um ein neues Passwort festzulegen."
 
 #: cms/templates/includes/dashboard_navbar.html
 msgid "Reports"
@@ -687,14 +730,23 @@ msgid "Documents"
 msgstr "Dokumente"
 
 #: cms/utils/email_utils.py
-msgid "Activate your account"
-msgstr "Aktivieren Sie Ihren Account"
+msgid "Integreat Compass | Activate your account"
+msgstr "Integreat Compass | Aktivieren Sie Ihren Account"
 
 #: cms/utils/email_utils.py
 msgid "activation mail"
 msgstr "Aktivierungs-Mail"
 
+#: cms/utils/email_utils.py
+msgid "Integreat Compass | Your requested password reset"
+msgstr "Integreat Compass | Ihre angeforderte Passwortrücksetzung"
+
+#: cms/utils/email_utils.py
+msgid "password reset mail"
+msgstr "Passwort-Zurücksetzen-Mail"
+
 #: cms/views/authentication/account_activation_view.py
+#: cms/views/authentication/password_reset_confirm_view.py
 msgid "You are already logged in."
 msgstr "Sie sind bereits eingeloggt."
 
@@ -711,6 +763,7 @@ msgid "This account activation link is invalid."
 msgstr "Der Accountaktivierungslink ist ungültig."
 
 #: cms/views/authentication/account_activation_view.py
+#: cms/views/authentication/password_reset_confirm_view.py
 msgid "It may have already been used."
 msgstr "Möglicherweise wurde er bereits verwendet."
 
@@ -720,6 +773,30 @@ msgid ""
 "account."
 msgstr ""
 "Bitte kontaktieren Sie einen Administrator um einen neuen Link anzufordern."
+
+#: cms/views/authentication/password_reset_confirm_view.py
+msgid "This password reset link is invalid."
+msgstr "Der Passwort-Zurücksetzen-Link ist ungültig."
+
+#: cms/views/authentication/password_reset_confirm_view.py
+msgid "Please request a new link to reset your password."
+msgstr "Bitte fordern Sie einen neuen Passwort-Zurücksetzen-Link an."
+
+#: cms/views/authentication/password_reset_confirm_view.py
+msgid "Your password has been successfully reset."
+msgstr "Ihr Passwort wurde erfolgreich zurückgesetzt."
+
+#: cms/views/authentication/password_reset_confirm_view.py
+msgid "You can now log in with your new password."
+msgstr "Sie können Sich nun mit Ihrem neuen Passwort einloggen."
+
+#: cms/views/authentication/password_reset_request_view.py
+msgid ""
+"An email has been sent to \"{}\". Please use the link in the email to reset "
+"your password."
+msgstr ""
+"Wir haben eine Bestätigungsmail an \"{}\" gesandt. Bitten nutzen Sie den "
+"Link in der E-Mail, um Ihr Passwort zurückzusetzen."
 
 #: cms/views/authentication/registration_view.py
 msgid ""
@@ -765,6 +842,12 @@ msgstr "Englisch"
 
 #~ msgid "Submit"
 #~ msgstr "Senden"
+
+#~ msgid "Activate your account"
+#~ msgstr "Aktivieren Sie Ihren Account"
+
+#~ msgid "Reset your password"
+#~ msgstr "Passwort zurücksetzen"
 
 #~ msgid ""
 #~ "The selected offer either does not exist, or you do not have the "
@@ -820,9 +903,6 @@ msgstr "Englisch"
 
 #~ msgid "Email"
 #~ msgstr "E-Mail"
-
-#~ msgid "Password"
-#~ msgstr "Passwort"
 
 #~ msgid "non-profit"
 #~ msgstr "Non-Profit"
