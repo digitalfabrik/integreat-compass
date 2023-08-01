@@ -33,7 +33,7 @@ class OfferVersion(AbstractBaseModel):
     offer = models.ForeignKey(
         "Offer", on_delete=models.CASCADE, related_name="versions"
     )
-    offer_version_date = models.DateTimeField(default=timezone.now, null=False)
+    created_at = models.DateTimeField(default=timezone.now, null=False)
     title = models.CharField(
         max_length=255, verbose_name=_("title"), help_text=_("Title of this offer")
     )
@@ -104,6 +104,20 @@ class OfferVersion(AbstractBaseModel):
             else static(settings.DEFAULT_TITLE_IMAGE)
         )
 
+    @cached_property
+    def number_of_votes_needed(self):
+        """
+        Returns the number of votes a offer version needs to get, to be published
+
+        :return: number of needed votes
+        :rtype: number
+        """
+        return (
+            settings.NEW_OFFER_GREMIUM_SIZE
+            if self.is_initial_version
+            else settings.CHANGED_OFFER_GREMIUM_SIZE
+        )
+
     def __str__(self):
         """
         This overwrites the default Django :meth:`~django.db.models.Model.__str__` method which would return ``OfferVersion object (id)``.
@@ -128,4 +142,5 @@ class OfferVersion(AbstractBaseModel):
         verbose_name = _("offer version")
         verbose_name_plural = _("offer versions")
         default_related_name = "offer_versions"
-        ordering = ["-offer_version_date"]
+        ordering = ["offer", "-created_at"]
+        default_permissions = ()

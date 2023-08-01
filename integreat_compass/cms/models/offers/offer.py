@@ -40,7 +40,7 @@ class Offer(AbstractBaseModel):
         :return: OfferVersion or ``None``
         :rtype: ~integreat_compass.cms.models.offers.offer_version.OfferVersion
         """
-        versions = self.versions.order_by("offer_version_date")
+        versions = self.versions.all()
         for version in versions:
             if version.state == offer_version_states.APPROVED:
                 return version

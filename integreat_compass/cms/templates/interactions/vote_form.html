@@ -1,0 +1,69 @@
+{% extends "_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% load render_bundle from webpack_loader %}
+{% block title %}
+    {% translate "Applications" %}
+{% endblock title %}
+{% block content %}
+    <div>
+        {% include "includes/dashboard_navbar.html" %}
+        {% for offer_version in pending_offer_versions %}
+            <form action="{% url 'cms:protected:votes' %}" method="post">
+                {% csrf_token %}
+                <div class="flex flex-row border-2 border-gray-200 rounded-lg shadow-md shadow-inner p-6 mb-8">
+                    <div class="basis-2/3 pr-8">
+                        <p class="text-xl font-bold">{{ offer_version.title }}</p>
+                        <p>{{ offer_version.offer.organization.org_name }}</p>
+                        <p class="text-lg text-gray-700 text-bold pt-4">{% translate "Short description" %}</p>
+                        <p class="text-gray-600">{{ offer_version.description }}</p>
+                        <div class=" my-4">
+                            {% for tag in offer_version.offer.tags.all %}
+                                <span class="bg-red-500 text-white rounded-full py-1 px-2">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <p class="text-gray-700">{% translate "created at" %}: {{ offer_version.created_at }}</p>
+                    </div>
+                    <div class="basis-1/3 flex flex-col justify-around align-center font-bold">
+                        {% if offer_version.user_vote %}
+                            {% if offer_version.user_vote.approval %}
+                                <p class="text-green-500">{% translate "You have approved this application" %}</p>
+                            {% else %}
+                                <p class="text-red-500">{% translate "You have declined this application" %}</p>
+                            {% endif %}
+                        {% else %}
+                            <p class="text-gray-700">{% translate "You have not voted on this application yet" %}</p>
+                        {% endif %}
+                        <div class="grid md:grid-cols-3 grid-cols-1 gap-8 font-bold">
+                            <div>
+                                <p>{% translate "Approves" %}</p>
+                                <p class="text-green-600">{{ offer_version.approves }}/{{ offer_version.number_of_votes_needed }}</p>
+                            </div>
+                            <div>
+                                <p>{% translate "Declines" %}</p>
+                                <p class="text-red-600">{{ offer_version.declines }}/{{ offer_version.number_of_votes_needed }}</p>
+                            </div>
+                            <div>
+                                <p>{% translate "Pending" %}</p>
+                                <p>{{ offer_version.pending }}/{{ offer_version.number_of_votes_needed }}</p>
+                            </div>
+                        </div>
+                        <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
+                        <div class="grid lg:grid-cols-3 grid-cols-1 xl:gap-8 gap-2 text-white ">
+                            <button class="bg-blue-500 hover:bg-blue-700 rounded-full" type="button">{% translate "Details" %}</button>
+                            <button class="bg-green-500 hover:bg-green-700 rounded-full"
+                                    type="submit"
+                                    name="approval"
+                                    value="{{ True }}">{% translate "Accept" %}</button>
+                            <button class="bg-red-500 hover:bg-red-700 rounded-full"
+                                    type="submit"
+                                    name="approval"
+                                    value="{{ False }}">{% translate "Decline" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        {% endfor %}
+    </div>
+{% endblock content %}

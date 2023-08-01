@@ -1,0 +1,20 @@
+{% load i18n %}
+<div class="flex">
+    <div class="mb-6 flex font-medium text-xl text-gray-500">
+        {% url 'cms:protected:votes' as url %}
+        <a href="{% url 'cms:protected:votes' %}"
+           class="pr-8 hover:text-gray-900 {% if request.path == url %}font-bold text-gray-950{% endif %}">
+            {% translate "Applications" %}
+        </a>
+        {% url 'cms:protected:reports' as url %}
+        <a href="{% url 'cms:protected:reports' %}"
+           class="pr-8 hover:text-gray-900 {% if request.path == url %}font-bold text-gray-950{% endif %}">
+            {% translate "Reports" %}
+        </a>
+        {% url 'cms:protected:declined' as url %}
+        <a href="{% url 'cms:protected:declined' %}"
+           class="hover:text-gray-900 {% if request.path == url %}font-bold text-gray-950{% endif %}">
+            {% translate "Declined" %}
+        </a>
+    </div>
+</div>
