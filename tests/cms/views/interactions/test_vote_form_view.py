@@ -9,7 +9,7 @@ from integreat_compass.cms.views.interactions import VoteFormView
 def test_display_only_newest_offer_version(load_test_data):
     request = RequestFactory().get("")
     request.user = User.objects.get(pk=1)
-    assert OfferVersion.objects.all().count() == 3
+    assert OfferVersion.objects.all().count() == 5
     pending_offer_versions = VoteFormView.get_pending_offer_versions(request)
     assert len(pending_offer_versions) == 2
     assert any(
