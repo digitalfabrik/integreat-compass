@@ -51,7 +51,9 @@
                         </div>
                         <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
                         <div class="grid lg:grid-cols-3 grid-cols-1 xl:gap-8 gap-2 text-white ">
-                            <button class="bg-blue-500 hover:bg-blue-700 rounded-full" type="button">{% translate "Details" %}</button>
+                            <button id="offer-{{ offer_version.id }}"
+                                    class="single-offer bg-blue-500 hover:bg-blue-700 rounded-full"
+                                    type="button">{% translate "Details" %}</button>
                             <button class="bg-green-500 hover:bg-green-700 rounded-full"
                                     type="submit"
                                     name="approval"
@@ -64,6 +66,7 @@
                     </div>
                 </div>
             </form>
+            {% include "overlay/offer-detail-overlay.html" with offer=offer_version.offer offer_version=offer_version public_version=False %}
         {% endfor %}
     </div>
 {% endblock content %}

@@ -16,6 +16,14 @@ export const handleOfferDetails = () => {
                 }
             });
         }
+        if (offerDetailLayover) {
+            // Close window by clicking on backdrop.
+            offerDetailLayover.addEventListener("click", (e) => {
+                if (e.target === offerDetailLayover) {
+                    offerDetailLayover.classList.toggle("hidden");
+                }
+            });
+        }
     }
 };
 
