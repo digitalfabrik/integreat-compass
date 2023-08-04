@@ -20,10 +20,13 @@
     "pk": 1,
     "fields": {
       "offer": 1,
+      "created_at": "2023-08-04T07:26:10.125Z",
       "title": "Deutsch für Anfänger - Intensivkurs",
+      "title_image": "",
       "description": "Dieser Intensivkurs bietet einen umfassenden Einstieg in die deutsche Sprache für Anfänger. Sie werden grundlegende Konversation, Grammatik und Vokabeln lernen, um sich im Alltag auf Deutsch verständigen zu können.",
       "is_free": false,
-      "language": 2
+      "language": 2,
+      "state": null
     }
   },
   {
@@ -31,11 +34,13 @@
     "pk": 2,
     "fields": {
       "offer": 2,
+      "created_at": "2023-05-20T15:26:40.367Z",
       "title": "Fortgeschrittenes Deutsch - Konversationskurs für die Arbeitswelt",
+      "title_image": "",
       "description": "In unserem Konversationskurs \"Fortgeschrittenes Deutsch\" legen wir den Fokus auf die mündliche Kommunikation und das sprachliche Selbstbewusstsein in der Arbeitswelt. Der Kurs richtet sich an Personen, die bereits über grundlegende Deutschkenntnisse verfügen und ihre Sprachfertigkeiten gezielt für den beruflichen Kontext weiterentwickeln möchten.\r\n\r\nIm Kurs werden verschiedene Themen behandelt, die typische Situationen im Arbeitsumfeld widerspiegeln, wie zum Beispiel Bewerbungsgespräche, Präsentationen, Geschäftskorrespondenz und Teamarbeit. Durch gezielte Übungen und praxisnahe Rollenspiele werden Sie lernen, Ihre sprachlichen Fähigkeiten in diesen Situationen zu verbessern und anzuwenden.\r\n\r\nUnsere erfahrenen Lehrkräfte legen Wert auf eine interaktive Lernumgebung, in der Sie sowohl in Gruppenaktivitäten als auch in Einzelgesprächen Ihre Kommunikationsfähigkeiten stärken können. Darüber hinaus erhalten Sie wertvolles Feedback und individuelle Unterstützung, um Ihre sprachlichen Schwächen zu überwinden und Ihr Sprachniveau auf eine höhere Stufe zu heben.",
       "is_free": false,
       "language": 2,
-      "created_at": "2023-05-20T15:26:40.367Z"
+      "state": null
     }
   },
   {
@@ -43,11 +48,41 @@
     "pk": 3,
     "fields": {
       "offer": 2,
+      "created_at": "2023-05-22T15:26:40.367Z",
       "title": "Fortgeschrittenes Deutsch - Konversationskurs für die Arbeitswelt - überarbeitet",
+      "title_image": "",
       "description": "Neu: In unserem Konversationskurs \"Fortgeschrittenes Deutsch\" legen wir den Fokus auf die mündliche Kommunikation und das sprachliche Selbstbewusstsein in der Arbeitswelt. Der Kurs richtet sich an Personen, die bereits über grundlegende Deutschkenntnisse verfügen und ihre Sprachfertigkeiten gezielt für den beruflichen Kontext weiterentwickeln möchten.\r\n\r\nIm Kurs werden verschiedene Themen behandelt, die typische Situationen im Arbeitsumfeld widerspiegeln, wie zum Beispiel Bewerbungsgespräche, Präsentationen, Geschäftskorrespondenz und Teamarbeit. Durch gezielte Übungen und praxisnahe Rollenspiele werden Sie lernen, Ihre sprachlichen Fähigkeiten in diesen Situationen zu verbessern und anzuwenden.\r\n\r\nUnsere erfahrenen Lehrkräfte legen Wert auf eine interaktive Lernumgebung, in der Sie sowohl in Gruppenaktivitäten als auch in Einzelgesprächen Ihre Kommunikationsfähigkeiten stärken können. Darüber hinaus erhalten Sie wertvolles Feedback und individuelle Unterstützung, um Ihre sprachlichen Schwächen zu überwinden und Ihr Sprachniveau auf eine höhere Stufe zu heben.",
       "is_free": true,
       "language": 2,
-      "created_at": "2023-05-22T15:26:40.367Z"
+      "state": null
+    }
+  },
+  {
+    "model": "cms.offerversion",
+    "pk": 4,
+    "fields": {
+      "offer": 3,
+      "created_at": "2023-08-04T07:29:18.519Z",
+      "title": "Deutsch für Reisen - Kompaktkurs für Touristen",
+      "title_image": "",
+      "description": "Unser Kompaktkurs \"Deutsch für Reisen\" richtet sich speziell an Touristen und Reisende, die Deutschland und die deutschsprachigen Länder erkunden möchten. In diesem praxisorientierten Kurs erwerben Sie grundlegende Sprachkenntnisse, die Ihnen helfen werden, sich während Ihrer Reise in Alltagssituationen zurechtzufinden und mit Einheimischen zu kommunizieren.\r\n\r\nDer Kurs umfasst wichtige Themen wie die Begrüßung und Vorstellung, das Bestellen von Speisen und Getränken in Restaurants, das Fragen nach dem Weg und die Nutzung öffentlicher Verkehrsmittel. Zusätzlich lernen Sie nützliche Vokabeln und Ausdrücke kennen, um Souvenirs zu kaufen, im Hotel einzuchecken und sich in Notfällen verständigen zu können.\r\n\r\nUnsere erfahrenen und motivierten Lehrkräfte gestalten den Unterricht interaktiv und lebendig, indem sie authentische Materialien wie Landkarten, Speisekarten und Audioaufnahmen nutzen. Durch Rollenspiele und praktische Übungen werden Sie Ihre Aussprache verbessern und Sicherheit in der Anwendung der erlernten Sprachstrukturen gewinnen.\r\n\r\nDer \"Deutsch für Reisen\" Kurs eignet sich sowohl für absolute Anfänger ohne Vorkenntnisse als auch für Reisende mit geringen Deutschkenntnissen, die ihre Sprachfertigkeiten für eine angenehmere und bereichernde Reiseerfahrung verbessern möchten.",
+      "is_free": false,
+      "language": 2,
+      "state": true
+    }
+  },
+  {
+    "model": "cms.offerversion",
+    "pk": 5,
+    "fields": {
+      "offer": 4,
+      "created_at": "2023-08-04T07:31:22.346Z",
+      "title": "Deutsch für Flüchtlinge - Integrationskurs für Neuankömmlinge",
+      "title_image": "",
+      "description": "Unser \"Deutsch für Flüchtlinge\" Integrationskurs ist speziell darauf ausgerichtet, Menschen, die vor Kurzem als Flüchtlinge in Deutschland angekommen sind, eine sprachliche Grundlage zu vermitteln und sie in die Gesellschaft zu integrieren. Wir verstehen die Bedeutung von Deutschkenntnissen für eine erfolgreiche Integration und möchten unseren Teilnehmern helfen, sich in ihrem neuen Lebensumfeld zurechtzufinden und eine bessere Zukunft aufzubauen.\r\n\r\nDer Kurs konzentriert sich auf alltagsrelevante Themen wie die Begrüßung, das Einkaufen, den Arztbesuch, die Wohnungssuche und die Interaktion mit Behörden. Darüber hinaus vermitteln wir grundlegende Informationen über die deutsche Kultur, Gesellschaft und Rechtsordnung, um das Verständnis für die neue Heimat zu fördern.\r\n\r\nUnsere empathischen und erfahrenen Lehrkräfte gestalten den Unterricht auf eine respektvolle und einfühlsame Weise. Wir bieten einen geschützten Raum, in dem sich die Teilnehmer wohl und verstanden fühlen können, während sie ihre Sprachfähigkeiten verbessern und Selbstvertrauen aufbauen.\r\n\r\nWir unterstützen unsere Kursteilnehmer auch bei der Orientierung im deutschen Bildungssystem, der Jobsuche und der Bewältigung alltäglicher Herausforderungen. Wir sind bestrebt, die individuellen Bedürfnisse jedes Einzelnen zu berücksichtigen und sie auf ihrem Weg zu einer erfolgreichen Integration zu begleiten.\r\n\r\nKursgebühr: Der Kurs ist kostenlos und wird durch Fördermittel unterstützt.",
+      "is_free": true,
+      "language": 2,
+      "state": true
     }
   },
   {
@@ -55,7 +90,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
-      "last_login": "2023-05-26T13:04:40.742Z",
+      "last_login": "2023-08-04T07:41:32.451Z",
       "is_superuser": true,
       "email": "root@integreat.compass",
       "display_name": "Root",
@@ -69,8 +104,8 @@
     "model": "cms.user",
     "pk": 2,
     "fields": {
-      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
-      "last_login": "2023-05-20T15:15:17.338Z",
+      "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
+      "last_login": "2023-08-04T07:42:19.239Z",
       "is_superuser": true,
       "email": "root2@integreat.compass",
       "display_name": "Root2",
@@ -84,8 +119,8 @@
     "model": "cms.user",
     "pk": 3,
     "fields": {
-      "password": "pbkdf2_sha256$600000$PA2SmRUyUUxufQl205scvB$BlFZuqJHPxUQwRnEGsuExRR5dYUoPXD7V559Jcfczrw=",
-      "last_login": "2023-05-20T15:15:17.338Z",
+      "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
+      "last_login": "2023-08-04T07:42:55.807Z",
       "is_superuser": true,
       "email": "root3@integreat.compass",
       "display_name": "Root3",
@@ -145,7 +180,7 @@
     "pk": 7,
     "fields": {
       "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
-      "last_login": "2023-05-26T13:27:33.698Z",
+      "last_login": "2023-08-04T07:30:02.173Z",
       "is_superuser": false,
       "email": "offer_provider@integreat.compass",
       "display_name": "Offer Provider",
@@ -175,7 +210,7 @@
     "pk": 9,
     "fields": {
       "password": "pbkdf2_sha256$600000$eNv6yAhSC7kwCQi0hTPSXP$537vypdIgps2xeHNWnt2gbQR2Vaa7diGzAEBn3Iun+8=",
-      "last_login": "2023-05-26T13:16:14.969Z",
+      "last_login": "2023-08-04T07:40:59.281Z",
       "is_superuser": false,
       "email": "board_member@integreat.compass",
       "display_name": "Board Member",
@@ -247,6 +282,152 @@
     }
   },
   {
+    "model": "cms.offer",
+    "pk": 3,
+    "fields": {
+      "creator": 7,
+      "organization": 4,
+      "offer_contact": 4,
+      "location": 4,
+      "group_type": "PRIVATE",
+      "mode_type": "HYBRID",
+      "tags": [3]
+    }
+  },
+  {
+    "model": "cms.offer",
+    "pk": 4,
+    "fields": {
+      "creator": 7,
+      "organization": 5,
+      "offer_contact": 5,
+      "location": 5,
+      "group_type": "GROUP",
+      "mode_type": "IN_PERSON",
+      "tags": [4, 1, 3]
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 1,
+    "fields": {
+      "creator": 1,
+      "offer_version": 3,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 2,
+    "fields": {
+      "creator": 2,
+      "offer_version": 1,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 3,
+    "fields": {
+      "creator": 3,
+      "offer_version": 1,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 4,
+    "fields": {
+      "creator": 4,
+      "offer_version": 1,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 5,
+    "fields": {
+      "creator": 9,
+      "offer_version": 5,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 6,
+    "fields": {
+      "creator": 9,
+      "offer_version": 4,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 7,
+    "fields": {
+      "creator": 1,
+      "offer_version": 4,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 8,
+    "fields": {
+      "creator": 1,
+      "offer_version": 5,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 9,
+    "fields": {
+      "creator": 2,
+      "offer_version": 5,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 10,
+    "fields": {
+      "creator": 2,
+      "offer_version": 4,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 11,
+    "fields": {
+      "creator": 3,
+      "offer_version": 5,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 12,
+    "fields": {
+      "creator": 3,
+      "offer_version": 4,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
     "model": "cms.contact",
     "pk": 1,
     "fields": {
@@ -277,12 +458,32 @@
     }
   },
   {
+    "model": "cms.contact",
+    "pk": 4,
+    "fields": {
+      "creator": 7,
+      "name": "Julia Becker",
+      "email": "info@deutschkursfuerreisen.de",
+      "phone": "+49 555123456"
+    }
+  },
+  {
+    "model": "cms.contact",
+    "pk": 5,
+    "fields": {
+      "creator": 7,
+      "name": "Ahmed Hassan",
+      "email": "info@deutschkursfuerfluechtlinge.de",
+      "phone": "+49 987654321"
+    }
+  },
+  {
     "model": "cms.location",
     "pk": 1,
     "fields": {
       "address": "Musterstraße 123, 12345 Beispielstadt",
-      "lat": "51.339600",
-      "long": "12.371300"
+      "lat": "51.3396000",
+      "long": "12.3713000"
     }
   },
   {
@@ -290,8 +491,8 @@
     "pk": 2,
     "fields": {
       "address": "Musterweg 456, 54321 Beispielstadt",
-      "lat": "52.520000",
-      "long": "13.405000"
+      "lat": "52.5200000",
+      "long": "13.4050000"
     }
   },
   {
@@ -299,8 +500,26 @@
     "pk": 3,
     "fields": {
       "address": "Musterweg 456, 54321 Beispielstadt",
-      "lat": "52.520000",
-      "long": "13.405000"
+      "lat": "52.5200000",
+      "long": "13.4050000"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 4,
+    "fields": {
+      "address": "Riehler Straße 88, 50668 Cologne",
+      "lat": "50.9549048",
+      "long": "6.9674357"
+    }
+  },
+  {
+    "model": "cms.location",
+    "pk": 5,
+    "fields": {
+      "address": "Halderstraße 5, 86150 Augsburg",
+      "lat": "48.3646805",
+      "long": "10.8921695"
     }
   },
   {
@@ -331,43 +550,47 @@
     }
   },
   {
-    "model": "cms.vote",
-    "pk": 1,
-    "fields": {
-      "creator": 1,
-      "offer_version": 3,
-      "approval": 1,
-      "comment": ""
-    }
-  },
-  {
-    "model": "cms.vote",
-    "pk": 2,
-    "fields": {
-      "creator": 2,
-      "offer_version": 1,
-      "approval": 1,
-      "comment": ""
-    }
-  },
-  {
-    "model": "cms.vote",
-    "pk": 3,
-    "fields": {
-      "creator": 3,
-      "offer_version": 1,
-      "approval": 1,
-      "comment": ""
-    }
-  },
-  {
-    "model": "cms.vote",
+    "model": "cms.organization",
     "pk": 4,
     "fields": {
-      "creator": 4,
-      "offer_version": 1,
-      "approval": 1,
-      "comment": ""
+      "creator": 7,
+      "name": "Sprachzentrum Musterbeispiel",
+      "web_address": "https://www.deutschkursfuerreisen.de"
+    }
+  },
+  {
+    "model": "cms.organization",
+    "pk": 5,
+    "fields": {
+      "creator": 7,
+      "name": "Integrationszentrum Ankunftsbeispiel",
+      "web_address": "https://www.deutschkursfuerfluechtlinge.de"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-08-04T07:42:10.469Z",
+      "user": 1,
+      "content_type": 1,
+      "object_id": "2",
+      "object_repr": "Root2 (root2@integreat.compass)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Password\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-08-04T07:42:47.531Z",
+      "user": 2,
+      "content_type": 1,
+      "object_id": "3",
+      "object_repr": "Root3 (root3@integreat.compass)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Password\"]}}]"
     }
   },
   {
@@ -544,6 +767,14 @@
     "fields": {
       "session_data": ".eJxVjMsOwiAQRf-FtSG8BsSl-34DYWCQqoGktCvjv2uTLnR7zzn3xULc1hq2QUuYM7swyU6_G8b0oLaDfI_t1nnqbV1m5LvCDzr41DM9r4f7d1DjqN9aSeXJgEJL1ifplLIghCNhBeR0doDSJAVQtM6IGkry0cTiJfhMpTj2_gC1Zjd3:1q0OIf:EdSq1krmYxOC38-Q7gc7hSIK66C01K6PInE4j65Rgns",
       "expire_date": "2023-06-03T15:15:17.346Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "c685v3nkmd5vx4vdwdffj7k3unq34nb9",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSHglEdduu83EBhmpGogKe3K-O_apAvd3nPOfYkQt7WErdMS5iwuAsTpd0sRH1R3kO-x3prEVtdlTnJX5EG7nFqm5_Vw_w5K7OVbO_TGaj0CGuYEnpMGxUaBckyUNBKTtoPlnLMzTHC2jOgAk1cDj0a8P_ODOKI:1qRpSZ:7PuJszX5LiScEiajWzBxjLe7fG66ebLcEJb8UbHdrN8",
+      "expire_date": "2023-08-18T07:42:55.808Z"
     }
   },
   {

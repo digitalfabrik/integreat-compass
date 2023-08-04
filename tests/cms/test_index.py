@@ -21,8 +21,8 @@ def test_offer_list_success(load_test_data):
     response = client.get(endpoint, {}, format="html", content_type="text/html")
     assert response.status_code == 200
     assert len(response.context["offers"]) == 2
-    assert response.context["offers"][0].id == 1
-    assert response.context["offers"][1].id == 2
+    assert response.context["offers"][0].id == 4
+    assert response.context["offers"][1].id == 3
 
 
 @pytest.mark.django_db
@@ -39,11 +39,11 @@ def test_index_offer_tags(load_test_data):
     match = resolve("/")
     assert match.view_name == view_name
     response = client.get(
-        endpoint, {"tags": 5}, format="html", content_type="text/html"
+        endpoint, {"tags": 4}, format="html", content_type="text/html"
     )
     assert response.status_code == 200
     assert len(response.context["offers"]) == 1
-    assert response.context["offers"][0].id == 2
+    assert response.context["offers"][0].id == 4
 
 
 @pytest.mark.django_db
@@ -64,4 +64,4 @@ def test_index_multiple_offer_tags(load_test_data):
     )
     assert response.status_code == 200
     assert len(response.context["offers"]) == 1
-    assert response.context["offers"][0].id == 1
+    assert response.context["offers"][0].id == 4

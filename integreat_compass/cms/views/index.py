@@ -56,8 +56,7 @@ class IndexListView(ListView):
         :return: Response for filtered offers
         :rtype: ~django.template.response.TemplateResponse
         """
-        # filtered_offers = Offer.objects.exclude(public_version__isnull=True)
-        filtered_offers = Offer.objects.exclude()
+        filtered_offers = Offer.objects.all()
         if offer_tags := request.GET.getlist("tags"):
             filtered_offers = filtered_offers.filter(tags__in=offer_tags)
 
@@ -77,7 +76,11 @@ class IndexListView(ListView):
             self.template_name,
             {
                 "tags": Tag.objects.all(),
-                "offers": filtered_offers.distinct(),
+                "offers": [
+                    offer
+                    for offer in filtered_offers.distinct()
+                    if offer.public_version
+                ],
                 "filtered_tags": offer_tags,
                 "offer_group_types": offer_group_types.CHOICES,
                 "filtered_group_types": group_types,
