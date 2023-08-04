@@ -31,7 +31,7 @@
                                 <span class="bg-red-500 text-white rounded-full py-1 px-2 mr-1">{{ tag }}</span>
                             {% endfor %}
                         </div>
-                        <p class="text-gray-700">{% translate "Created at:" %} {{ offer.latest_version.offer_version_date }}</p>
+                        <p class="text-gray-700">{% translate "Created at:" %} {{ offer.latest_version.created_at|date:"d. M Y" }}</p>
                     </div>
                     <div class="basis-1/4 flex flex-col shrink-0 justify-start gap-4 py-6 pr-6">
                         {% if offer.latest_version.state is True %}
