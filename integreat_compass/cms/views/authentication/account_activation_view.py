@@ -7,16 +7,14 @@ from django.utils.http import urlsafe_base64_decode
 from django.utils.translation import gettext as _
 
 from ...models import User
-from ...utils.account_activation_token_generator import (
-    account_activation_token_generator,
-)
+from ...utils.token_generator import account_activation_token_generator
 
 logger = logging.getLogger(__name__)
 
 
 class AccountActivationView(auth_views.PasswordResetConfirmView):
     """
-    View to set a new password and activate and account.
+    View to activate an account.
     """
 
     token_generator = account_activation_token_generator

@@ -4,9 +4,9 @@ from django import forms
 from django.contrib.auth.password_validation import validate_password
 from django.utils.translation import gettext as _
 
-from ..constants import group_names
-from ..models import User
-from .custom_model_form import CustomModelForm
+from ...constants import group_names
+from ...models import User
+from ..custom_model_form import CustomModelForm
 
 logger = logging.getLogger(__name__)
 

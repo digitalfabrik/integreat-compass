@@ -7,7 +7,10 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.utils.translation import gettext as _
 
-from .account_activation_token_generator import account_activation_token_generator
+from .token_generator import (
+    account_activation_token_generator,
+    password_reset_token_generator,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -59,12 +62,11 @@ def send_activation_mail(user):
     :type user: ~integreat_compass.cms.models.user.User
     """
     context = {"user": user}
-    subject = "Integreat Compass | Confirm your account"
+    subject = _("Integreat Compass | Activate your account")
 
     token = account_activation_token_generator.make_token(user)
     uid = urlsafe_base64_encode(force_bytes(user.pk))
 
-    subject += _("Activate your account")
     debug_mail_type = _("activation mail")
     context.update({"uid": uid, "token": token})
 
@@ -78,6 +80,37 @@ def send_activation_mail(user):
         )
         logger.debug(
             "Sent a %r with an activation link to %r", debug_mail_type, user.email
+        )
+    except BadHeaderError as e:
+        logger.exception(e)
+
+
+def send_reset_mail(user):
+    """
+    Send a passwordf reset email to a user
+
+    :param user: the user
+    :type user: ~integreat_compass.cms.models.user.User
+    """
+    context = {"user": user}
+    subject = _("Integreat Compass | Your requested password reset")
+
+    token = password_reset_token_generator.make_token(user)
+    uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+    debug_mail_type = _("password reset mail")
+    context.update({"uid": uid, "token": token})
+
+    try:
+        send_mail(
+            subject,
+            "emails/password_reset_email.txt",
+            "emails/password_reset_email.html",
+            context,
+            user.email,
+        )
+        logger.debug(
+            "Sent a %r with a password reset link to %r", debug_mail_type, user.email
         )
     except BadHeaderError as e:
         logger.exception(e)
