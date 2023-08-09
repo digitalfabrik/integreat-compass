@@ -86,7 +86,7 @@ class OfferVersionForm(CustomModelForm):
             for field in self.Meta.fields:
                 if getattr(self.instance, field) != getattr(original_instance, field):
                     self.instance.pk = None
-                    self.instance.offer_version_date = timezone.now()
+                    self.instance.created_at = timezone.now()
                     break
 
         offer_version = super().save(commit=commit)
