@@ -543,6 +543,11 @@ msgstr "Kategorien"
 msgid "Offers"
 msgstr "Maßnahmen"
 
+#: cms/templates/index.html cms/templates/interactions/vote_form.html
+#: cms/templates/offers/my_offers_list.html
+msgid "Created at:"
+msgstr "Erstellt am:"
+
 #: cms/templates/index.html
 msgid "No offers could be found"
 msgstr "Es konnten keine Maßnahmen gefunden werden"
@@ -551,10 +556,6 @@ msgstr "Es konnten keine Maßnahmen gefunden werden"
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Short description"
 msgstr "Kurzbeschreibung"
-
-#: cms/templates/interactions/vote_form.html
-msgid "created at"
-msgstr "Erstellt am:"
 
 #: cms/templates/interactions/vote_form.html
 msgid "You have approved this application"
@@ -599,10 +600,6 @@ msgstr "Titelbild auswählen"
 #: cms/templates/offers/my_offers_list.html
 msgid "My offers"
 msgstr "Meine Maßnahmen"
-
-#: cms/templates/offers/my_offers_list.html
-msgid "Created at:"
-msgstr "Erstellt am:"
 
 #: cms/templates/offers/my_offers_list.html
 msgid "Your offer application has been approved."
@@ -759,6 +756,9 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "created at"
+#~ msgstr "Erstellt am:"
 
 #~ msgid "Dashboard"
 #~ msgstr "Dashboard"
