@@ -586,8 +586,7 @@ msgstr "Kategorien"
 msgid "Offers"
 msgstr "Maßnahmen"
 
-#: cms/templates/index.html cms/templates/interactions/vote_form.html
-#: cms/templates/offers/my_offers_list.html
+#: cms/templates/index.html cms/templates/offers/my_offers_list.html
 msgid "Created at:"
 msgstr "Erstellt am:"
 
@@ -599,6 +598,10 @@ msgstr "Es konnten keine Maßnahmen gefunden werden"
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Short description"
 msgstr "Kurzbeschreibung"
+
+#: cms/templates/interactions/vote_form.html
+msgid "Created at"
+msgstr "Erstellt am:"
 
 #: cms/templates/interactions/vote_form.html
 msgid "You have approved this application"
@@ -717,6 +720,23 @@ msgstr "Angaben der Organisation"
 msgid "Submit offer application"
 msgstr "Maßnahmenbewerbung absenden"
 
+#: cms/templates/offers/offer_report.html
+#, python-format
+msgid "Report offer \"%(offer_title)s\""
+msgstr "Maßnahme \"%(offer_title)s\" melden"
+
+#: cms/templates/offers/offer_report.html
+msgid "Reason for reporting"
+msgstr "Grund für die Meldung"
+
+#: cms/templates/offers/offer_report.html
+msgid "Report offer"
+msgstr "Maßnahme melden"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Report"
+msgstr "Meldung"
+
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Contact person"
 msgstr "Kontaktperson"
@@ -822,6 +842,14 @@ msgstr ""
 "Die Maßnahmenbewerbung \"{}\" wurde erfolgreich übermittelt und wird in "
 "Kürze geprüft."
 
+#: cms/views/offers/offer_report_view.py
+msgid ""
+"Your report for offer \"{}\" has successfully been submitted and will be "
+"reviewed shortly."
+msgstr ""
+"Die Meldung für die Maßnahme \"{}\" wurde erfolgreich übermittelt und wird "
+"in Kürze geprüft."
+
 #: core/apps.py
 msgid "Core"
 msgstr "Core"
@@ -833,6 +861,12 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "Go back to all offers"
+#~ msgstr "Zurück zu alle Maßnahmen"
+
+#~ msgid "The requested offer does not exist."
+#~ msgstr "Die ausgewählte Maßnahme existiert nicht."
 
 #~ msgid "created at"
 #~ msgstr "Erstellt am:"

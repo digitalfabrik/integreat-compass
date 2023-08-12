@@ -31,7 +31,6 @@ class IndexListView(ListView):
         """
         offers = Offer.objects.all()
         tags = Tag.objects.all()
-        print(type(Offer.objects.all()))
         context = {
             "tags": tags,
             "offers": offers,

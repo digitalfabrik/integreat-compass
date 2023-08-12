@@ -1,10 +1,29 @@
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
-from ..views import authentication, index
+from ..views import authentication, index, offers
 
 urlpatterns = [
     path("", index.IndexListView.as_view(), name="index"),
+    path(
+        "offers/",
+        include(
+            [
+                path(
+                    "<int:pk>/",
+                    include(
+                        [
+                            path(
+                                "report/",
+                                offers.OfferReportView.as_view(),
+                                name="report_offer",
+                            )
+                        ]
+                    ),
+                )
+            ]
+        ),
+    ),
     path(
         "accounts/",
         include(
