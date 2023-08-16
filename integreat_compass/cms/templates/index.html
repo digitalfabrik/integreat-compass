@@ -98,13 +98,11 @@
                             <div id="offer-{{ offer.id }}"
                                  class="single-offer bg-white flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
                                 <div class="w-4/12 flex items-center">
-                                    {% if offer.public_version.title_image %}
-                                        <img class="rounded-2xl"
-                                             src="{{ offer.public_version.title_image.url }}"
-                                             width="100%"
-                                             height="100%"
-                                             alt="">
-                                    {% endif %}
+                                    <img class="rounded-2xl"
+                                         src="{{ offer.public_version.title_image_url }}"
+                                         width="100%"
+                                         height="100%"
+                                         alt="">
                                 </div>
                                 <div class="w-8/12 py-2 px-4">
                                     <h3 class="font-bold">{{ offer.public_version.title }}</h3>

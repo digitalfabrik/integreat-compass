@@ -18,13 +18,11 @@
                 <div class="md:flex mb-4 xl:mb-6">
                     <div class="xl:flex mr-12">
                         <div class="mr-8">
-                            {% if offer.public_version.title_image %}
-                                <img class="rounded-2xl"
-                                     src="{{ offer.public_version.title_image.url }}"
-                                     width="100%"
-                                     height="100%"
-                                     alt="">
-                            {% endif %}
+                            <img class="rounded-2xl"
+                                 src="{{ offer.public_version.title_image_url }}"
+                                 width="100%"
+                                 height="100%"
+                                 alt="">
                         </div>
                         <div class="mt-4 xl:mt-0 w-full text-gray-500">
                             <h3 class="text-xl font-semibold">{% translate "Short description" %}</h3>
