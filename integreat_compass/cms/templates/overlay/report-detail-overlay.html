@@ -1,0 +1,30 @@
+{% load i18n %}
+<div id="report-detail-{{ offer.id }}"
+     class="hidden mt-24 fixed items-center justify-center inset-0 bg-opacity-75 bg-gray-800 overflow-scroll z-50 cursor-pointer">
+    <div class="cursor-auto justify-center w-9/12 max-h-fit px-4 z-50 m-auto my-24">
+        <div class="bg-white opacity-100 content rounded-2xl shadow-md w-full">
+            <div class="p-4">
+                <div class="flex items-center">
+                    <h1>
+                        {% blocktranslate trimmed with offer_title=offer.latest_version.title %}
+                            Report on "{{offer_title}}"
+                        {% endblocktranslate %}
+                    </h1>
+                    <button type="button"
+                            id="btn-close-report-detail-layover-{{ offer.id }}"
+                            class="flex ml-auto bg-red-500 hover:bg-red-600 text-white">
+                        <i icon-name="x-square" class="h-8 w-8"></i>
+                    </button>
+                </div>
+                <div class="mt-4">
+                    {% blocktranslate trimmed with offer_title=offer.latest_version.title %}
+                    Your offer "{{ offer_title }}" has been reported. Please find the comments on your offer below and if necessary edit your offer. 
+                    {% endblocktranslate %}
+                    {% for comment in report_comments %}
+                        <p>{{ comment }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

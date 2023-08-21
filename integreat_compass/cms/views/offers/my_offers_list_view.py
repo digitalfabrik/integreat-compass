@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 from django.views.generic.list import ListView
 
 from ...decorators import permission_required
-from ...models import Offer
+from ...models import Offer, Report
 
 logger = logging.getLogger(__name__)
 

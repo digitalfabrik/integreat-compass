@@ -14,7 +14,7 @@
                   action="{% url 'cms:protected:delete_offer' offer.pk %}">
                 {% csrf_token %}
                 <input type="hidden" name="pk" value="{{ offer.pk }}">
-                <div class="md:flex flex-row border-2 justify-between border-gray-200 rounded-lg shadow-md shadow-inner mb-8 gap-6 overflow-hidden">
+                <div class="bg-white md:flex flex-row border-2 justify-between border-gray-200 rounded-lg shadow-md shadow-inner mb-8 gap-6 overflow-hidden">
                     <div class="basis-1/8 shrink-0">
                         <img class="object-cover h-[300px]"
                              src="{{ offer.latest_version.title_image_url }}"
@@ -42,6 +42,14 @@
                             <div class="bg-red-100 border-l-4 border-red-500 text-red-500 px-4 py-3">
                                 <p>{% translate "Your offer application has been rejected." %}</p>
                             </div>
+                            <div class="flex bg-red-100 border-l-4 border-red-500 text-red-500 px-4 py-3 items-center">
+                                <i id="report-more-{{ offer.id }}"
+                                   offer-id="{{ offer.id }}"
+                                   class="report-more mr-4 hover:cursor-pointer"
+                                   icon-name="info"></i>
+                                <p>{% translate "Your offer application has been report." %}</p>
+                            </div>
+                            {% include "overlay/report-detail-overlay.html" %}
                         {% else %}
                             <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-500 px-4 py-3">
                                 <p>{% translate "The decision on your offer application is still pending." %}</p>

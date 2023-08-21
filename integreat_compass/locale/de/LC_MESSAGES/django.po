@@ -505,6 +505,27 @@ msgstr "Als Maßnahmen-Anbieter registrieren"
 msgid "Sign Up"
 msgstr "Registrieren"
 
+#: cms/templates/components/report_list.html
+#: cms/templates/includes/dashboard_navbar.html
+msgid "Reports"
+msgstr "Meldungen"
+
+#: cms/templates/components/report_list.html
+#: cms/templates/interactions/vote_form.html
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Short description"
+msgstr "Kurzbeschreibung"
+
+#: cms/templates/components/report_list.html cms/templates/index.html
+#: cms/templates/interactions/vote_form.html
+#: cms/templates/offers/my_offers_list.html
+msgid "Created at:"
+msgstr "Erstellt am:"
+
+#: cms/templates/components/report_list.html
+msgid "Reason"
+msgstr "Begründung"
+
 #: cms/templates/emails/activation_email.html
 #: cms/templates/emails/activation_email.txt
 msgid "Welcome"
@@ -555,10 +576,6 @@ msgid "Use the link below to set a new password."
 msgstr "Nutzen Sie den folgenden Link um ein neues Passwort festzulegen."
 
 #: cms/templates/includes/dashboard_navbar.html
-msgid "Reports"
-msgstr "Meldungen"
-
-#: cms/templates/includes/dashboard_navbar.html
 msgid "Declined"
 msgstr "Blockiert"
 
@@ -586,22 +603,9 @@ msgstr "Kategorien"
 msgid "Offers"
 msgstr "Maßnahmen"
 
-#: cms/templates/index.html cms/templates/offers/my_offers_list.html
-msgid "Created at:"
-msgstr "Erstellt am:"
-
 #: cms/templates/index.html
 msgid "No offers could be found"
 msgstr "Es konnten keine Maßnahmen gefunden werden"
-
-#: cms/templates/interactions/vote_form.html
-#: cms/templates/overlay/offer-detail-overlay.html
-msgid "Short description"
-msgstr "Kurzbeschreibung"
-
-#: cms/templates/interactions/vote_form.html
-msgid "Created at"
-msgstr "Erstellt am:"
 
 #: cms/templates/interactions/vote_form.html
 msgid "You have approved this application"
@@ -861,6 +865,9 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "Created at"
+#~ msgstr "Erstellt am:"
 
 #~ msgid "Go back to all offers"
 #~ msgstr "Zurück zu alle Maßnahmen"
