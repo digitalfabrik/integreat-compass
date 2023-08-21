@@ -4,6 +4,7 @@ from django import forms
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from ...constants import offer_version_states
 from ...models import Document, OfferVersion
 from ..custom_model_form import CustomModelForm
 
@@ -86,6 +87,7 @@ class OfferVersionForm(CustomModelForm):
             for field in self.Meta.fields:
                 if getattr(self.instance, field) != getattr(original_instance, field):
                     self.instance.pk = None
+                    self.instance.state = offer_version_states.PENDING
                     self.instance.created_at = timezone.now()
                     break
 

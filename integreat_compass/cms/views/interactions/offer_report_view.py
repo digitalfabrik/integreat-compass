@@ -16,7 +16,7 @@ class OfferReportView(TemplateView):
     View to report an offer
     """
 
-    template_name = "offers/offer_report.html"
+    template_name = "interactions/offer_report.html"
 
     def get_context_data(self, **kwargs):
         r"""

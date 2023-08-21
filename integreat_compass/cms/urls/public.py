@@ -1,7 +1,7 @@
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
-from ..views import authentication, index, offers
+from ..views import authentication, index, interactions
 
 urlpatterns = [
     path("", index.IndexListView.as_view(), name="index"),
@@ -15,7 +15,7 @@ urlpatterns = [
                         [
                             path(
                                 "report/",
-                                offers.OfferReportView.as_view(),
+                                interactions.OfferReportView.as_view(),
                                 name="report_offer",
                             )
                         ]

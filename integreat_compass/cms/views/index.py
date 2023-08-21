@@ -118,5 +118,6 @@ class IndexListView(ListView):
                 "filtered_free_offer": free_offers,
                 "offer_distance_steps": settings.OFFER_DISTANCE_STEPS,
                 "filtered_radius": radius,
+                "max_comment_length": settings.MAX_COMMENT_LENGTH,
             },
         )

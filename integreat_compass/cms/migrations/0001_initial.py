@@ -571,6 +571,8 @@ class Migration(migrations.Migration):
                             django.core.validators.MaxValueValidator(5),
                         ],
                         verbose_name="rating",
+                        blank=True,
+                        null=True,
                     ),
                 ),
                 (

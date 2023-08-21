@@ -23,6 +23,8 @@ class Comment(AbstractBaseModel):
         validators=[MinValueValidator(1), MaxValueValidator(5)],
         verbose_name=_("rating"),
         help_text=_("Rating of the offer"),
+        blank=True,
+        null=True,
     )
 
     def __str__(self):
