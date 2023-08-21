@@ -86,6 +86,20 @@
     }
   },
   {
+    "model": "cms.offerversion",
+    "pk": 6,
+    "fields": {
+      "offer": 5,
+      "created_at": "2023-08-17T11:33:22.346Z",
+      "title": "Krisenchat: Psychologischer Support per Textnachricht",
+      "title_image": "",
+      "description": "Psychologische Unterschützung per Textnachricht rund um die Uhr und in Echtzeit",
+      "is_free": true,
+      "language": 2,
+      "state": false
+    }
+  },
+  {
     "model": "cms.user",
     "pk": 1,
     "fields": {
@@ -305,6 +319,19 @@
       "group_type": "GROUP",
       "mode_type": "IN_PERSON",
       "tags": [4, 1, 3]
+    }
+  },
+  {
+    "model": "cms.offer",
+    "pk": 5,
+    "fields": {
+      "creator": 7,
+      "organization": 5,
+      "offer_contact": 5,
+      "location": 5,
+      "group_type": "PRIVATE",
+      "mode_type": "ONLINE",
+      "tags": [2]
     }
   },
   {
@@ -565,6 +592,14 @@
       "creator": 7,
       "name": "Integrationszentrum Ankunftsbeispiel",
       "web_address": "https://www.deutschkursfuerfluechtlinge.de"
+    }
+  },
+  {
+    "model": "cms.report",
+    "pk": 1,
+    "fields": {
+      "offer_version": 5,
+      "comment": "Das stimmt nicht. Es gibt keine Kinderbetreuung."
     }
   },
   {
