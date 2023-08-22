@@ -9,20 +9,29 @@
 {% block content %}
     {% include "includes/dashboard_navbar.html" %}
     {% for report in reports %}
-        <div class="flex flex-row border-2 border-gray-200 bg-white rounded-lg shadow-md shadow-inner p-6 mb-8">
-            <div class="basis-2/3 pr-8">
-                <p class="text-xl font-bold">{{ report.offer_version.title }}</p>
-                <p>{{ report.offer_version.offer.organization.org_name }}</p>
-                <p class="text-xl text-gray-700 font-semibold pt-4">{% translate "Short description" %}</p>
-                <p class="text-gray-600">{{ report.offer_version.description|truncatechars:500 }}</p>
-                <div class=" my-4">
-                    {% for tag in report.offer_version.offer.tags.all %}
-                        <span class="bg-red-500 text-white rounded-full py-1 px-2">{{ tag }}</span>
-                    {% endfor %}
+        <div class="flex flex-row border-2 border-gray-200 bg-white rounded-lg shadow-md shadow-inner mb-8">
+            <div class="basis-2/3 pr-8 flex">
+                <div class="basis-1/8 shrink-0 mr-8">
+                    <img class="object-cover h-[300px] rounded-l-lg"
+                         src="{{ report.offer_version.title_image_url }}"
+                         alt="Title image of this offer"
+                         width="300"
+                         height="300">
                 </div>
-                <p class="text-gray-700">{% translate "Created at:" %} {{ report.offer_version.created_at|date:"d. M Y" }}</p>
+                <div class="py-4">
+                    <p class="text-xl font-bold">{{ report.offer_version.title }}</p>
+                    <p>{{ report.offer_version.offer.organization.org_name }}</p>
+                    <p class="text-xl text-gray-700 font-semibold pt-4">{% translate "Short description" %}</p>
+                    <p class="text-gray-600">{{ report.offer_version.description|truncatechars:200 }}</p>
+                    <div class=" my-4">
+                        {% for tag in report.offer_version.offer.tags.all %}
+                            <span class="bg-red-500 text-white rounded-full py-1 px-2">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <p class="text-gray-700">{% translate "Created at:" %} {{ report.offer_version.created_at|date:"d. M Y" }}</p>
+                </div>
             </div>
-            <div class="basis-1/3 flex flex-col justify-around align-center">
+            <div class="basis-1/3 flex flex-col justify-around align-center pr-6">
                 <div>
                     <h3 class="font-semibold text-gray-700">{% translate "Reason" %}</h3>
                     <p class="text-gray-600">{{ report.comment }}</p>
@@ -32,13 +41,16 @@
                     <input type="hidden"
                            name="offer_version_id"
                            value="{{ report.offer_version.id }}">
-                    <div class="grid lg:grid-cols-3 grid-cols-1 xl:gap-8 gap-2 text-white ">
-                        <button class="bg-blue-500 hover:bg-blue-700 rounded-full" type="button">{% translate "Details" %}</button>
+                    <div class="grid lg:grid-cols-3 grid-cols-1 xl:gap-8 gap-2 text-white font-bold">
+                        <button id="offer-{{ report.offer_version.offer.id }}"
+                                class="open-details bg-blue-500 hover:bg-blue-700 rounded-full"
+                                type="button">{% translate "Details" %}</button>
                         <button class="bg-red-500 hover:bg-red-700 rounded-full"
                                 type="submit"
                                 name="move-to-declined"
                                 value="True">{% translate "Reject version" %}</button>
                     </div>
+                    {% include "overlay/offer-detail-overlay.html" with offer=report.offer_version.offer offer_version=report.offer_version public_version=False %}
                 </form>
             </div>
         </div>

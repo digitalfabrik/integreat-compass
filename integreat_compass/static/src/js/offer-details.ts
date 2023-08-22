@@ -1,5 +1,5 @@
 export const handleOfferDetails = () => {
-    const allOffers = document.getElementsByClassName("single-offer");
+    const allOffers = document.getElementsByClassName("open-details");
     for (const offer of allOffers) {
         const id = offer.id.replace("offer-", "");
         const offerDetailLayover = document.getElementById(`offer-detail-layover-${id}`);

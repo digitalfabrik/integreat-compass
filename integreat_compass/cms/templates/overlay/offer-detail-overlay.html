@@ -11,7 +11,7 @@
                 <div class="flex items-center">
                     {% if public_version %}
                         <a href="{% url 'cms:public:report_offer' pk=offer.id %}"
-                           class="flex items-center my-0 mr-8">
+                           class="text-gray-600 flex items-center my-0 mr-8">
                             <i class="mr-2" icon-name="alert-triangle"></i>
                             {% translate "Report" %}
                         </a>
@@ -54,6 +54,30 @@
                             <div>
                                 <h3 class="text-xl mt-4 font-semibold">{% translate "Address" %}</h3>
                                 <p>{{ offer.location.address }}</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl mt-4 font-semibold">{% translate "Organization" %}</h3>
+                                <a href="{{ offer.organization.web_address }}">{{ offer.organization.web_address }}</a>
+                            </div>
+                            <div>
+                                <h3 class="text-xl mt-4 font-semibold">{% translate "More details" %}</h3>
+                                <p>
+                                    {% translate "Free?" %}
+                                    {% if offer_version.is_free %}
+                                        {% translate "Yes" %}
+                                    {% else %}
+                                        {% translate "No" %}
+                                    {% endif %}
+                                </p>
+                                <p>{% translate "Language:" %} {{ offer_version.language }}</p>
+                                <p>
+                                    {% translate "Group type:" %}
+                                    {{ offer.group_type }}
+                                </p>
+                                <p>
+                                    {% translate "Mode type:" %}
+                                    {{ offer.mode_type }}
+                                </p>
                             </div>
                         </div>
                     </div>
