@@ -555,10 +555,12 @@ msgid "Use the link below to set a new password."
 msgstr "Nutzen Sie den folgenden Link um ein neues Passwort festzulegen."
 
 #: cms/templates/includes/dashboard_navbar.html
+#: cms/templates/interactions/report_list.html
 msgid "Reports"
 msgstr "Meldungen"
 
 #: cms/templates/includes/dashboard_navbar.html
+#: cms/templates/interactions/decline_list.html
 msgid "Declined"
 msgstr "Blockiert"
 
@@ -586,7 +588,10 @@ msgstr "Kategorien"
 msgid "Offers"
 msgstr "Maßnahmen"
 
-#: cms/templates/index.html cms/templates/offers/my_offers_list.html
+#: cms/templates/index.html cms/templates/interactions/decline_list.html
+#: cms/templates/interactions/report_list.html
+#: cms/templates/interactions/vote_form.html
+#: cms/templates/offers/my_offers_list.html
 msgid "Created at:"
 msgstr "Erstellt am:"
 
@@ -594,14 +599,33 @@ msgstr "Erstellt am:"
 msgid "No offers could be found"
 msgstr "Es konnten keine Maßnahmen gefunden werden"
 
+#: cms/templates/interactions/decline_list.html
+#: cms/templates/interactions/report_list.html
 #: cms/templates/interactions/vote_form.html
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Short description"
 msgstr "Kurzbeschreibung"
 
+#: cms/templates/interactions/decline_list.html
+msgid "No offers have been declined by the board."
+msgstr "Es gibt keine Maßnahmen, die vom Gremium abgelehnt wurden."
+
+#: cms/templates/interactions/report_list.html
+msgid "Reason"
+msgstr "Begründung"
+
+#: cms/templates/interactions/report_list.html
 #: cms/templates/interactions/vote_form.html
-msgid "Created at"
-msgstr "Erstellt am:"
+msgid "Details"
+msgstr "Details"
+
+#: cms/templates/interactions/report_list.html
+msgid "Reject version"
+msgstr "Version ablehnen"
+
+#: cms/templates/interactions/report_list.html
+msgid "There are no unhandled reports."
+msgstr "Es gibt keine unbearbeitete Meldungen."
 
 #: cms/templates/interactions/vote_form.html
 msgid "You have approved this application"
@@ -626,10 +650,6 @@ msgstr "Absagen"
 #: cms/templates/interactions/vote_form.html
 msgid "Pending"
 msgstr "Offen"
-
-#: cms/templates/interactions/vote_form.html
-msgid "Details"
-msgstr "Details"
 
 #: cms/templates/interactions/vote_form.html
 msgid "Accept"
@@ -724,6 +744,14 @@ msgstr "Maßnahmenbewerbung absenden"
 #, python-format
 msgid "Report offer \"%(offer_title)s\""
 msgstr "Maßnahme \"%(offer_title)s\" melden"
+
+#: cms/templates/offers/offer_report.html
+msgid ""
+"Please note: You will stay anonymous. The report will be seen by both the "
+"offer provider and board members."
+msgstr ""
+"Hinweis: Sie werden anonym bleiben. Ihre Meldung kann sowohl von dem "
+"Ersteller als auch von dem Gremium eingesehen werden."
 
 #: cms/templates/offers/offer_report.html
 msgid "Reason for reporting"
@@ -826,6 +854,10 @@ msgstr ""
 "Wir haben eine Bestätigungsmail an \"{}\" gesandt. Bitten nutzen Sie den "
 "Link in der E-Mail, um Ihren Account zu aktivieren."
 
+#: cms/views/interactions/report_list_view.py
+msgid "You rejected the reported offer \"{}\""
+msgstr "Sie haben die Maßnahme \"{}\" abgelehnt"
+
 #: cms/views/interactions/vote_form_view.py
 msgid "Your vote on \"{}\" has successfully been submitted."
 msgstr "Deine Abstimmung zu \"{}\" wurde erfolgreich gespeichert."
@@ -861,6 +893,9 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "Created at"
+#~ msgstr "Erstellt am:"
 
 #~ msgid "Go back to all offers"
 #~ msgstr "Zurück zu alle Maßnahmen"

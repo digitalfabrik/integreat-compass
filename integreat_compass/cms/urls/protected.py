@@ -37,8 +37,10 @@ urlpatterns = [
         include(
             [
                 path("", interactions.VoteFormView.as_view(), name="votes"),
-                path("reports/", interactions.VoteFormView.as_view(), name="reports"),
-                path("declined/", interactions.VoteFormView.as_view(), name="declined"),
+                path("reports/", interactions.ReportListView.as_view(), name="reports"),
+                path(
+                    "declined/", interactions.DeclineListView.as_view(), name="declined"
+                ),
             ]
         ),
     ),
