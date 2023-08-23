@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 {% block raw_content %}
-    <div class="flex justify-between items-center shadow-md bg-white z-50 fixed w-screen top-0">
+    <div class="flex justify-between items-center shadow-md bg-white z-40 fixed w-screen top-0">
         <div class="mx-12 w-full flex items-center font-medium text-xl text-gray-500">
             <a href="{% url 'cms:public:index' %}">
                 <img src="{% static 'images/logo-integreat-compass.svg' %}"
@@ -39,37 +39,42 @@
             {% endif %}
         </div>
     </div>
+    {% if messages and not messages_suppressed %}
+        <div id="messages"
+             class="absolute top-32 right-8 flex flex-col max-w-screen-sm z-50">
+            {% for msg in messages %}
+                {% if msg.level_tag == 'info' %}
+                    <div class="message bg-blue-100 border-l-4 border-blue-500 text-blue-500"
+                         role="alert">
+                        <p>{{ msg.message }}</p>
+                        <i icon-name="x" class="message-close"></i>
+                    </div>
+                {% endif %}
+                {% if msg.level_tag == 'success' %}
+                    <div class="message bg-green-100 border-l-4 border-green-500 text-green-500"
+                         role="alert">
+                        <p>{{ msg.message }}</p>
+                        <i icon-name="x" class="message-close"></i>
+                    </div>
+                {% endif %}
+                {% if msg.level_tag == 'warning' %}
+                    <div class="message bg-yellow-100 border-l-4 border-yellow-500 text-yellow-600"
+                         role="alert">
+                        <p>{{ msg.message }}</p>
+                        <i icon-name="x" class="message-close"></i>
+                    </div>
+                {% endif %}
+                {% if msg.level_tag == 'error' %}
+                    <div class="message bg-red-100 border-l-4 border-red-500 text-red-500"
+                         role="alert">
+                        <p>{{ msg.message }}</p>
+                        <i icon-name="x" class="message-close"></i>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="py-6 mt-24 {% block container %} mx-12 {% endblock container %}">
-        {% if messages and not messages_suppressed %}
-            <div id="messages" class="mb-8">
-                {% for msg in messages %}
-                    {% if msg.level_tag == 'info' %}
-                        <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-500 px-4 py-3 mb-5"
-                             role="alert">
-                            <p>{{ msg.message }}</p>
-                        </div>
-                    {% endif %}
-                    {% if msg.level_tag == 'success' %}
-                        <div class="bg-green-100 border-l-4 border-green-500 text-green-500 px-4 py-3 mb-5"
-                             role="alert">
-                            <p>{{ msg.message }}</p>
-                        </div>
-                    {% endif %}
-                    {% if msg.level_tag == 'warning' %}
-                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-600 px-4 py-3 mb-5"
-                             role="alert">
-                            <p>{{ msg.message }}</p>
-                        </div>
-                    {% endif %}
-                    {% if msg.level_tag == 'error' %}
-                        <div class="bg-red-100 border-l-4 border-red-500 text-red-500 px-4 py-3 mb-5"
-                             role="alert">
-                            <p>{{ msg.message }}</p>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
         {% block content %}
         {% endblock content %}
     </div>

@@ -4,6 +4,7 @@ import "./js/field-validation";
 import "./js/display_filenames";
 import "./js/image_picker";
 import "./js/map";
+import "./js/messages";
 import { createIconsAt } from "./js/utils/create-icons";
 import { handleOfferDetails, countLengthOfReview } from "./js/offer-details";
 import { submitFilter } from "./js/filter";
