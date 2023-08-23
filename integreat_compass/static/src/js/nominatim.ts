@@ -1,6 +1,6 @@
 import { LngLat } from "maplibre-gl";
 
-const apiBaseUrl = "http://nominatim.maps.tuerantuer.org/nominatim/";
+const apiBaseUrl = "https://nominatim.maps.tuerantuer.org/nominatim/";
 
 export const getCoordinatesFromAddress = async (address: string): Promise<LngLat> => {
     const url = `${apiBaseUrl}search?format=json&q=${encodeURIComponent(address)}`;
