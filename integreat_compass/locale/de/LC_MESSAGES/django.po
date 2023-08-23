@@ -669,15 +669,15 @@ msgstr "Meine Maßnahmen"
 
 #: cms/templates/offers/my_offers_list.html
 msgid "Your offer application has been approved."
-msgstr "Ihre Maßnahmenbewerbung wurde angenommen."
+msgstr "Ihre Maßnahme wurde angenommen."
 
 #: cms/templates/offers/my_offers_list.html
 msgid "Your offer application has been rejected."
-msgstr "Ihre Maßnahmenbewerbung wurde abgelehnt."
+msgstr "Ihre Maßnahme wurde abgelehnt."
 
 #: cms/templates/offers/my_offers_list.html
 msgid "The decision on your offer application is still pending."
-msgstr "Ihre Maßnahmenbewerbungsgenehmigung ist noch ausstehend."
+msgstr "Die Entscheidung zu Ihrer Maßnahmenbewerbung ist noch ausstehend."
 
 #: cms/templates/offers/my_offers_list.html
 msgid "Edit offer"
