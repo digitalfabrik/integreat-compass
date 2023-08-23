@@ -709,6 +709,10 @@ msgid "Create new offer"
 msgstr "Maßnahmen hinzufügen"
 
 #: cms/templates/offers/offer_form.html
+msgid "Fields with * are required."
+msgstr "Felder mit * sind Pflichtfelder."
+
+#: cms/templates/offers/offer_form.html
 msgid "Offer details"
 msgstr "Angaben zur Maßnahme"
 
