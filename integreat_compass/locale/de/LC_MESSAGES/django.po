@@ -123,10 +123,12 @@ msgid "A valid address is required."
 msgstr "Eine gültige Adresse ist erforderlich."
 
 #: cms/forms/offers/offer_version_form.py
+#: cms/templates/overlay/offer-detail-overlay.html
 msgid "Yes"
 msgstr "Ja"
 
 #: cms/forms/offers/offer_version_form.py
+#: cms/templates/overlay/offer-detail-overlay.html
 msgid "No"
 msgstr "Nein"
 
@@ -774,6 +776,30 @@ msgid "Address"
 msgstr "Adresse"
 
 #: cms/templates/overlay/offer-detail-overlay.html
+msgid "Organization"
+msgstr "Organisation"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "More details"
+msgstr "Weitere Details"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Free?"
+msgstr "Kostenlos?"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Language:"
+msgstr "Sprache:"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Group type:"
+msgstr "Gruppentyp:"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Mode type:"
+msgstr "Modustype:"
+
+#: cms/templates/overlay/offer-detail-overlay.html
 msgid "Documents"
 msgstr "Dokumente"
 
@@ -893,6 +919,21 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "Private"
+#~ msgstr "privat"
+
+#~ msgid "Group"
+#~ msgstr "Gruppe"
+
+#~ msgid "Online"
+#~ msgstr "online"
+
+#~ msgid "Hybrid"
+#~ msgstr "hybrid"
+
+#~ msgid "In person"
+#~ msgstr "vor Ort"
 
 #~ msgid "Created at"
 #~ msgstr "Erstellt am:"

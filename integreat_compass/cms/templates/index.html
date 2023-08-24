@@ -96,7 +96,7 @@
                     {% if offers %}
                         {% for offer in offers %}
                             <div id="offer-{{ offer.id }}"
-                                 class="single-offer bg-white flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
+                                 class="open-details bg-white flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
                                 <div class="w-4/12 flex items-center">
                                     <img class="rounded-2xl object-cover h-[300px]"
                                          src="{{ offer.public_version.title_image_url }}"
@@ -115,7 +115,7 @@
                                     <p class="text-gray-400">{% translate "Created at:" %} {{ offer.public_version.created_at|date:"d. M Y" }}</p>
                                 </div>
                             </div>
-                            {% include "overlay/offer-detail-overlay.html" %}
+                            {% include "overlay/offer-detail-overlay.html" with public_version=True offer=offer offer_version=offer.public_version %}
                         {% endfor %}
                     {% else %}
                         {% translate "No offers could be found" %}
