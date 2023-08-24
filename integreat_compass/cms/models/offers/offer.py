@@ -74,6 +74,26 @@ class Offer(AbstractBaseModel):
             )
         return comments_info
 
+    @cached_property
+    def group_type_value(self):
+        """
+        Helper method to get the group type for use in a template
+
+        :return: human-readable group type
+        :rtype: str
+        """
+        return dict(offer_group_types.CHOICES)[self.group_type]
+
+    @cached_property
+    def mode_type_value(self):
+        """
+        Helper method to get the mode type for use in a template
+
+        :return: human-readable mode type
+        :rtype: str
+        """
+        return dict(offer_mode_types.CHOICES)[self.mode_type]
+
     def __str__(self):
         """
         This overwrites the default Django :meth:`~django.db.models.Model.__str__` method which would return ``Offer object (id)``.

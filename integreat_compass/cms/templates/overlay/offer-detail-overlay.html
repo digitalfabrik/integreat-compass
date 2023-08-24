@@ -48,8 +48,8 @@
                             <div>
                                 <h3 class="text-xl font-semibold">{% translate "Contact person" %}</h3>
                                 <p>{{ offer.offer_contact.name }}</p>
-                                <p>{{ offer.offer_contact.phone }}</p>
-                                <p>{{ offer.offer_contact.email }}</p>
+                                <a class="underline" href="tel:{{ offer.offer_contact.phone }}">{{ offer.offer_contact.phone }}</a>
+                                <a class="underline" href="mailto:{{ offer.offer_contact.email }}">{{ offer.offer_contact.email }}</a>
                             </div>
                             <div>
                                 <h3 class="text-xl mt-4 font-semibold">{% translate "Address" %}</h3>
@@ -57,26 +57,29 @@
                             </div>
                             <div>
                                 <h3 class="text-xl mt-4 font-semibold">{% translate "Organization" %}</h3>
-                                <a href="{{ offer.organization.web_address }}">{{ offer.organization.web_address }}</a>
+                                <p>{{ offer.organization.name }}</p>
+                                <a href="{{ offer.organization.web_address }}" class="underline">{{ offer.organization.web_address }}</a>
                             </div>
-                            <div>
+                            <div class="inline-flex flex-col">
                                 <h3 class="text-xl mt-4 font-semibold">{% translate "More details" %}</h3>
-                                <p>
+                                <p class="flex justify-between gap-4">
                                     {% translate "Free?" %}
-                                    {% if offer_version.is_free %}
-                                        {% translate "Yes" %}
-                                    {% else %}
-                                        {% translate "No" %}
-                                    {% endif %}
+                                    <span>
+                                        {% if offer_version.is_free %}
+                                            {% translate "Yes" %}
+                                        {% else %}
+                                            {% translate "No" %}
+                                        {% endif %}
+                                    </span>
                                 </p>
-                                <p>{% translate "Language:" %} {{ offer_version.language }}</p>
-                                <p>
-                                    {% translate "Group type:" %}
-                                    {{ offer.group_type }}
+                                <p class="flex justify-between gap-4">
+                                    {% translate "Language:" %} <span>{{ offer_version.language }}</span>
                                 </p>
-                                <p>
-                                    {% translate "Mode type:" %}
-                                    {{ offer.mode_type }}
+                                <p class="flex justify-between gap-4">
+                                    {% translate "Group type:" %} <span>{{ offer.group_type_value }}</span>
+                                </p>
+                                <p class="flex justify-between gap-4">
+                                    {% translate "Mode type:" %} <span>{{ offer.mode_type_value }}</span>
                                 </p>
                             </div>
                         </div>
