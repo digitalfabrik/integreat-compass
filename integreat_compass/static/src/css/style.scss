@@ -216,3 +216,15 @@ input[type="submit"] {
         }
     }
 }
+
+/***********
+* MESSAGES *
+***********/
+
+.message {
+    @apply pl-4 pr-10 py-3 mb-5 rounded-lg relative duration-700 opacity-100 shadow-xl self-end;
+
+    .message-close {
+        @apply w-5 h-5 absolute top-3 right-3 cursor-pointer;
+    }
+}
