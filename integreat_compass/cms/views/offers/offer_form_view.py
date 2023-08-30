@@ -1,6 +1,7 @@
 import logging
 
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 from django.db import transaction
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
@@ -76,6 +77,10 @@ class OfferFormView(TemplateView):
         :return: The rendered template response
         :rtype: ~django.template.response.TemplateResponse
         """
+        if not Offer.objects.filter(
+            pk=kwargs.get("pk"), creator=request.user
+        ).first() and kwargs.get("pk"):
+            raise PermissionDenied()
 
         return render(
             request,
@@ -106,6 +111,11 @@ class OfferFormView(TemplateView):
         :return: Redirect to list of user's offers
         :rtype: ~django.http.HttpResponseRedirect
         """
+        if not Offer.objects.filter(
+            pk=kwargs.get("pk"), creator=request.user
+        ).first() and kwargs.get("pk"):
+            raise PermissionDenied()
+
         forms = self._get_forms(
             kwargs.get("pk"),
             data=request.POST,

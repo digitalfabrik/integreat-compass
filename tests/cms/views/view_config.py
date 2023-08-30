@@ -45,7 +45,7 @@ VIEWS = [
         [
             (
                 "cms:protected:edit_offer",
-                [ROOT, OFFER_PROVIDER],
+                [OFFER_PROVIDER],
                 {
                     "offer_version-title": "Title",
                     "offer_version-description": "Description",
@@ -65,7 +65,7 @@ VIEWS = [
                 },
             )
         ],
-        {"pk": "1"},
+        {"pk": "3"},
     ),
 ]
 
