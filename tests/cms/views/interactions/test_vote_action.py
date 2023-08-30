@@ -8,7 +8,8 @@ from integreat_compass.cms.views.interactions import VoteFormView
 
 def get_request(offer_version_id):
     request = RequestFactory().post(
-        "", {"approval": "False", "offer_version_id": offer_version_id}
+        "",
+        {"approval": "False", "offer_version_id": offer_version_id, "reason": "reason"},
     )
     request.user = User.objects.get(pk=1)
     setattr(request, "session", "session")

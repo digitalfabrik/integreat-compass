@@ -123,12 +123,12 @@ msgid "A valid address is required."
 msgstr "Eine gültige Adresse ist erforderlich."
 
 #: cms/forms/offers/offer_version_form.py
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Yes"
 msgstr "Ja"
 
 #: cms/forms/offers/offer_version_form.py
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "No"
 msgstr "Nein"
 
@@ -598,7 +598,7 @@ msgstr "Standort"
 msgid "reset"
 msgstr "zurücksetzen"
 
-#: cms/templates/index.html cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/index.html cms/templates/overlay/offer_detail_overlay.html
 msgid "Address"
 msgstr "Adresse"
 
@@ -620,7 +620,7 @@ msgstr "Es konnten keine Maßnahmen gefunden werden"
 #: cms/templates/interactions/decline_list.html
 #: cms/templates/interactions/report_list.html
 #: cms/templates/interactions/vote_form.html
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Short description"
 msgstr "Kurzbeschreibung"
 
@@ -691,10 +691,12 @@ msgid "Pending"
 msgstr "Offen"
 
 #: cms/templates/interactions/vote_form.html
+#: cms/templates/overlay/offer_application_overlay.html
 msgid "Accept"
 msgstr "Annehmen"
 
 #: cms/templates/interactions/vote_form.html
+#: cms/templates/overlay/offer_application_overlay.html
 msgid "Decline"
 msgstr "Ablehnen"
 
@@ -783,59 +785,83 @@ msgstr "Angaben der Organisation"
 msgid "Submit offer application"
 msgstr "Maßnahmenbewerbung absenden"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_application_overlay.html
+#, python-format
+msgid ""
+"Please confirm that you want to reject the application for <b>%(title)s</b>"
+msgstr ""
+"Bitte bestätigen Sie, dass sie die Bewerbung für <b>%(title)s</b> ablehnen "
+"möchten"
+
+#: cms/templates/overlay/offer_application_overlay.html
+#, python-format
+msgid ""
+"Please confirm that you want to accept the application for <b>%(title)s</b>"
+msgstr ""
+"Bitte bestätigen Sie, dass sie die Bewerbung für <b>%(title)s</b> annehmen "
+"möchten"
+
+#: cms/templates/overlay/offer_application_overlay.html
+msgid "Reason for declining"
+msgstr "Ablehnungsgrund"
+
+#: cms/templates/overlay/offer_application_overlay.html
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Report"
 msgstr "Meldung"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Contact person"
 msgstr "Kontaktperson"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Organization"
 msgstr "Organisation"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "More details"
 msgstr "Weitere Details"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Free?"
 msgstr "Kostenlos?"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Language:"
 msgstr "Sprache:"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Group type:"
 msgstr "Gruppentyp:"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Mode type:"
 msgstr "Modustype:"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Comment on this offer"
 msgstr "Vermerk zur Maßnahme hinzufügen"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "An error occurred. Please try again."
 msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Add comment"
 msgstr "Vermerk hinzufügen"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Comments"
 msgstr "Vermerke"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Offer details have changed since this comment was added"
 msgstr "Maßnahmendetails haben sich seit diesem Vermerk geändert"
 
-#: cms/templates/overlay/offer-detail-overlay.html
+#: cms/templates/overlay/offer_detail_overlay.html
 msgid "Documents"
 msgstr "Dokumente"
 

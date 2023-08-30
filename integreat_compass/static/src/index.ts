@@ -9,11 +9,13 @@ import "./js/messages";
 import { createIconsAt } from "./js/utils/create-icons";
 import { handleOfferDetails } from "./js/offer-details";
 import { submitFilter } from "./js/filter";
+import { handleModal } from "./js/application-overlay";
 
 window.addEventListener("DOMContentLoaded", () => {
     createIconsAt(document.documentElement);
     handleOfferDetails();
     submitFilter();
+    handleModal();
     const event = new Event("icon-load");
     window.dispatchEvent(event);
 });
