@@ -79,6 +79,17 @@
                             {% endfor %}
                         </ul>
                     </div>
+                    <div class="mt-4 flex items-center">
+                        <input id="is-free"
+                               type="checkbox"
+                               {% if filtered_free_offer %}checked{% endif %}
+                               name="free_offer"
+                               class="filter-element">
+                        <label for="is-free"
+                               class="w-full duration-100 m-0 p-2 text-lg rounded-full">
+                            {% translate "Only show free offers" %}
+                        </label>
+                    </div>
                 </form>
             </div>
         </div>
