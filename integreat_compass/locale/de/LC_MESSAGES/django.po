@@ -587,6 +587,10 @@ msgid "Categories"
 msgstr "Kategorien"
 
 #: cms/templates/index.html
+msgid "Only show free offers"
+msgstr "Zeige nur kostenlose Maßnahmen"
+
+#: cms/templates/index.html
 msgid "Offers"
 msgstr "Maßnahmen"
 

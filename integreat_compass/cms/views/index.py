@@ -70,6 +70,9 @@ class IndexListView(ListView):
                 versions__title__icontains=offer_search
             )
 
+        if request.GET.get("free_offer"):
+            filtered_offers = filtered_offers.filter(versions__is_free=True)
+
         return render(
             request,
             self.template_name,
@@ -85,5 +88,6 @@ class IndexListView(ListView):
                 "filtered_group_types": group_types,
                 "offer_mode_types": offer_mode_types.CHOICES,
                 "filtered_mode_types": mode_types,
+                "filtered_free_offer": bool(request.GET.get("free_offer")),
             },
         )
