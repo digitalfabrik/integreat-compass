@@ -15,7 +15,9 @@ module.exports = {
       green: colors.green,
       blue: colors.blue,
       violet: colors.violet,
-      primary: "#d55854",
+      primary: "#FBDA16",
+      secondary: "#334253",
+      tertiary: "#E9E9E9",
     },
     extend: {
       colors: {

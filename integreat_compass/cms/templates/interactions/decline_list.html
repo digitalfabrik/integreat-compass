@@ -25,7 +25,7 @@
                     <p class="text-gray-600">{{ offer_version.description|truncatechars:200 }}</p>
                     <div class=" my-4">
                         {% for tag in offer_version.offer.tags.all %}
-                            <span class="bg-red-500 text-white rounded-full py-1 px-2">{{ tag }}</span>
+                            <span class="bg-primary text-gray-700 rounded-full py-1 px-2">{{ tag }}</span>
                         {% endfor %}
                     </div>
                     <p class="text-gray-700">{% translate "Created at:" %} {{ offer_version.created_at|date:"d. M Y" }}</p>

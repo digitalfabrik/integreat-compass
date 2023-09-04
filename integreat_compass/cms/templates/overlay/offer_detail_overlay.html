@@ -1,31 +1,29 @@
 {% load i18n %}
 <div id="offer-detail-layover-{{ offer.id }}"
      class="hidden mt-24 fixed items-center justify-center inset-0 bg-opacity-75 bg-gray-800 overflow-scroll z-50 cursor-pointer">
-    <div class="cursor-auto justify-center w-9/12 max-h-fit px-4 z-50 m-auto my-24">
-        <div class="bg-white opacity-100 content rounded-2xl shadow-md w-full p-8">
-            <div class="flex justify-between rounded-2xl p-4">
+    <div class="cursor-auto justify-center w-10/12 max-h-fit px-4 z-50 m-auto my-16 text-gray-700">
+        <div class="bg-white opacity-100 content rounded-sm shadow-md w-full">
+            <div class="flex justify-between border-b-2 p-4">
                 <div>
-                    <h2 class="font-bold text-2xl font-default">{{ offer_version.title }}</h2>
-                    <p class="text-gray-600">{{ offer.organization.name }}</p>
+                    <h2 class="text-gray-900 font-bold text-2xl font-default">{{ offer_version.title }}</h2>
+                    <p>{{ offer.organization.name }}</p>
                 </div>
-                <div class="flex items-center">
+                <div>
                     {% if public_version %}
                         <a href="{% url 'cms:public:report_offer' pk=offer.id %}"
-                           class="text-gray-600 flex items-center my-0 mr-8">
+                           class="my-0 mr-4">
                             <i class="mr-2" icon-name="alert-triangle"></i>
                             {% translate "Report" %}
                         </a>
                     {% endif %}
-                    <button type="button"
-                            id="btn-close-offer-detail-layover-{{ offer.id }}"
-                            class="flex ml-auto bg-red-500 hover:bg-red-600 text-white">
-                        <i icon-name="x-square" class="h-8 w-8"></i>
-                    </button>
+                    <i id="btn-close-offer-detail-layover-{{ offer.id }}"
+                       icon-name="x"
+                       class="hover:cursor-pointer w-8"></i>
                 </div>
             </div>
-            <div class="w-full p-4">
-                <div class="md:flex mb-4 xl:mb-6">
-                    <div class="xl:flex mr-12">
+            <div class="w-full p-4 text-gray-900">
+                <div class="xl:flex mb-4 xl:mb-6">
+                    <div class="flex mr-12">
                         <div class="mr-8">
                             <img class="rounded-2xl object-cover h-[300px]"
                                  src="{{ offer_version.title_image_url }}"
@@ -33,18 +31,18 @@
                                  height="100%"
                                  alt="">
                         </div>
-                        <div class="mt-4 xl:mt-0 w-full text-gray-500">
+                        <div class="mt-4 xl:mt-0 w-full text-gray-700">
                             <h3 class="text-xl font-semibold">{% translate "Short description" %}</h3>
                             <p>{{ offer_version.description }}</p>
                             <div class="mt-4">
                                 {% for tag in offer.tags.all %}
-                                    <span class="text-white bg-primary rounded-2xl px-3 py-1 leading-8">{{ tag }}</span>
+                                    <span class="text-gray-700 bg-primary rounded-2xl px-3 py-1 leading-8">{{ tag }}</span>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 xl:mt-0">
-                        <div class="text-gray-500">
+                    <div class="flex mt-4 xl:mt-0">
+                        <div class="text-gray-700">
                             <div>
                                 <h3 class="text-xl font-semibold">{% translate "Contact person" %}</h3>
                                 <p>{{ offer.offer_contact.name }}</p>
@@ -106,7 +104,7 @@
                                        id="id_offer-id-{{ offer.pk }}"
                                        name="offer_id"
                                        value="{{ offer.pk }}">
-                                <button type="submit" class="btn mt-2">{% translate "Add comment" %}</button>
+                                <button type="submit" class="btn mt-2 !text-gray-700">{% translate "Add comment" %}</button>
                                 <div class="float-right">
                                     <span class="comment-length">0</span>/{{ max_comment_length }}
                                 </div>

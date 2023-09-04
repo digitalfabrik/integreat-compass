@@ -2,8 +2,8 @@
 {% load i18n %}
 {% load static %}
 {% block raw_content %}
-    <div class="flex justify-between items-center shadow-md bg-white z-40 fixed w-screen top-0">
-        <div class="mx-12 w-full flex items-center font-medium text-xl text-gray-500">
+    <div class="flex justify-between items-center shadow-md bg-secondary z-40 fixed w-screen top-0">
+        <div class="mx-12 w-full flex items-center font-medium text-xl text-white">
             <a href="{% url 'cms:public:index' %}">
                 <img src="{% static 'images/logo-integreat-compass.svg' %}"
                      width="200"
@@ -11,30 +11,34 @@
                      alt="{% translate "Logo" %}"
                      class="h-24 w-48">
             </a>
+            {% url 'cms:public:index' as url %}
             <a href="{% url 'cms:public:index' %}"
-               class="ml-6 mr-4 hover:text-gray-900">{% translate "All offers" %}</a>
+               class="ml-6 mr-4 hover:text-primary {% if request.path == url %}border-primary border-b-4{% else %}border-b-4 border-transparent{% endif %} h-24 flex items-center">{% translate "All offers" %}</a>
             {% if perms.cms.add_vote %}
+                {% url 'cms:protected:votes' as url %}
                 <a href="{% url 'cms:protected:votes' %}"
-                   class="ml-6 mr-4 hover:text-gray-900">{% translate "Applications" %}</a>
+                   class="ml-6 mr-4 hover:text-primary {% if request.path == url %}border-primary border-b-4{% else %}border-b-4 border-transparent{% endif %} h-24 flex items-center">{% translate "Applications" %}</a>
             {% endif %}
             {% if perms.cms.change_offer %}
+                {% url 'cms:protected:my_offers' as url %}
                 <a href="{% url 'cms:protected:my_offers' %}"
-                   class="ml-6 mr-4 hover:text-gray-900">{% translate "My Offers" %}</a>
+                   class="ml-6 mr-4 hover:text-primary {% if request.path == '/offers/my/' %}border-primary border-b-4{% else %}border-b-4 border-transparent{% endif %} h-24 flex items-center">{% translate "My Offers" %}</a>
+                {% url 'cms:protected:new_offer' as url %}
                 <a href="{% url 'cms:protected:new_offer' %}"
-                   class="ml-6 mr-4 hover:text-gray-900">{% translate "Add new offer" %}</a>
+                   class="ml-6 mr-4 hover:text-primary {% if request.path == '/offers/new/' %}border-primary border-b-4{% else %}border-b-4 border-transparent{% endif %} h-24 flex items-center">{% translate "Add new offer" %}</a>
             {% endif %}
             {% if user.is_authenticated %}
-                <div class="ml-auto flex-align-right font-bold hover:text-gray-900">
+                <div class="ml-auto flex-align-right font-bold hover:text-primary">
                     <span class="text-primary">{{ user.display_name }}</span>
                     <a href="{% url 'cms:public:logout' %}">({% translate "Logout" %})</a>
                 </div>
             {% else %}
-                <div class="ml-auto flex-align-right font-bold hover:text-gray-900">
+                <div class="ml-auto flex-align-right font-bold hover:text-primary">
                     <a href="{% url 'cms:public:login' %}">{% translate "Login" %}</a>
                 </div>
-                <div class="ml-4 mr-4 flex-align-right font-bold hover:text-gray-900">
+                <div class="ml-4 mr-4 flex-align-right font-bold hover:text-white">
                     <a href="{% url 'cms:public:register' %}"
-                       class="text-primary hover:text-gray-900">{% translate "Register" %}</a>
+                       class="text-primary hover:text-white">{% translate "Register" %}</a>
                 </div>
             {% endif %}
         </div>

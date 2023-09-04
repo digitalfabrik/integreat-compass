@@ -583,10 +583,6 @@ msgid "Search"
 msgstr "Suchen"
 
 #: cms/templates/index.html
-msgid "Categories"
-msgstr "Kategorien"
-
-#: cms/templates/index.html
 msgid "Only show free offers"
 msgstr "Zeige nur kostenlose Maßnahmen"
 
@@ -650,13 +646,13 @@ msgid "Report offer"
 msgstr "Maßnahme melden"
 
 #: cms/templates/interactions/report_list.html
-msgid "Reason"
-msgstr "Begründung"
-
-#: cms/templates/interactions/report_list.html
 #: cms/templates/interactions/vote_form.html
 msgid "Details"
 msgstr "Details"
+
+#: cms/templates/interactions/report_list.html
+msgid "Reason"
+msgstr "Begründung"
 
 #: cms/templates/interactions/report_list.html
 msgid "Reject version"
@@ -667,12 +663,20 @@ msgid "There are no unhandled reports."
 msgstr "Es gibt keine unbearbeitete Meldungen."
 
 #: cms/templates/interactions/vote_form.html
-msgid "You have approved this application"
-msgstr "Du hast diese Bewerbung angenommen."
+msgid ""
+"<p> You have <span class=\"text-green-500\">approved</span> this application "
+"</p>"
+msgstr ""
+"<i class=\"mr-4\" icon-name=\"check-circle-2\"></i> <p> Sie haben diese "
+"Maßnahme <span class=\"text-green-500\">angenommen</span></p>"
 
 #: cms/templates/interactions/vote_form.html
-msgid "You have declined this application"
-msgstr "Du hast diese Bewerbung abgelehnt"
+msgid ""
+"<p> You have <span class=\"text-red-500\">declined</span> this application </"
+"p>"
+msgstr ""
+"<i class=\"mr-4\" icon-name=\"alert-circle\"></i> <p> Sie haben diese "
+"Maßnahme <span class=\"text-red-500\">abgelehnt</span></p>"
 
 #: cms/templates/interactions/vote_form.html
 msgid "You have not voted on this application yet"
@@ -692,13 +696,13 @@ msgstr "Offen"
 
 #: cms/templates/interactions/vote_form.html
 #: cms/templates/overlay/offer_application_overlay.html
-msgid "Accept"
-msgstr "Annehmen"
+msgid "Decline"
+msgstr "Ablehnen"
 
 #: cms/templates/interactions/vote_form.html
 #: cms/templates/overlay/offer_application_overlay.html
-msgid "Decline"
-msgstr "Ablehnen"
+msgid "Accept"
+msgstr "Annehmen"
 
 #: cms/templates/offers/image_picker.html
 msgid "Select title image"
@@ -707,6 +711,10 @@ msgstr "Titelbild auswählen"
 #: cms/templates/offers/my_offers_list.html
 msgid "My offers"
 msgstr "Meine Maßnahmen"
+
+#: cms/templates/offers/my_offers_list.html
+msgid "Add offer"
+msgstr "Maßnahmen hinzufügen"
 
 #: cms/templates/offers/my_offers_list.html
 msgid "Your offer application has been approved."
@@ -721,10 +729,6 @@ msgid "The decision on your offer application is still pending."
 msgstr "Die Entscheidung zu Ihrer Maßnahmenbewerbung ist noch ausstehend."
 
 #: cms/templates/offers/my_offers_list.html
-msgid "Edit offer"
-msgstr "Maßnahme bearbeiten"
-
-#: cms/templates/offers/my_offers_list.html
 msgid "Are you sure you want to delete this offer?"
 msgstr "Sind Sie sicher, dass Sie diese Maßnahme löschen möchten?"
 
@@ -733,12 +737,12 @@ msgid "Delete offer"
 msgstr "Maßnahme löschen"
 
 #: cms/templates/offers/my_offers_list.html
-msgid "You have not created any offers yet."
-msgstr "Sie haben noch keine Maßnahmen erstellt."
+msgid "Edit offer"
+msgstr "Maßnahme bearbeiten"
 
 #: cms/templates/offers/my_offers_list.html
-msgid "Add offer"
-msgstr "Maßnahmen hinzufügen"
+msgid "You have not created any offers yet."
+msgstr "Sie haben noch keine Maßnahmen erstellt."
 
 #: cms/templates/offers/offer_form.html
 #, python-format
@@ -981,6 +985,15 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "Categories"
+#~ msgstr "Kategorien"
+
+#~ msgid "You have approved this application"
+#~ msgstr "Du hast diese Bewerbung angenommen."
+
+#~ msgid "You have declined this application"
+#~ msgstr "Du hast diese Bewerbung abgelehnt"
 
 #~ msgid "Private"
 #~ msgstr "privat"
