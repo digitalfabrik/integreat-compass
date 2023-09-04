@@ -250,6 +250,9 @@ CHANGED_OFFER_GREMIUM_SIZE = int(
     os.environ.get("INTEGREAT_COMPASS_CHANGED_OFFER_GREMIUM_SIZE", 4)
 )
 
+#: Available steps and ranges for filtering
+OFFER_DISTANCE_STEPS = [5, 10, 20, 30, 50]
+
 ###########
 # LOGGING #
 ###########

@@ -8,7 +8,7 @@
 {% endblock container %}
 {% block content %}
     <div class="flex">
-        <div class="pl-12 hidden lg:block fixed top-24 bottom-0 bg-white lg:w-3/12 py-8 pr-8 shadow-[10px_0_5px_-2px_rgba(0,0,0,0.1)]">
+        <div class="pl-12 hidden lg:block fixed top-24 bottom-0 bg-white lg:w-3/12 py-8 pr-8 shadow-[10px_0_5px_-2px_rgba(0,0,0,0.1)] overflow-y-scroll">
             <form id="filter-form" action="{% url 'cms:public:index' %}" method="get">
                 <h2 class="text-2xl font-semibold">{% translate "Filter" %}</h2>
                 <p class="text-gray-500">{% translate "Filter all offers" %}</p>
@@ -16,6 +16,7 @@
                     <input id="search"
                            placeholder="{% translate "Search" %}"
                            name="search"
+                           value="{% if filtered_search %}{{ filtered_search }}{% endif %}"
                            type="text"
                            class="filter-element block w-full px-1 border border-gray-400 rounded-md">
                 </div>
@@ -89,6 +90,49 @@
                                class="w-full duration-100 m-0 p-2 text-lg rounded-full">
                             {% translate "Only show free offers" %}
                         </label>
+                    </div>
+                    <div class="mt-4">
+                        <div>
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <label for="filter-address">{% translate "Location" %}</label>
+                                <span class="text-sm underline" id="location-filter-reset"><i icon-name="x" class="w-4 h-4"></i> {% translate "reset" %}</span>
+                            </div>
+                            <input type="text"
+                                   name="filter-address"
+                                   placeholder="{% translate "Address" %}"
+                                   id="filter-address">
+                        </div>
+                        <div class="hidden">
+                            <input type="number"
+                                   class="filter-element"
+                                   name="lat"
+                                   step="1e-7"
+                                   id="id_location-lat">
+                            <input type="number"
+                                   class="filter-element"
+                                   name="long"
+                                   step="1e-7"
+                                   id="id_location-long">
+                        </div>
+                        <ul class="mt-2 items-center w-full border border-gray-500 rounded xl:flex shadow-inner">
+                            {% for distance in offer_distance_steps %}
+                                <li class="w-full text-center">
+                                    <div class="items-center">
+                                        <input id="distance-{{ distance }}"
+                                               class="filter-element hidden peer"
+                                               type="radio"
+                                               name="radius"
+                                               {% if distance|slugify == filtered_radius %}checked{% endif %}
+                                               value="{{ distance }}">
+                                        <label for="distance-{{ distance }}"
+                                               class="w-full duration-100 m-0 py-2 text-md rounded peer-checked:bg-primary peer-checked:text-white">
+                                            {{ distance }}km
+                                        </label>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div id="filter-map" class="aspect-video mt-2"></div>
                     </div>
                 </form>
             </div>

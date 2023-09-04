@@ -591,6 +591,18 @@ msgid "Only show free offers"
 msgstr "Zeige nur kostenlose Maßnahmen"
 
 #: cms/templates/index.html
+msgid "Location"
+msgstr "Standort"
+
+#: cms/templates/index.html
+msgid "reset"
+msgstr "zurücksetzen"
+
+#: cms/templates/index.html cms/templates/overlay/offer-detail-overlay.html
+msgid "Address"
+msgstr "Adresse"
+
+#: cms/templates/index.html
 msgid "Offers"
 msgstr "Maßnahmen"
 
@@ -778,10 +790,6 @@ msgstr "Meldung"
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Contact person"
 msgstr "Kontaktperson"
-
-#: cms/templates/overlay/offer-detail-overlay.html
-msgid "Address"
-msgstr "Adresse"
 
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Organization"
