@@ -253,6 +253,9 @@ CHANGED_OFFER_GREMIUM_SIZE = int(
 #: Available steps and ranges for filtering
 OFFER_DISTANCE_STEPS = [5, 10, 20, 30, 50]
 
+#: Maximum length of user comments
+MAX_COMMENT_LENGTH = int(os.environ.get("INTEGREAT_COMPASS_MAX_COMMENT_LENGTH", 300))
+
 ###########
 # LOGGING #
 ###########

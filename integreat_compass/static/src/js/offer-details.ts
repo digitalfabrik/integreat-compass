@@ -26,22 +26,3 @@ export const handleOfferDetails = () => {
         }
     }
 };
-
-export const setLengthOfReview = (length: number) => {
-    const offerRatingUsedWords = document.getElementById("offer-rating-used-words");
-    if (offerRatingUsedWords) {
-        offerRatingUsedWords.textContent = length.toString();
-    }
-};
-
-export const countLengthOfReview = () => {
-    const offerRatingTextarea = <HTMLInputElement>document.getElementById("offer-rating-textarea");
-    let amountOfWords = 0;
-    if (offerRatingTextarea) {
-        offerRatingTextarea.addEventListener("input", () => {
-            amountOfWords = offerRatingTextarea.value.length;
-            setLengthOfReview(amountOfWords);
-        });
-    }
-    setLengthOfReview(amountOfWords);
-};

@@ -100,6 +100,20 @@
     }
   },
   {
+    "model": "cms.offerversion",
+    "pk": 7,
+    "fields": {
+      "offer": 4,
+      "created_at": "2023-08-21T07:31:22.346Z",
+      "title": "Deutsch für Flüchtlinge - Integrationskurs für Neuankömmlinge",
+      "title_image": "",
+      "description": "Unser \"Deutsch für Flüchtlinge\" Integrationskurs ist speziell darauf ausgerichtet, Menschen, die vor Kurzem als Flüchtlinge in Deutschland angekommen sind, eine sprachliche Grundlage zu vermitteln und sie in die Gesellschaft zu integrieren. Wir verstehen die Bedeutung von Deutschkenntnissen für eine erfolgreiche Integration und möchten unseren Teilnehmern helfen, sich in ihrem neuen Lebensumfeld zurechtzufinden und eine bessere Zukunft aufzubauen.\r\n\r\nDer Kurs konzentriert sich auf alltagsrelevante Themen wie die Begrüßung, das Einkaufen, den Arztbesuch, die Wohnungssuche und die Interaktion mit Behörden. Darüber hinaus vermitteln wir grundlegende Informationen über die deutsche Kultur, Gesellschaft und Rechtsordnung, um das Verständnis für die neue Heimat zu fördern.\r\n\r\nUnsere empathischen und erfahrenen Lehrkräfte gestalten den Unterricht auf eine respektvolle und einfühlsame Weise. Wir bieten einen geschützten Raum, in dem sich die Teilnehmer wohl und verstanden fühlen können, während sie ihre Sprachfähigkeiten verbessern und Selbstvertrauen aufbauen.\r\n\r\nWir unterstützen unsere Kursteilnehmer auch bei der Orientierung im deutschen Bildungssystem, der Jobsuche und der Bewältigung alltäglicher Herausforderungen. Wir sind bestrebt, die individuellen Bedürfnisse jedes Einzelnen zu berücksichtigen und sie auf ihrem Weg zu einer erfolgreichen Integration zu begleiten.\r\n\r\nKursgebühr: Der Kurs ist kostenlos und wird durch Fördermittel unterstützt.\r\n\r\nMehr Infos auf unserer Website!",
+      "is_free": true,
+      "language": 2,
+      "state": true
+    }
+  },
+  {
     "model": "cms.user",
     "pk": 1,
     "fields": {
@@ -232,6 +246,28 @@
       "is_staff": false,
       "groups": [1],
       "user_permissions": []
+    }
+  },
+  {
+    "model": "cms.comment",
+    "pk": 1,
+    "fields": {
+      "creator": 8,
+      "offer_version": 5,
+      "date": "2023-07-12T12:28:03.055Z",
+      "comment": "Kann diesen Kurs sehr empfehlen!",
+      "rating": null
+    }
+  },
+  {
+    "model": "cms.comment",
+    "pk": 2,
+    "fields": {
+      "creator": 8,
+      "offer_version": 7,
+      "date": "2023-08-21T12:28:34.606Z",
+      "comment": "Update: leider hat sich in der Zwischenzeit einiges am Kurs geändert, ich kann keine Empfehlung mehr aussprechen.",
+      "rating": null
     }
   },
   {
@@ -450,6 +486,56 @@
     "fields": {
       "creator": 3,
       "offer_version": 4,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 13,
+    "fields": {
+      "creator": 1,
+      "offer_version": 6,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 14,
+    "fields": {
+      "creator": 2,
+      "offer_version": 6,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 15,
+    "fields": {
+      "creator": 3,
+      "offer_version": 6,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 16,
+    "fields": {
+      "creator": 4,
+      "offer_version": 6,
+      "approval": true,
+      "comment": ""
+    }
+  },
+  {
+    "model": "cms.vote",
+    "pk": 17,
+    "fields": {
+      "creator": 9,
+      "offer_version": 6,
       "approval": true,
       "comment": ""
     }

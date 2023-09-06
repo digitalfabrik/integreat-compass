@@ -20,9 +20,10 @@ def test_offer_list_success(load_test_data):
     # Test invalid submission
     response = client.get(endpoint, {}, format="html", content_type="text/html")
     assert response.status_code == 200
-    assert len(response.context["offers"]) == 2
+    assert len(response.context["offers"]) == 3
     assert response.context["offers"][0].id == 4
-    assert response.context["offers"][1].id == 3
+    assert response.context["offers"][1].id == 5
+    assert response.context["offers"][2].id == 3
 
 
 @pytest.mark.django_db
@@ -63,5 +64,6 @@ def test_index_multiple_offer_tags(load_test_data):
         endpoint, {"tags": [4, 2]}, format="html", content_type="text/html"
     )
     assert response.status_code == 200
-    assert len(response.context["offers"]) == 1
+    assert len(response.context["offers"]) == 2
     assert response.context["offers"][0].id == 4
+    assert response.context["offers"][1].id == 5

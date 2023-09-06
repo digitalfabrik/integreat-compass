@@ -628,6 +628,27 @@ msgstr "Kurzbeschreibung"
 msgid "No offers have been declined by the board."
 msgstr "Es gibt keine Maßnahmen, die vom Gremium abgelehnt wurden."
 
+#: cms/templates/interactions/offer_report.html
+#, python-format
+msgid "Report offer \"%(offer_title)s\""
+msgstr "Maßnahme \"%(offer_title)s\" melden"
+
+#: cms/templates/interactions/offer_report.html
+msgid ""
+"Please note: You will stay anonymous. The report will be seen by both the "
+"offer provider and board members."
+msgstr ""
+"Hinweis: Sie werden anonym bleiben. Ihre Meldung kann sowohl von dem "
+"Ersteller als auch von dem Gremium eingesehen werden."
+
+#: cms/templates/interactions/offer_report.html
+msgid "Reason for reporting"
+msgstr "Grund für die Meldung"
+
+#: cms/templates/interactions/offer_report.html
+msgid "Report offer"
+msgstr "Maßnahme melden"
+
 #: cms/templates/interactions/report_list.html
 msgid "Reason"
 msgstr "Begründung"
@@ -762,27 +783,6 @@ msgstr "Angaben der Organisation"
 msgid "Submit offer application"
 msgstr "Maßnahmenbewerbung absenden"
 
-#: cms/templates/offers/offer_report.html
-#, python-format
-msgid "Report offer \"%(offer_title)s\""
-msgstr "Maßnahme \"%(offer_title)s\" melden"
-
-#: cms/templates/offers/offer_report.html
-msgid ""
-"Please note: You will stay anonymous. The report will be seen by both the "
-"offer provider and board members."
-msgstr ""
-"Hinweis: Sie werden anonym bleiben. Ihre Meldung kann sowohl von dem "
-"Ersteller als auch von dem Gremium eingesehen werden."
-
-#: cms/templates/offers/offer_report.html
-msgid "Reason for reporting"
-msgstr "Grund für die Meldung"
-
-#: cms/templates/offers/offer_report.html
-msgid "Report offer"
-msgstr "Maßnahme melden"
-
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Report"
 msgstr "Meldung"
@@ -814,6 +814,26 @@ msgstr "Gruppentyp:"
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Mode type:"
 msgstr "Modustype:"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Comment on this offer"
+msgstr "Vermerk zur Maßnahme hinzufügen"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "An error occurred. Please try again."
+msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Add comment"
+msgstr "Vermerk hinzufügen"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Comments"
+msgstr "Vermerke"
+
+#: cms/templates/overlay/offer-detail-overlay.html
+msgid "Offer details have changed since this comment was added"
+msgstr "Maßnahmendetails haben sich seit diesem Vermerk geändert"
 
 #: cms/templates/overlay/offer-detail-overlay.html
 msgid "Documents"
@@ -896,6 +916,14 @@ msgstr ""
 "Wir haben eine Bestätigungsmail an \"{}\" gesandt. Bitten nutzen Sie den "
 "Link in der E-Mail, um Ihren Account zu aktivieren."
 
+#: cms/views/interactions/offer_report_view.py
+msgid ""
+"Your report for offer \"{}\" has successfully been submitted and will be "
+"reviewed shortly."
+msgstr ""
+"Die Meldung für die Maßnahme \"{}\" wurde erfolgreich übermittelt und wird "
+"in Kürze geprüft."
+
 #: cms/views/interactions/report_list_view.py
 msgid "You rejected the reported offer \"{}\""
 msgstr "Sie haben die Maßnahme \"{}\" abgelehnt"
@@ -915,14 +943,6 @@ msgid ""
 msgstr ""
 "Die Maßnahmenbewerbung \"{}\" wurde erfolgreich übermittelt und wird in "
 "Kürze geprüft."
-
-#: cms/views/offers/offer_report_view.py
-msgid ""
-"Your report for offer \"{}\" has successfully been submitted and will be "
-"reviewed shortly."
-msgstr ""
-"Die Meldung für die Maßnahme \"{}\" wurde erfolgreich übermittelt und wird "
-"in Kürze geprüft."
 
 #: core/apps.py
 msgid "Core"

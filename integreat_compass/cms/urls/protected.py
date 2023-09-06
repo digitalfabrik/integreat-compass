@@ -44,4 +44,8 @@ urlpatterns = [
             ]
         ),
     ),
+    path(
+        "comment/",
+        include([path("add/", interactions.add_comment, name="add_comment")]),
+    ),
 ]

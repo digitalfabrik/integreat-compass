@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
-from ...constants import offer_group_types, offer_mode_types, offer_version_states
+from ...constants import offer_group_types, offer_mode_types
 from ..abstract_base_model import AbstractBaseModel
 from ..interactions.comment import Comment
 from ..users.user import User
@@ -40,11 +40,7 @@ class Offer(AbstractBaseModel):
         :return: OfferVersion or ``None``
         :rtype: ~integreat_compass.cms.models.offers.offer_version.OfferVersion
         """
-        versions = self.versions.all()
-        for version in versions:
-            if version.state == offer_version_states.APPROVED:
-                return version
-        return None
+        return self.versions.filter(state=True).first()
 
     @cached_property
     def latest_version(self):
@@ -61,18 +57,12 @@ class Offer(AbstractBaseModel):
         """
         Method to retrieve all comments on an Offer.
 
-        :return: List of comments together with information on whether the comment was made on the latest offer version
+        :return: List of comments together with information on whether the comment was made on the public offer version
         :rtype: list [ dict [ ~integreat_compass.cms.models.interactions.comment.Comment, bool ] ]
         """
-        versions = self.versions.order_by("-version_date")
-        comments = Comment.objects.filter(offer_version__in=versions)
-        comments_info = []
-        for comment in comments:
-            is_latest_version = comment.offer_version == self.latest_version
-            comments_info.append(
-                {"comment": comment, "is_latest_version": is_latest_version}
-            )
-        return comments_info
+        return Comment.objects.filter(offer_version__in=self.versions.all()).order_by(
+            "-date"
+        )
 
     @cached_property
     def group_type_value(self):
