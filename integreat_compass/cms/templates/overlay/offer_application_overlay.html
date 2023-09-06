@@ -1,0 +1,54 @@
+{% load i18n %}
+<div id="application-modal-{% if declined %}decline{% else %}accept{% endif %}-{{ offer_version.id }}"
+     class="hidden mt-24 fixed items-center justify-center inset-0 bg-opacity-75 bg-gray-800 overflow-scroll z-50 cursor-pointer">
+    <div class="cursor-auto justify-center w-4/12 max-h-fit px-4 z-50 m-auto my-24">
+        <div class="bg-white opacity-100 content shadow-md w-full">
+            <div class="p-4 flex">
+                <div class="mr-4">
+                    {% if declined %}
+                        <i icon-name="alert-circle"></i>
+                    {% else %}
+                        <i icon-name="check-circle"></i>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if declined %}
+                        <p class="font-bold">Decline</p>
+                    {% else %}
+                        <p class="font-bold">Accept</p>
+                    {% endif %}
+                    {% if declined %}
+                        {% blocktranslate trimmed with title=offer_version.title %}
+                            Please confirm that you want to reject the application for <b>{{ title }}</b>
+                        {% endblocktranslate %}
+                    {% else %}
+                        {% blocktranslate trimmed with title=offer_version.title %}
+                            Please confirm that you want to accept the application for <b>{{ title }}</b>
+                        {% endblocktranslate %}
+                    {% endif %}
+                    {% if declined %}
+                        <p class="font-bold mt-4 mb-2">{% translate "Reason for declining" %}</p>
+                        <textarea name="reason"></textarea>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="p-4 bg-gray-200 flex justify-end">
+                <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
+                <button type="button"
+                        id="application-modal-{% if declined %}decline{% else %}accept{% endif %}-cancel-{{ offer_version.id }}"
+                        class="btn btn-outline mr-4">{% translate "Cancel" %}</button>
+                <button id="application-modal-confirm"
+                        class="btn bg-primary"
+                        type="submit"
+                        name="approval"
+                        value="{% if declined %}{{ False }}{% else %}{{ True }}{% endif %}">
+                    {% if declined %}
+                        {% translate "Decline" %}
+                    {% else %}
+                        {% translate "Accept" %}
+                    {% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

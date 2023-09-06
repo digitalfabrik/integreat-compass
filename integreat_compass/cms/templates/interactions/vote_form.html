@@ -58,24 +58,25 @@
                                 <p>{{ offer_version.pending }}/{{ offer_version.number_of_votes_needed }}</p>
                             </div>
                         </div>
-                        <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
                         <div class="grid lg:grid-cols-3 grid-cols-1 xl:gap-8 gap-2 text-white ">
                             <button id="offer-{{ offer_version.offer.id }}"
                                     class="open-details bg-blue-500 hover:bg-blue-700 rounded-full"
                                     type="button">{% translate "Details" %}</button>
-                            <button class="bg-green-500 hover:bg-green-700 rounded-full"
-                                    type="submit"
-                                    name="approval"
-                                    value="{{ True }}">{% translate "Accept" %}</button>
-                            <button class="bg-red-500 hover:bg-red-700 rounded-full"
-                                    type="submit"
-                                    name="approval"
-                                    value="{{ False }}">{% translate "Decline" %}</button>
+                            <button type="button"
+                                    class="open-accept-modal bg-green-500 hover:bg-green-700 rounded-full"
+                                    id="offer-{{ offer_version.id }}">{% translate "Accept" %}</button>
+                            <button type="button"
+                                    id="offer-{{ offer_version.id }}"
+                                    class="open-decline-modal bg-red-500 hover:bg-red-700 rounded-full">
+                                {% translate "Decline" %}
+                            </button>
                         </div>
                     </div>
                 </div>
+                {% include "overlay/offer_application_overlay.html" %}
+                {% include "overlay/offer_application_overlay.html" with declined="True" %}
             </form>
-            {% include "overlay/offer-detail-overlay.html" with offer=offer_version.offer offer_version=offer_version public_version=False %}
+            {% include "overlay/offer_detail_overlay.html" with offer=offer_version.offer offer_version=offer_version public_version=False %}
         {% endfor %}
     </div>
 {% endblock content %}

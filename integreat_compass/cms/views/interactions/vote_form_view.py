@@ -95,10 +95,11 @@ class VoteFormView(TemplateView):
         """
         offer_version_id = request.POST.get("offer_version_id")
         approval = request.POST.get("approval")
+        comment = request.POST.get("reason")
         Vote.objects.update_or_create(
             creator=request.user,
             offer_version_id=offer_version_id,
-            defaults={"approval": approval},
+            defaults={"approval": approval, "comment": comment},
         )
         messages.success(
             request,
