@@ -10,8 +10,8 @@
     <div class="flex">
         <div class="pl-12 hidden lg:block fixed top-24 bottom-0 bg-white lg:w-3/12 py-8 pr-8 shadow-[10px_0_5px_-2px_rgba(0,0,0,0.1)] overflow-y-scroll">
             <form id="filter-form" action="{% url 'cms:public:index' %}" method="get">
-                <h2 class="text-2xl font-semibold">{% translate "Filter" %}</h2>
-                <p class="text-gray-500">{% translate "Filter all offers" %}</p>
+                <h2 class="text-gray-700 text-2xl font-semibold">{% translate "Filter" %}</h2>
+                <p class="text-gray-700">{% translate "Filter all offers" %}</p>
                 <div>
                     <input id="search"
                            placeholder="{% translate "Search" %}"
@@ -20,9 +20,8 @@
                            type="text"
                            class="filter-element block w-full px-1 border border-gray-400 rounded-md">
                 </div>
-                <div class="pb-1">
-                    <h3 class="text-gray-500 mt-10">{% translate "Categories" %}</h3>
-                    <div class="flex flex-wrap gap-x-4">
+                <div>
+                    <div class="mt-8 flex flex-wrap gap-x-4">
                         {% for tag in tags %}
                             <div>
                                 <input id="{{ tag.id }}"
@@ -32,13 +31,13 @@
                                        {% if tag.id|stringformat:"i" in filtered_tags %}checked{% endif %}
                                        value="{{ tag.id }}">
                                 <label for="{{ tag.id }}"
-                                       class="px-4 py-2 text-lg rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:text-white peer-checked:border-none">
+                                       class="px-2 py-1 mt-2 text-lg font-normal bg-tertiary rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:border-none">
                                     {{ tag }}
                                 </label>
                             </div>
                         {% endfor %}
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-8">
                         <ul class="items-center w-full border border-gray-500 rounded-full flex shadow-inner">
                             {% for group_type in offer_group_types %}
                                 {% if group_type.1 != "both" %}
@@ -51,7 +50,7 @@
                                                    {% if group_type.0 in filtered_group_types %}checked{% endif %}
                                                    value="{{ group_type.0 }}">
                                             <label for="group-{{ group_type.0 }}"
-                                                   class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                                   class="font-normal w-full duration-100 m-0 py-1 px-2 text-lg rounded-full peer-checked:bg-primary">
                                                 {{ group_type.1 }}
                                             </label>
                                         </div>
@@ -72,7 +71,7 @@
                                                {% if mode_type.0 in filtered_mode_types %}checked{% endif %}
                                                value="{{ mode_type.0 }}">
                                         <label for="mode-{{ mode_type.0 }}"
-                                               class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                               class="font-normal w-full duration-100 m-0 py-1 px-2 text-lg rounded-full peer-checked:bg-primary">
                                             {{ mode_type.1 }}
                                         </label>
                                     </div>
@@ -80,14 +79,14 @@
                             {% endfor %}
                         </ul>
                     </div>
-                    <div class="mt-4 flex items-center">
+                    <div class="mt-8 flex items-center">
                         <input id="is-free"
                                type="checkbox"
                                {% if filtered_free_offer %}checked{% endif %}
                                name="free_offer"
                                class="filter-element">
                         <label for="is-free"
-                               class="w-full duration-100 m-0 p-2 text-lg rounded-full">
+                               class="font-normal w-full duration-100 m-0 p-2 text-lg rounded-full">
                             {% translate "Only show free offers" %}
                         </label>
                     </div>
@@ -125,7 +124,7 @@
                                                {% if distance|slugify == filtered_radius %}checked{% endif %}
                                                value="{{ distance }}">
                                         <label for="distance-{{ distance }}"
-                                               class="w-full duration-100 m-0 py-2 text-md rounded peer-checked:bg-primary peer-checked:text-white">
+                                               class="w-full duration-100 m-0 py-2 text-md rounded peer-checked:bg-primary peer-checked:text-gray-700">
                                             {{ distance }}km
                                         </label>
                                     </div>
@@ -139,10 +138,10 @@
         </div>
         <div class="mr-12 w-full lg:ml-[25vw] lg:w-9/12 justify-end lg:pr-0">
             <div class="pl-12">
-                <div class="mb-4">
+                <div class="mt-2 mb-4">
                     <div class="flex items-center">
-                        <h2 class="text-2xl font-semibold">{% translate "Offers" %}</h2>
-                        <span class="flex ml-4 text-gray-400 items-center">{{ offers|length }}
+                        <h2 class="text-gray-700 text-2xl font-semibold">{% translate "Offers" %}</h2>
+                        <span class="flex ml-4 text-gray-500 items-center">{{ offers|length }}
                             {% translate "offers" %}
                         </span>
                     </div>
@@ -151,9 +150,9 @@
                     {% if offers %}
                         {% for offer in offers %}
                             <div id="offer-{{ offer.id }}"
-                                 class="open-details bg-white flex shadow-lg hover:shadow-xl rounded-2xl hover:cursor-pointer">
+                                 class="open-details bg-white flex shadow-lg hover:shadow-xl rounded-md hover:cursor-pointer">
                                 <div class="w-4/12 flex items-center">
-                                    <img class="rounded-2xl object-cover h-[300px]"
+                                    <img class="rounded-md object-cover h-[250px]"
                                          src="{{ offer.public_version.title_image_url }}"
                                          width="100%"
                                          height="100%"
@@ -161,13 +160,13 @@
                                 </div>
                                 <div class="w-8/12 py-2 px-4">
                                     <h3 class="font-bold">{{ offer.public_version.title }}</h3>
-                                    <p class="text-gray-500 pb-1">{{ offer.organization.name }}</p>
+                                    <p class="text-gray-700 pb-1">{{ offer.organization.name }}</p>
                                     <div class="pb-1">
                                         {% for tag in offer.tags.all %}
-                                            <span class="text-white bg-primary rounded-2xl px-3 py-1 leading-8">{{ tag }}</span>
+                                            <span class="text-gray-700 bg-primary rounded-full px-3 py-1 leading-8">{{ tag }}</span>
                                         {% endfor %}
                                     </div>
-                                    <p class="text-gray-400">{% translate "Created at:" %} {{ offer.public_version.created_at|date:"d. M Y" }}</p>
+                                    <p class="text-gray-700">{% translate "Created at:" %} {{ offer.public_version.created_at|date:"d. M Y" }}</p>
                                 </div>
                             </div>
                             {% include "overlay/offer_detail_overlay.html" with public_version=True offer=offer offer_version=offer.public_version %}

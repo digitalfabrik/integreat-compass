@@ -36,9 +36,11 @@
                 <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
                 <button type="button"
                         id="application-modal-{% if declined %}decline{% else %}accept{% endif %}-cancel-{{ offer_version.id }}"
-                        class="btn btn-outline mr-4">{% translate "Cancel" %}</button>
+                        class="btn btn-outline !bg-gray-600 !border-gray-600 hover:!bg-white hover:!text-gray-600 !text-white mr-4">
+                    {% translate "Cancel" %}
+                </button>
                 <button id="application-modal-confirm"
-                        class="btn bg-primary"
+                        class="btn bg-primary !text-gray-700"
                         type="submit"
                         name="approval"
                         value="{% if declined %}{{ False }}{% else %}{{ True }}{% endif %}">

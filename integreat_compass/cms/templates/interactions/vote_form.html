@@ -21,30 +21,50 @@
                                  width="300"
                                  height="300">
                         </div>
-                        <div class="py-4">
+                        <div class="py-4 w-full">
                             <p class="text-xl font-bold">{{ offer_version.title }}</p>
                             <p>{{ offer_version.offer.organization.org_name }}</p>
                             <p class="text-xl text-gray-700 font-semibold pt-4">{% translate "Short description" %}</p>
-                            <p class="text-gray-600">{{ offer_version.description|truncatechars:200 }}</p>
+                            <p class="text-gray-600">{{ offer_version.description|truncatechars:150 }}</p>
                             <div class="my-4">
                                 {% for tag in offer_version.offer.tags.all %}
-                                    <span class="bg-red-500 text-white rounded-full py-1 px-2">{{ tag }}</span>
+                                    <span class="bg-primary text-gray-700 rounded-full py-1 px-2">{{ tag }}</span>
                                 {% endfor %}
                             </div>
-                            <p class="text-gray-700">{% translate "Created at:" %} {{ offer_version.created_at|date:"d. M Y" }}</p>
+                            <div class="flex justify-between">
+                                <p class="text-gray-700">{% translate "Created at:" %} {{ offer_version.created_at|date:"d. M Y" }}</p>
+                                <button id="offer-{{ offer_version.offer.id }}"
+                                        type="button"
+                                        class="open-details btn btn-outline !font-normal py-3 px-4 border-2 !border-gray-600 !text-gray-600 bg-white hover:!bg-gray-600 hover:!text-white">
+                                    <i icon-name="link"></i>
+                                    {% translate "Details" %}
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="basis-1/3 flex flex-col pr-6 justify-around align-center font-bold">
+                    <div class="basis-1/3 flex flex-col p-6 justify-around align-center font-bold bg-background-50">
                         {% if offer_version.user_vote %}
-                            {% if offer_version.user_vote.approval %}
-                                <p class="text-green-500">{% translate "You have approved this application" %}</p>
-                            {% else %}
-                                <p class="text-red-500">{% translate "You have declined this application" %}</p>
-                            {% endif %}
+                            <div class="flex items-center">
+                                {% if offer_version.user_vote.approval %}
+                                    <i class="mr-4" icon-name="check-circle-2"></i>
+                                    {% blocktranslate trimmed %}
+                                        <p>
+                                            You have <span class="text-green-500">approved</span> this application
+                                        </p>
+                                    {% endblocktranslate %}
+                                {% else %}
+                                    <i class="mr-4" icon-name="alert-circle"></i>
+                                    {% blocktranslate trimmed %}
+                                        <p>
+                                            You have <span class="text-red-500">declined</span> this application
+                                        </p>
+                                    {% endblocktranslate %}
+                                {% endif %}
+                            </div>
                         {% else %}
                             <p class="text-gray-700">{% translate "You have not voted on this application yet" %}</p>
                         {% endif %}
-                        <div class="grid md:grid-cols-3 grid-cols-1 gap-8 font-bold">
+                        <div class="bg-white p-4 rounded-2xl grid md:grid-cols-3 grid-cols-1 gap-8 font-bold">
                             <div>
                                 <p>{% translate "Approves" %}</p>
                                 <p class="text-green-600">{{ offer_version.approves }}/{{ offer_version.number_of_votes_needed }}</p>
@@ -58,18 +78,18 @@
                                 <p>{{ offer_version.pending }}/{{ offer_version.number_of_votes_needed }}</p>
                             </div>
                         </div>
-                        <div class="grid lg:grid-cols-3 grid-cols-1 xl:gap-8 gap-2 text-white ">
-                            <button id="offer-{{ offer_version.offer.id }}"
-                                    class="open-details bg-blue-500 hover:bg-blue-700 rounded-full"
-                                    type="button">{% translate "Details" %}</button>
-                            <button type="button"
-                                    class="open-accept-modal bg-green-500 hover:bg-green-700 rounded-full"
-                                    id="offer-{{ offer_version.id }}">{% translate "Accept" %}</button>
-                            <button type="button"
-                                    id="offer-{{ offer_version.id }}"
-                                    class="open-decline-modal bg-red-500 hover:bg-red-700 rounded-full">
-                                {% translate "Decline" %}
-                            </button>
+                        <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
+                        <div class="flex justify-end xl:gap-8 gap-2 text-white ">
+                            <button id="offer-{{ offer_version.id }}"
+                                    class="open-decline-modal btn !bg-gray-600 !border-gray-600 hover:!bg-white hover:!text-gray-600 py-3 px-4"
+                                    type="button"
+                                    name="approval"
+                                    value="{{ False }}">{% translate "Decline" %}</button>
+                            <button id="offer-{{ offer_version.id }}"
+                                    class="open-accept-modal btn !text-gray-700"
+                                    type="button"
+                                    name="approval"
+                                    value="{{ True }}">{% translate "Accept" %}</button>
                         </div>
                     </div>
                 </div>

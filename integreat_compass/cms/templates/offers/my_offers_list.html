@@ -8,7 +8,13 @@
 {% endblock title %}
 {% block content %}
     <div>
-        <h1 class="mb-8">{% translate "My offers" %}</h1>
+        <div class="flex mb-8">
+            <h1 class="text-gray-700">{% translate "My offers" %}</h1>
+            <div class="flex items-center text-gray-700 ml-4 py-1 px-2 border-2 border-primary bg-primary hover:bg-background-50 hover:text-primary">
+                <i class="mr-4" icon-name="plus"></i>
+                <a href="{% url 'cms:protected:new_offer' %}" class>{% translate "Add offer" %}</a>
+            </div>
+        </div>
         {% for offer in object_list %}
             <form method="post"
                   action="{% url 'cms:protected:delete_offer' offer.pk %}">
@@ -28,12 +34,12 @@
                         <p class="text-gray-600 mt-4">{{ offer.latest_version.description|truncatechars:500 }}</p>
                         <div class="my-4">
                             {% for tag in offer.tags.all %}
-                                <span class="bg-red-500 text-white rounded-full py-1 px-2 mr-1">{{ tag }}</span>
+                                <span class="bg-primary text-gray-700 rounded-full py-1 px-2 mr-1">{{ tag }}</span>
                             {% endfor %}
                         </div>
                         <p class="text-gray-700">{% translate "Created at:" %} {{ offer.latest_version.created_at|date:"d. M Y" }}</p>
                     </div>
-                    <div class="basis-1/4 flex flex-col shrink-0 justify-start gap-4 py-6 pr-6">
+                    <div class="basis-1/4 flex flex-col shrink-0 justify-between bg-background-50 gap-4 p-6">
                         {% if offer.latest_version.state is True %}
                             <div class="bg-green-100 border-l-4 border-green-500 text-green-500 px-4 py-3">
                                 <p>{% translate "Your offer application has been approved." %}</p>
@@ -47,13 +53,15 @@
                                 <p>{% translate "The decision on your offer application is still pending." %}</p>
                             </div>
                         {% endif %}
-                        <a href="{% url 'cms:protected:edit_offer' pk=offer.pk %}"
-                           class="font-bold text-center text-white py-3 px-4 border-2 border-yellow-500 bg-yellow-500 hover:bg-background-50 hover:text-yellow-500 rounded-full">{% translate "Edit offer" %}</a>
-                        <button class="confirm-delete font-bold text-white py-3 px-4 border-2 border-red-500 bg-red-500 hover:bg-background-50 hover:text-red-500 rounded-full"
-                                type="submit"
-                                data-confirm='{% translate "Are you sure you want to delete this offer?" %}'>
-                            {% translate "Delete offer" %}
-                        </button>
+                        <div class="flex justify-end">
+                            <button class="btn btn-outline !text-gray-600 bg-white mr-4 confirm-delete py-3 px-4 !border-gray-600 border-2 hover:!bg-gray-600 hover:!text-white"
+                                    type="submit"
+                                    data-confirm='{% translate "Are you sure you want to delete this offer?" %}'>
+                                {% translate "Delete offer" %}
+                            </button>
+                            <a href="{% url 'cms:protected:edit_offer' pk=offer.pk %}"
+                               class="btn text-center !text-gray-700 py-3 px-4 border-2 border-primary bg-primary hover:bg-background-50 hover:text-primary">{% translate "Edit offer" %}</a>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -61,7 +69,5 @@
         {% if not object_list %}
             <p class="mb-8">{% translate "You have not created any offers yet." %}</p>
         {% endif %}
-        <a href="{% url 'cms:protected:new_offer' %}"
-           class="font-bold rounded text-white py-3 px-4 border-2 border-green-500 bg-green-500 hover:bg-background-50 hover:text-green-500">{% translate "Add offer" %}</a>
     </div>
 {% endblock content %}

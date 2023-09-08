@@ -73,7 +73,7 @@
                                 <div>
                                     {{ choice.tag }}
                                     <label for="{{ choice.id_for_label }}"
-                                           class="px-4 py-2 text-lg bg-white rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:text-white peer-checked:border-none">
+                                           class="px-4 py-2 text-lg bg-white rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:text-gray-700 peer-checked:border-none">
                                         {{ choice.choice_label }}
                                     </label>
                                 </div>
@@ -93,7 +93,7 @@
                                                     <div class="items-center">
                                                         {{ choice.tag }}
                                                         <label for="{{ choice.id_for_label }}"
-                                                               class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-white">
+                                                               class="w-full duration-100 m-0 p-2 text-lg rounded-full peer-checked:bg-primary peer-checked:text-gray-700">
                                                             {{ choice.choice_label }}
                                                         </label>
                                                     </div>
@@ -147,7 +147,7 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <button type="submit" class="btn">{% translate "Submit offer application" %}</button>
+                    <button type="submit" class="btn !text-gray-700">{% translate "Submit offer application" %}</button>
                 </div>
             {% endwith %}
         </div>

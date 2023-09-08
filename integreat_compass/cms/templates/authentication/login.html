@@ -32,7 +32,7 @@
                     <a href="{% url 'cms:public:password_reset_request' %}">{% translate "Forgot password?" %}</a>
                 </div>
                 <div class="flex items-center justify-between">
-                    <button class="btn" type="submit">{% translate "Sign In" %}</button>
+                    <button class="btn !text-gray-700" type="submit">{% translate "Sign In" %}</button>
                 </div>
                 <input type="hidden" name="next" value="{{ next }}" />
             </form>
