@@ -165,7 +165,6 @@ const initializeFilterMap = () => {
     initializeMap(container, searchBar, radiusToZoom(radius));
 
     reset.addEventListener("click", () => {
-        console.log("here");
         params.delete("radius");
         (document.querySelector('input[name="radius"]:checked') as HTMLInputElement).checked = false;
         updateField("lat", "");
