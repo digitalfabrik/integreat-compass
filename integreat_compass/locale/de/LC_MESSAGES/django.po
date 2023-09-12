@@ -843,7 +843,7 @@ msgstr "Gruppentyp:"
 
 #: cms/templates/overlay/offer_detail_overlay.html
 msgid "Mode type:"
-msgstr "Modustype:"
+msgstr "Modustyp:"
 
 #: cms/templates/overlay/offer_detail_overlay.html
 msgid "Comment on this offer"
