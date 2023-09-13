@@ -81,12 +81,12 @@
                         <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
                         <div class="flex justify-end xl:gap-8 gap-2 text-white ">
                             <button id="offer-{{ offer_version.id }}"
-                                    class="open-decline-modal btn !bg-gray-600 !border-gray-600 hover:!bg-white hover:!text-gray-600 py-3 px-4"
+                                    class="open-decline-modal btn !text-white !bg-gray-600 !border-gray-600 hover:!bg-white hover:!text-gray-600 py-3 px-4"
                                     type="button"
                                     name="approval"
                                     value="{{ False }}">{% translate "Decline" %}</button>
                             <button id="offer-{{ offer_version.id }}"
-                                    class="open-accept-modal btn !text-gray-700"
+                                    class="open-accept-modal btn"
                                     type="button"
                                     name="approval"
                                     value="{{ True }}">{% translate "Accept" %}</button>
