@@ -31,7 +31,7 @@
                                        {% if tag.id|stringformat:"i" in filtered_tags %}checked{% endif %}
                                        value="{{ tag.id }}">
                                 <label for="{{ tag.id }}"
-                                       class="px-2 py-1 mt-2 text-lg font-normal bg-tertiary rounded-full text-center shadow-lg peer-checked:bg-primary peer-checked:border-none">
+                                       class="px-2 py-1 mt-2 text-lg font-normal bg-tertiary rounded-full text-center hover:shadow-lg peer-checked:bg-primary peer-checked:border-none">
                                     {{ tag }}
                                 </label>
                             </div>
