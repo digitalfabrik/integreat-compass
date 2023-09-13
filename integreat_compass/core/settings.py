@@ -322,6 +322,11 @@ LOGGING = {
             "level": LOG_LEVEL,
             "propagate": False,
         },
+        "django": {
+            "handlers": ["management-command", "logfile"],
+            "level": LOG_LEVEL,
+            "propagate": True,
+        },
     },
 }
 
