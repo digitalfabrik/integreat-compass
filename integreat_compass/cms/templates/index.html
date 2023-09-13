@@ -121,6 +121,7 @@
                                                class="filter-element hidden peer"
                                                type="radio"
                                                name="radius"
+                                               {% if distance == 5 %}checked{% endif %}
                                                {% if distance|slugify == filtered_radius %}checked{% endif %}
                                                value="{{ distance }}">
                                         <label for="distance-{{ distance }}"
