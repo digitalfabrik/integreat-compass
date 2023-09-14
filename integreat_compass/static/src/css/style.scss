@@ -148,7 +148,7 @@ a,
 input[type="submit"] {
     // Normal buttons
     &.btn {
-        @apply font-bold rounded inline-block bg-primary text-white py-3 px-4 border-2 border-primary;
+        @apply font-bold rounded inline-block bg-primary text-gray-700 py-3 px-4 border-2 border-primary;
         svg {
             @apply pr-1;
         }
