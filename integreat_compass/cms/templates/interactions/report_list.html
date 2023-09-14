@@ -49,7 +49,9 @@
                            name="offer_version_id"
                            value="{{ report.offer_version.id }}">
                     <div class="flex justify-end lg:grid-cols-3 grid-cols-1 xl:gap-8 gap-2 text-white font-bold">
-                        <button class="btn" type="submit" name="move-to-declined" value="True">{% translate "Reject version" %}</button>
+                        <button class="btn" type="submit" name="move-to-declined" value="True">
+                            {% translate "Reject offer until provider addresses concerns" %}
+                        </button>
                     </div>
                     {% include "overlay/offer_detail_overlay.html" with offer=report.offer_version.offer offer_version=report.offer_version public_version=False %}
                 </form>
