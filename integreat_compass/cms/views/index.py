@@ -31,8 +31,15 @@ def within_radius(offer_lat, offer_long, lat, long, radius):
     :return: whether the offer is within the given radius of the coordinates
     :rtype: bool
     """
+    # Offers without coordinates (i.e. online-only offers) should not get filtered out
+    # by the location filter. Users can do so explicitly with the mode filter.
+    if not offer_lat or not offer_long:
+        return True
     max_deg_difference = radius / 110.574
-    return sqrt((offer_lat - lat) ** 2 + (offer_long - long) ** 2) <= max_deg_difference
+    return (
+        sqrt((float(offer_lat) - lat) ** 2 + (float(offer_long) - long) ** 2)
+        <= max_deg_difference
+    )
 
 
 class IndexListView(ListView):
@@ -95,8 +102,8 @@ class IndexListView(ListView):
                 offer
                 for offer in filtered_offers
                 if within_radius(
-                    float(offer.location.lat),
-                    float(offer.location.long),
+                    offer.location.lat,
+                    offer.location.long,
                     float(lat),
                     float(long),
                     float(radius),
