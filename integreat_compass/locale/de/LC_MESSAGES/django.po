@@ -632,10 +632,10 @@ msgstr "Maßnahme \"%(offer_title)s\" melden"
 #: cms/templates/interactions/offer_report.html
 msgid ""
 "Please note: You will stay anonymous. The report will be seen by both the "
-"offer provider and board members."
+"offer provider and platform moderators."
 msgstr ""
-"Hinweis: Sie werden anonym bleiben. Ihre Meldung kann sowohl von dem "
-"Ersteller als auch von dem Gremium eingesehen werden."
+"Hinweis: Sie werden anonym bleiben. Ihre Meldung kann sowohl vom Ersteller "
+"als auch vom Zulassungsgremium eingesehen werden."
 
 #: cms/templates/interactions/offer_report.html
 msgid "Reason for reporting"
@@ -655,8 +655,8 @@ msgid "Reason"
 msgstr "Begründung"
 
 #: cms/templates/interactions/report_list.html
-msgid "Reject version"
-msgstr "Version ablehnen"
+msgid "Reject offer until provider addresses concerns"
+msgstr "Maßnahme ablehnen, bis Anbieter Maßnahme ausbessert"
 
 #: cms/templates/interactions/report_list.html
 msgid "There are no unhandled reports."
@@ -985,6 +985,9 @@ msgstr "Deutsch"
 #: core/settings.py
 msgid "English"
 msgstr "Englisch"
+
+#~ msgid "Reject version"
+#~ msgstr "Version ablehnen"
 
 #~ msgid "Categories"
 #~ msgstr "Kategorien"
