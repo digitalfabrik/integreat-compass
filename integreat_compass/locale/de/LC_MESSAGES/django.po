@@ -598,6 +598,10 @@ msgstr "zurücksetzen"
 msgid "Address"
 msgstr "Adresse"
 
+#: cms/templates/index.html cms/templates/offers/offer_form.html
+msgid "Address could not be found."
+msgstr "Die Adresse konnte nicht gefunden werden."
+
 #: cms/templates/index.html
 msgid "Offers"
 msgstr "Maßnahmen"
