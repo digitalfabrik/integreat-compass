@@ -31,7 +31,7 @@
                                        {% if tag.id|stringformat:"i" in filtered_tags %}checked{% endif %}
                                        value="{{ tag.id }}">
                                 <label for="{{ tag.id }}"
-                                       class="px-2 py-1 mt-2 text-lg font-normal bg-tertiary rounded-full text-center hover:shadow-lg peer-checked:bg-primary peer-checked:border-none">
+                                       class="px-2 py-1 mt-2 text-lg font-normal bg-tertiary rounded-full text-center hover:shadow-lg peer-checked:bg-primary peer-checked:border-none duration-200">
                                     {{ tag }}
                                 </label>
                             </div>
@@ -100,6 +100,9 @@
                                    name="filter-address"
                                    placeholder="{% translate "Address" %}"
                                    id="filter-address">
+                        </div>
+                        <div class="hidden" id="map-error">
+                            <i icon-name="alert-circle" class="w-5 h-5 align-text-top"></i> {% translate "Address could not be found." %}
                         </div>
                         <div class="hidden">
                             <input type="number"

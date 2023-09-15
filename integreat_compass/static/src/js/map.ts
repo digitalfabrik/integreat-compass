@@ -10,6 +10,7 @@ const getCoordinateInputFields = () => {
 
 const getCoordinates = (): [LngLatLike | null, boolean | null] => {
     const [latitudeInput, longitudeInput] = getCoordinateInputFields();
+
     if (latitudeInput?.value && longitudeInput?.value) {
         return [new LngLat(longitudeInput.valueAsNumber, latitudeInput.valueAsNumber), false];
     }
@@ -47,6 +48,8 @@ const initializeMap = (container: HTMLElement, searchBar: HTMLInputElement, zoom
     const minAddressLength = 3;
     const [coordinates, requiresUpdate] = getCoordinates();
 
+    const errorNotification = document.querySelector("#map-error");
+
     const options = {
         container,
         style: "https://maps.tuerantuer.org/styles/integreat/style.json",
@@ -70,6 +73,7 @@ const initializeMap = (container: HTMLElement, searchBar: HTMLInputElement, zoom
         getAddressFromCoordinates(marker.getLngLat()).then((address) => {
             /* eslint-disable-next-line no-param-reassign */
             searchBar.value = address;
+            errorNotification?.classList.add("hidden");
         });
     };
 
@@ -82,12 +86,17 @@ const initializeMap = (container: HTMLElement, searchBar: HTMLInputElement, zoom
 
     const placeMarkerAtAddress = () => {
         if (searchBar.value.trim().length > minAddressLength) {
-            getCoordinatesFromAddress(searchBar.value).then((ll) => {
-                marker.setLngLat(ll).addTo(map);
-                map.setCenter(ll);
-                map.setZoom(centeredZoom);
-                updateCoordinates(marker);
-            });
+            getCoordinatesFromAddress(searchBar.value)
+                .then((ll) => {
+                    marker.setLngLat(ll).addTo(map);
+                    map.setCenter(ll);
+                    map.setZoom(centeredZoom);
+                    updateCoordinates(marker);
+                    errorNotification?.classList.add("hidden");
+                })
+                .catch((_) => {
+                    errorNotification?.classList.remove("hidden");
+                });
         }
     };
     map.on("click", (event: MapMouseEvent) => {
