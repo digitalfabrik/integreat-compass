@@ -160,7 +160,7 @@ input[type="submit"] {
         }
         // Pseudo-classes
         &:hover {
-            @apply bg-white text-primary;
+            @apply bg-white text-gray-700;
         }
         &:focus {
             @apply outline-none;
