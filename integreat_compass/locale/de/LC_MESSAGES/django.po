@@ -671,7 +671,7 @@ msgid ""
 "<p> You have <span class=\"text-green-500\">approved</span> this application "
 "</p>"
 msgstr ""
-"<i class=\"mr-4\" icon-name=\"check-circle-2\"></i> <p> Sie haben diese "
+"<p> Sie haben diese "
 "Maßnahme <span class=\"text-green-500\">angenommen</span></p>"
 
 #: cms/templates/interactions/vote_form.html
@@ -679,7 +679,7 @@ msgid ""
 "<p> You have <span class=\"text-red-500\">declined</span> this application </"
 "p>"
 msgstr ""
-"<i class=\"mr-4\" icon-name=\"alert-circle\"></i> <p> Sie haben diese "
+"<p> Sie haben diese "
 "Maßnahme <span class=\"text-red-500\">abgelehnt</span></p>"
 
 #: cms/templates/interactions/vote_form.html
