@@ -684,7 +684,7 @@ msgstr ""
 
 #: cms/templates/interactions/vote_form.html
 msgid "You have not voted on this application yet"
-msgstr "Du hast über diese Bewerbung noch nicht abgestimmt."
+msgstr "Sie haben über diese Bewerbung noch nicht abgestimmt."
 
 #: cms/templates/interactions/vote_form.html
 msgid "Approves"
@@ -964,7 +964,7 @@ msgstr "Sie haben die Maßnahme \"{}\" abgelehnt"
 
 #: cms/views/interactions/vote_form_view.py
 msgid "Your vote on \"{}\" has successfully been submitted."
-msgstr "Deine Abstimmung zu \"{}\" wurde erfolgreich gespeichert."
+msgstr "Ihre Abstimmung zu \"{}\" wurde erfolgreich gespeichert."
 
 #: cms/views/offers/offer_delete_view.py
 msgid "The offer \"{}\" has successfully been deleted."
@@ -997,10 +997,10 @@ msgstr "Englisch"
 #~ msgstr "Kategorien"
 
 #~ msgid "You have approved this application"
-#~ msgstr "Du hast diese Bewerbung angenommen."
+#~ msgstr "Sie haben diese Bewerbung angenommen."
 
 #~ msgid "You have declined this application"
-#~ msgstr "Du hast diese Bewerbung abgelehnt"
+#~ msgstr "Sie haben diese Bewerbung abgelehnt"
 
 #~ msgid "Private"
 #~ msgstr "privat"
@@ -1052,7 +1052,7 @@ msgstr "Englisch"
 #~ msgstr "zur Webseite"
 
 #~ msgid "Your vote was saved successfully."
-#~ msgstr "Deine Bewertung wurde erfolgreich gespeichert."
+#~ msgstr "Ihre Bewertung wurde erfolgreich gespeichert."
 
 #~ msgid "decline"
 #~ msgstr "Ablehnen"
@@ -1061,7 +1061,7 @@ msgstr "Englisch"
 #~ msgstr "Absagen"
 
 #~ msgid "Your vote is still pending"
-#~ msgstr "Deine Bewertung ist ausstehend"
+#~ msgstr "Ihre Bewertung ist ausstehend"
 
 #~ msgid "reviews"
 #~ msgstr "Bewertung"
