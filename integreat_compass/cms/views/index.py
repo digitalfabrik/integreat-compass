@@ -1,6 +1,7 @@
 from math import sqrt
 
 from django.conf import settings
+from django.db.models import Q
 from django.shortcuts import render
 from django.views.generic import ListView
 
@@ -84,8 +85,10 @@ class IndexListView(ListView):
             filtered_offers = filtered_offers.filter(group_type__in=group_types)
 
         if offer_search := request.GET.get("search"):
+            offer_search = offer_search.strip()
             filtered_offers = filtered_offers.filter(
-                versions__title__icontains=offer_search
+                Q(versions__title__icontains=offer_search)
+                | Q(versions__description__icontains=offer_search)
             )
         if free_offers := bool(request.GET.get("free_offer")):
             filtered_offers = filtered_offers.filter(versions__is_free=True)
