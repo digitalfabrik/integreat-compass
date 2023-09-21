@@ -1,5 +1,5 @@
 {% load i18n %}
-<div id="offer-detail-layover-{{ offer.id }}"
+<div id="offer-detail-layover-{{ id }}"
      class="hidden mt-24 fixed items-center justify-center inset-0 bg-opacity-75 bg-gray-800 overflow-scroll z-50 cursor-pointer">
     <div class="cursor-auto justify-center w-10/12 max-h-fit px-4 z-50 m-auto my-16 text-gray-700">
         <div class="bg-white opacity-100 content rounded-sm shadow-md w-full">
@@ -16,7 +16,7 @@
                             {% translate "Report" %}
                         </a>
                     {% endif %}
-                    <i id="btn-close-offer-detail-layover-{{ offer.id }}"
+                    <i id="btn-close-offer-detail-layover-{{ id }}"
                        icon-name="x"
                        class="hover:cursor-pointer w-8"></i>
                 </div>

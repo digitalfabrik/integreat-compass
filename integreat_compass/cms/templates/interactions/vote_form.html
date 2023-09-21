@@ -33,7 +33,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <p class="text-gray-700">{% translate "Created at:" %} {{ offer_version.created_at|date:"d. M Y" }}</p>
-                                <button id="offer-{{ offer_version.offer.id }}"
+                                <button id="offer-{{ offer_version.id }}"
                                         type="button"
                                         class="open-details btn btn-outline !font-normal py-3 px-4 border-2 !border-gray-600 !text-gray-600 bg-white hover:!bg-gray-600 hover:!text-white">
                                     <i icon-name="link"></i>
@@ -96,7 +96,7 @@
                 {% include "overlay/offer_application_overlay.html" %}
                 {% include "overlay/offer_application_overlay.html" with declined="True" %}
             </form>
-            {% include "overlay/offer_detail_overlay.html" with offer=offer_version.offer offer_version=offer_version public_version=False %}
+            {% include "overlay/offer_detail_overlay.html" with id=offer_version.id offer=offer_version.offer offer_version=offer_version public_version=False %}
         {% endfor %}
     </div>
 {% endblock content %}

@@ -173,7 +173,7 @@
                                     <p class="text-gray-700">{% translate "Created at:" %} {{ offer.public_version.created_at|date:"d. M Y" }}</p>
                                 </div>
                             </div>
-                            {% include "overlay/offer_detail_overlay.html" with public_version=True offer=offer offer_version=offer.public_version %}
+                            {% include "overlay/offer_detail_overlay.html" with public_version=True id=offer.id offer=offer offer_version=offer.public_version %}
                         {% endfor %}
                     {% else %}
                         {% translate "No offers could be found" %}
