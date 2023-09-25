@@ -72,10 +72,7 @@
                             {% for choice in offer_form.tags %}
                                 <div>
                                     {{ choice.tag }}
-                                    <label for="{{ choice.id_for_label }}"
-                                           class="px-4 py-2 text-lg bg-tertiary font-normal rounded-full text-center hover:shadow-lg peer-checked:bg-primary peer-checked:text-gray-700 peer-checked:border-none duration-200">
-                                        {{ choice.choice_label }}
-                                    </label>
+                                    <label for="{{ choice.id_for_label }}" class="px-4 py-2 gray-tag">{{ choice.choice_label }}</label>
                                 </div>
                             {% endfor %}
                         </div>
