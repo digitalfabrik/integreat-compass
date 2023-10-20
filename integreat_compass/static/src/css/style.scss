@@ -153,9 +153,9 @@ input[type="submit"] {
             @apply pr-1;
         }
         &.btn-outline {
-            @apply border-2 border-primary text-primary bg-white;
+            @apply border-2 border-primary text-primary bg-white font-normal border-gray-600 text-gray-600;
             &:hover {
-                @apply bg-primary text-white;
+                @apply bg-gray-600 text-white;
             }
         }
         // Pseudo-classes
@@ -226,5 +226,17 @@ input[type="submit"] {
 
     .message-close {
         @apply w-5 h-5 absolute top-3 right-3 cursor-pointer;
+    }
+}
+
+/*******
+* TAGS *
+*******/
+
+.gray-tag {
+    @apply text-lg bg-tertiary font-normal rounded-full text-center duration-200 peer-checked:bg-primary peer-checked:text-gray-700 peer-checked:border-none;
+
+    &:hover {
+        @apply shadow-lg;
     }
 }
