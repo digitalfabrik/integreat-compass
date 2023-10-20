@@ -57,4 +57,7 @@ All default users share the password `compass`.
 
 ## License
 
-This project is licensed under the Apache 2.0 License, see [LICENSE.txt](./LICENSE.txt)
+Copyright © 2023 [Tür an Tür - Digitalfabrik gGmbH](https://github.com/digitalfabrik) and [individual contributors](https://github.com/digitalfabrik/integreat-compass/graphs/contributors).
+All rights reserved.
+
+This project is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0), see [LICENSE](./LICENSE) and [NOTICE.md](./NOTICE.md).
