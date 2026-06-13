@@ -14,17 +14,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
           process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
-          "sass-loader",
         ],
-      },
-      {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
         test: /\.tsx?$/,
@@ -88,6 +83,9 @@ module.exports = {
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css",
     }),
-    new BundleTracker({ filename: "./integreat_compass/webpack-stats.json" }),
+    new BundleTracker({
+      path: path.resolve(__dirname, "integreat_compass"),
+      filename: "webpack-stats.json",
+    }),
   ],
 };

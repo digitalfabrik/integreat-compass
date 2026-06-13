@@ -16,7 +16,7 @@ export const getCoordinatesFromAddress = async (address: string): Promise<LngLat
         } else {
             throw new Error("Request failed.");
         }
-    } catch (error) {
+    } catch {
         throw new Error("Failed to fetch address coordinates.");
     }
 };
@@ -28,20 +28,19 @@ export const getAddressFromCoordinates = async (ll: LngLat): Promise<string> => 
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            /* eslint-disable camelcase */
-            let { house_number, postcode } = data.address;
+            let { house_number: houseNumber, postcode } = data.address;
             const { road, city, town, village, municipality } = data.address;
 
             if (!road || (!city && !town && !village && !municipality)) {
                 return data.display_name;
             }
 
-            house_number = house_number ? ` ${house_number}` : "";
+            houseNumber = houseNumber ? ` ${houseNumber}` : "";
             postcode = postcode ? `${postcode} ` : "";
-            return `${road}${house_number}, ${postcode}${city || town || village}`;
+            return `${road}${houseNumber}, ${postcode}${city || town || village}`;
         }
         throw new Error("Request failed.");
-    } catch (error) {
+    } catch {
         throw new Error("Failed to fetch address.");
     }
 };

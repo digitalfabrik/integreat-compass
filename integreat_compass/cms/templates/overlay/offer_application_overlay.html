@@ -1,6 +1,6 @@
 {% load i18n %}
 <div id="application-modal-{% if declined %}decline{% else %}accept{% endif %}-{{ offer_version.id }}"
-     class="hidden mt-24 fixed items-center justify-center inset-0 bg-opacity-75 bg-gray-800 overflow-scroll z-50 cursor-pointer">
+     class="hidden mt-24 fixed items-center justify-center inset-0 bg-gray-800/75 overflow-scroll z-50 cursor-pointer">
     <div class="cursor-auto justify-center w-4/12 max-h-fit px-4 z-50 m-auto my-24">
         <div class="bg-white opacity-100 content shadow-md w-full">
             <div class="p-4 flex">
@@ -36,7 +36,7 @@
                 <input type="hidden" name="offer_version_id" value="{{ offer_version.id }}">
                 <button type="button"
                         id="application-modal-{% if declined %}decline{% else %}accept{% endif %}-cancel-{{ offer_version.id }}"
-                        class="btn btn-outline !bg-gray-600 !border-gray-600 hover:!bg-white hover:!text-gray-600 !text-white mr-4">
+                        class="btn btn-outline bg-gray-600! border-gray-600! hover:bg-white! hover:text-gray-600! text-white! mr-4">
                     {% translate "Cancel" %}
                 </button>
                 <button id="application-modal-confirm"

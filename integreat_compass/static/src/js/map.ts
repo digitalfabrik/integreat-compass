@@ -167,9 +167,9 @@ const initializeFilterMap = () => {
 
     const params = new URLSearchParams(window.location.search);
     const radius = params.get("radius");
-    const radiusToZoom = (radius: string | null) => {
+    const radiusToZoom = (radiusValue: string | null) => {
         const zoomAdjustFactor = 1.5;
-        return -Math.log(parseFloat(radius ?? "0") ** 2 * zoomAdjustFactor);
+        return -Math.log(parseFloat(radiusValue ?? "0") ** 2 * zoomAdjustFactor); // eslint-disable-line no-mixed-operators
     };
     initializeMap(container, searchBar, radiusToZoom(radius));
 
@@ -178,7 +178,7 @@ const initializeFilterMap = () => {
         (document.querySelector('input[name="radius"]:checked') as HTMLInputElement).checked = false;
         updateField("lat", "");
         updateField("long", "");
-        const [latitudeInput, _] = getCoordinateInputFields();
+        const [latitudeInput] = getCoordinateInputFields();
         latitudeInput.dispatchEvent(new Event("change"));
     });
 };

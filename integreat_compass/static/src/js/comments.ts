@@ -1,4 +1,7 @@
 window.addEventListener("load", () => {
+    // The cast is required so form.action/reset() and FormData(form) type-check;
+    // eslint's type-aware check misreports it as unnecessary.
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     const forms = document.querySelectorAll(".comment-form") as NodeListOf<HTMLFormElement>;
 
     forms.forEach((form) => {
