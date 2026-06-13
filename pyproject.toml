@@ -12,18 +12,19 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Web Environment",
     "Framework :: Django",
-    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.2",
     "Intended Audience :: Developers",
     "Intended Audience :: System Administrators",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
-    "django>=4.2,<5.0",
+    "django>=5.2,<6.0",
     "django-debug-toolbar",
     "django-webpack-loader",
     "django-widget-tweaks",
@@ -33,7 +34,7 @@ dependencies = [
 ]
 keywords = ["integration", "Compass", "Integreat"]
 license = { text = "Apache2 2.0 License" }
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dynamic = ["version"]
 
 
@@ -63,17 +64,17 @@ dev = [
     "twine",
 ]
 pinned = [
-    "asgiref==3.7.2",
-    "Django==4.2.3",
-    "django-debug-toolbar==4.1.0",
-    "django-webpack-loader==2.0.1",
-    "django-widget-tweaks==1.4.12",
-    "Pillow==10.0.0",
-    "psycopg==3.1.9",
-    "psycopg-binary==3.1.9",
+    "asgiref==3.11.1",
+    "Django==5.2.15",
+    "django-debug-toolbar==6.3.0",
+    "django-webpack-loader==3.2.4",
+    "django-widget-tweaks==1.5.1",
+    "Pillow==12.2.0",
+    "psycopg==3.3.4",
+    "psycopg-binary==3.3.4",
     "python-magic==0.4.27",
-    "sqlparse==0.4.4",
-    "typing_extensions==4.7.1",
+    "sqlparse==0.5.5",
+    "typing_extensions==4.15.0",
 ]
 dev-pinned = [
     "alabaster==0.7.13",

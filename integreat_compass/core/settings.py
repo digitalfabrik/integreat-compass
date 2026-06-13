@@ -54,6 +54,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "webpack_loader",
     "widget_tweaks",
+    # Always installed so the ``SQLQueryTriggered`` import in
+    # :mod:`~integreat_compass.cms.models.abstract_base_model` resolves even when
+    # ``DEBUG`` is off. The toolbar itself is only wired up below when ``DEBUG`` is set.
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -67,6 +71,17 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "integreat_compass.core.middleware.AccessControlMiddleware",
 ]
+
+#: Enable the Django Debug Toolbar only during local development
+if DEBUG:
+    # As early as possible, but after middleware that encodes the response content
+    MIDDLEWARE.insert(1, "debug_toolbar.middleware.DebugToolbarMiddleware")
+    #: Hosts/IPs for which the toolbar is shown (see :setting:`django:INTERNAL_IPS`)
+    INTERNAL_IPS = ["127.0.0.1"]
+else:
+    # The toolbar app stays installed (so the ``SQLQueryTriggered`` import resolves) but
+    # is intentionally inert without its middleware, so silence the related check.
+    SILENCED_SYSTEM_CHECKS = ["debug_toolbar.W001"]
 
 ROOT_URLCONF = "integreat_compass.core.urls"
 

@@ -1,6 +1,5 @@
 import logging
 
-from debug_toolbar.panels.sql.tracking import SQLQueryTriggered
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
@@ -42,6 +41,11 @@ class AbstractBaseModel(models.Model):
         :return: The canonical string representation of the content object
         :rtype: str
         """
+        # Imported lazily: importing the SQL tracking module at load time queries the
+        # app registry, which is not ready while models are still being imported.
+        # pylint: disable=import-outside-toplevel
+        from debug_toolbar.panels.sql.tracking import SQLQueryTriggered
+
         try:
             return self.get_repr()
         # pylint: disable=broad-except
