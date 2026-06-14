@@ -6,7 +6,7 @@ orbs:
 jobs:
   pip-install:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -60,7 +60,7 @@ jobs:
             - node_modules
   black:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -74,7 +74,7 @@ jobs:
           command: black --check .
   compile-translations:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -97,7 +97,7 @@ jobs:
             - integreat_compass/locale/*/LC_MESSAGES/django.mo
   djlint:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -122,7 +122,7 @@ jobs:
           command: npx eslint . --no-error-on-unmatched-pattern
   isort:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -147,7 +147,7 @@ jobs:
           command: npx prettier --check .
   pylint:
     docker:
-      - image: "cimg/python:3.9.16"
+      - image: "cimg/python:3.11"
     resource_class: small
     steps:
       - checkout
@@ -192,7 +192,7 @@ jobs:
             - cc-test-reporter
   test:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
       - image: cimg/postgres:14.1
         environment:
           POSTGRES_USER: integreat
@@ -245,7 +245,7 @@ jobs:
             ./cc-test-reporter sum-coverage -o - coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
   build-package:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -263,7 +263,7 @@ jobs:
             - dist
   bump-dev-version:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -304,7 +304,7 @@ jobs:
             - integreat_compass/__init__.py
   publish-package:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -318,7 +318,7 @@ jobs:
           command: twine upload --non-interactive ./dist/integreat-compass-*.tar.gz
   check-translations:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -332,7 +332,7 @@ jobs:
           command: ./tools/check_translations.sh
   bump-version:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout
@@ -371,7 +371,7 @@ jobs:
           command: git checkout develop && git merge main --commit --no-edit && git push
   create-release:
     docker:
-      - image: cimg/python:3.9.16
+      - image: cimg/python:3.11
     resource_class: small
     steps:
       - checkout

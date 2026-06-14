@@ -1,4 +1,4 @@
-import "./css/style.scss";
+import "./css/style.css";
 import "./js/comments";
 import "./js/confirm-deletion";
 import "./js/field-validation";

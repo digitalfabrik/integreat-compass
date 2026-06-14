@@ -116,7 +116,7 @@
                                    step="1e-7"
                                    id="id_location-long">
                         </div>
-                        <ul class="mt-2 items-center w-full border border-gray-500 rounded xl:flex shadow-inner">
+                        <ul class="mt-2 items-center w-full border border-gray-500 rounded-sm xl:flex shadow-inner">
                             {% for distance in offer_distance_steps %}
                                 <li class="w-full text-center">
                                     <div class="items-center">
@@ -128,7 +128,7 @@
                                                {% if distance|slugify == filtered_radius %}checked{% endif %}
                                                value="{{ distance }}">
                                         <label for="distance-{{ distance }}"
-                                               class="w-full duration-100 m-0 py-2 text-md rounded peer-checked:bg-primary peer-checked:text-gray-700">
+                                               class="w-full duration-100 m-0 py-2 text-md rounded-sm peer-checked:bg-primary peer-checked:text-gray-700">
                                             {{ distance }}km
                                         </label>
                                     </div>

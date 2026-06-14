@@ -1,5 +1,5 @@
 {% load i18n %}
-<div class="title-image-preview-container relative rounded rounded-3xl overflow-hidden {% if not widget.value %}hidden{% endif %}">
+<div class="title-image-preview-container relative rounded-sm rounded-3xl overflow-hidden {% if not widget.value %}hidden{% endif %}">
     <img id="title-image-preview"
          src="{% if widget.value %}{{ widget.value.url }}{% endif %}"
          alt="Current title image"
@@ -11,7 +11,7 @@
        id="title-image-reset"
        class="w-20 h-20 text-red-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer opacity-0 duration-200"></i>
 </div>
-<label class="rounded text-medium font-medium px-4 py-2 border-2 inline-block text-gray-600 !cursor-pointer hover:text-white hover:bg-gray-600">
+<label class="rounded-sm text-medium font-medium px-4 py-2 border-2 inline-block text-gray-600 cursor-pointer! hover:text-white hover:bg-gray-600">
     <input id="title-image-picker"
            type="{{ widget.type }}"
            name="{{ widget.name }}"

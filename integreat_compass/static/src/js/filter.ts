@@ -6,9 +6,9 @@ export const submitFilter = () => {
             // keep unnecessary fields out of the URL
             const candidates = ["search", "radius", "id_location-lat", "id_location-long"];
             candidates.forEach((candidate) => {
-                const element = filterForm.querySelector(`#${candidate}`) as HTMLInputElement;
-                if (element && !element.value) {
-                    element.disabled = true;
+                const field = filterForm.querySelector(`#${candidate}`) as HTMLInputElement;
+                if (field && !field.value) {
+                    field.disabled = true;
                 }
             });
             (document.querySelector("#filter-address") as HTMLInputElement).disabled = true;
