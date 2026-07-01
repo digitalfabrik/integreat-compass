@@ -272,7 +272,7 @@ jobs:
           command: echo "source .venv/bin/activate" >> $BASH_ENV
       - run:
           name: Publish integreat-compass package to (Test-)PyPI
-          command: twine upload --non-interactive ./dist/integreat_compass-*.tar.gz
+          command: twine upload --non-interactive ./dist/integreat_compass-*.whl ./dist/integreat_compass-*.tar.gz
   check-translations:
     docker:
       - image: cimg/python:3.11
