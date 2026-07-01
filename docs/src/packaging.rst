@@ -34,6 +34,6 @@ You can publish the to a python repository like e.g. `PyPI <https://pypi.org/>`_
 
 3. Publish the package::
 
-    twine upload --non-interactive ./dist/integreat-compass-*.tar.gz
+    twine upload --non-interactive ./dist/integreat_compass-*.tar.gz
 
 See the :doc:`Twine documentation <twine:index>` for all configuration options of this command.
