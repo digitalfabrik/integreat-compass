@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-from .config import read_config_file
+from integreat_compass.core.config import read_config_file
 
 
 def application(environ, start_response):
