@@ -1,6 +1,7 @@
 """
 This module provides the commenting action.
 """
+
 import logging
 
 from django.conf import settings

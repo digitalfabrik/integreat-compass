@@ -1,6 +1,7 @@
 """
 This module contains the possible names of roles to make them translatable.
 """
+
 from django.utils.translation import gettext_lazy as _
 
 BOARD_MEMBER = "BOARD_MEMBER"
