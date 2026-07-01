@@ -30,7 +30,10 @@
             {% if user.is_authenticated %}
                 <div class="ml-auto flex-align-right font-bold hover:text-primary">
                     <span class="text-primary">{{ user.display_name }}</span>
-                    <a href="{% url 'cms:public:logout' %}">({% translate "Logout" %})</a>
+                    <form action="{% url 'cms:public:logout' %}" method="post" class="inline">
+                        {% csrf_token %}
+                        <button type="submit" class="font-bold hover:text-primary">({% translate "Logout" %})</button>
+                    </form>
                 </div>
             {% else %}
                 <div class="ml-auto flex-align-right font-bold hover:text-primary">
