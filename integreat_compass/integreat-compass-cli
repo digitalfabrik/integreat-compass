@@ -1,22 +1,8 @@
 #!/usr/bin/env python3
 """ Django's command-line utility for administrative tasks. """
-import configparser
-import os
 import sys
 
-
-def read_config():
-    """
-    Reads and parses the corresponding configurations.
-    """
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "integreat_compass.core.settings")
-
-    # Read config from config file
-    config = configparser.ConfigParser(interpolation=None)
-    config.read("/etc/integreat-compass.ini")
-    for section in config.sections():
-        for KEY, VALUE in config.items(section):
-            os.environ.setdefault(f"INTEGREAT_COMPASS_{KEY.upper()}", VALUE)
+from integreat_compass.core.config import read_config_file
 
 
 def main():
@@ -26,7 +12,7 @@ def main():
     :raises ImportError: If the Django framework is not installed or not in the path, an import error is risen.
 
     """
-    read_config()
+    read_config_file()
 
     try:
         # pylint: disable=import-outside-toplevel

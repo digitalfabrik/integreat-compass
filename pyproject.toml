@@ -228,7 +228,9 @@ profile = "black"
 order_by_type = false
 
 [tool.pylint.main]
-jobs = 0
+# Do not use jobs = 0: in CI containers multiprocessing.cpu_count() returns the
+# host CPU count, spawning dozens of workers that OOM the small runner.
+jobs = 1
 load-plugins = [
     "pylint_django",
     "pylint_per_file_ignores",

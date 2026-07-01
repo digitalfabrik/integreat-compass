@@ -7,10 +7,11 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
 """
 
-import configparser
 import os
 
 from django.core.wsgi import get_wsgi_application
+
+from .config import read_config_file
 
 
 def application(environ, start_response):
@@ -26,14 +27,7 @@ def application(environ, start_response):
     :return: The WSGI callable
     :rtype: ~django.core.handlers.WSGIHandler
     """
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "integreat_compass.core.settings")
-
-    # Read config from config file
-    config = configparser.ConfigParser(interpolation=None)
-    config.read("/etc/integreat-compass.ini")
-    for section in config.sections():
-        for KEY, VALUE in config.items(section):
-            os.environ.setdefault(f"INTEGREAT_COMPASS_{KEY.upper()}", VALUE)
+    read_config_file()
 
     # Read config from environment
     for key in environ:
