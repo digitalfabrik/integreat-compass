@@ -10,13 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-from distutils.util import strtobool
 from pathlib import Path
 from urllib.parse import urlparse
 
 from django.utils.translation import gettext_lazy as _
 
 from .logging_formatter import ColorFormatter, RequestFormatter
+
+
+def strtobool(value):
+    """
+    Convert a string representation of truth to ``1`` (true) or ``0`` (false).
+
+    Replaces ``distutils.util.strtobool``, which was removed in Python 3.12.
+    """
+    value = value.lower()
+    if value in ("y", "yes", "t", "true", "on", "1"):
+        return 1
+    if value in ("n", "no", "f", "false", "off", "0"):
+        return 0
+    raise ValueError(f"invalid truth value {value!r}")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
