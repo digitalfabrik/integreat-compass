@@ -47,7 +47,7 @@
                                                    {% if group_type.0 in filtered_group_types %}checked{% endif %}
                                                    value="{{ group_type.0 }}">
                                             <label for="group-{{ group_type.0 }}"
-                                                   class="font-normal w-full duration-100 m-0 py-1 px-2 text-lg rounded-full peer-checked:bg-primary">
+                                                   class="font-normal w-full duration-100 m-0! py-1 px-2 text-lg rounded-full peer-checked:bg-primary flex! items-center justify-center">
                                                 {{ group_type.1 }}
                                             </label>
                                         </div>
@@ -68,7 +68,7 @@
                                                {% if mode_type.0 in filtered_mode_types %}checked{% endif %}
                                                value="{{ mode_type.0 }}">
                                         <label for="mode-{{ mode_type.0 }}"
-                                               class="font-normal w-full duration-100 m-0 py-1 px-2 text-lg rounded-full peer-checked:bg-primary">
+                                               class="font-normal w-full duration-100 m-0! py-1 px-2 text-lg rounded-full peer-checked:bg-primary flex! items-center justify-center">
                                             {{ mode_type.1 }}
                                         </label>
                                     </div>
@@ -125,7 +125,7 @@
                                                {% if distance|slugify == filtered_radius %}checked{% endif %}
                                                value="{{ distance }}">
                                         <label for="distance-{{ distance }}"
-                                               class="w-full duration-100 m-0 py-2 text-md rounded-sm peer-checked:bg-primary peer-checked:text-gray-700">
+                                               class="w-full duration-100 m-0! py-2 text-md rounded-sm peer-checked:bg-primary peer-checked:text-gray-700 flex! items-center justify-center">
                                             {{ distance }}km
                                         </label>
                                     </div>
