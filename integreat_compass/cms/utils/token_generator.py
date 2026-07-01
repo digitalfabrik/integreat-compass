@@ -2,6 +2,7 @@
 This module contains helpers for the account activation process
 (also see :class:`~integreat_compass.cms.views.authentication.account_activation_view.AccountActivationView`).
 """
+
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
 

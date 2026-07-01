@@ -1,6 +1,7 @@
 """
 This module contains a list of Mime-Types that are allowed to be uploaded.
 """
+
 from django.utils.translation import gettext_lazy as _
 
 #: MIME type of PNG files

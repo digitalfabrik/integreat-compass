@@ -19,9 +19,6 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
@@ -35,7 +32,7 @@ dependencies = [
 ]
 keywords = ["integration", "Compass", "Integreat"]
 license = { text = "Apache2 2.0 License" }
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dynamic = ["version"]
 
 
@@ -216,6 +213,7 @@ Bump version to {new_version}
 
 [tool.black]
 skip-magic-trailing-comma = true
+target-version = ["py313"]
 
 [tool.djlint]
 profile="django"
@@ -232,11 +230,9 @@ load-plugins = [
     "pylint_django",
     "pylint_per_file_ignores",
     "pylint.extensions.code_style",
-    "pylint.extensions.comparetozero",
     "pylint.extensions.comparison_placement",
     "pylint.extensions.consider_ternary_expression",
     "pylint.extensions.docparams",
-    "pylint.extensions.emptystring",
     "pylint.extensions.for_any_all",
 ]
 enable = [
@@ -275,9 +271,9 @@ disable = [
 enable = [
     "useless-suppression"
 ]
+per-file-ignores = [
+    "tests/**:unused-argument,missing-function-docstring",
+]
 
 [tool.pylint.reports]
 output-format = "colorized"
-
-[tool.pylint-per-file-ignores]
-"/tests/"="unused-argument,missing-function-docstring"

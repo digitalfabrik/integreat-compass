@@ -2,6 +2,7 @@
 This package contains all data models of Integreat Compass.
 Please refer to :mod:`django.db.models` for general information about Django models.
 """
+
 from .interactions.comment import Comment
 from .interactions.favorite import Favorite
 from .interactions.report import Report
