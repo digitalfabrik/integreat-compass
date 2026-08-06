@@ -88,7 +88,7 @@ dev-pinned = [
     "click==8.4.2",
     "colorama==0.4.6",
     "coverage==7.14.3",
-    "cryptography==49.0.0",
+    "cryptography==50.0.0",
     "cssbeautifier==2.0.3",
     "dill==0.4.1",
     "distlib==0.4.3",
