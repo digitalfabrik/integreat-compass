@@ -6,7 +6,7 @@
 
 # Integreat Compass
 
-This is a Django 4 based web application, a project powered by [Tür an Tür – Digitalfabrik gGmbH](https://tuerantuer.de/digitalfabrik/). The main goal is to develop an application that gathers courses that job center employees can pass on in counseling sessions to refugees and newcomers.
+This is a Django 5 based web application, a project powered by [Tür an Tür – Digitalfabrik gGmbH](https://tuerantuer.de/digitalfabrik/). The main goal is to develop an application that gathers courses that job center employees can pass on in counseling sessions to refugees and newcomers.
 
 ## TL;DR
 
@@ -16,7 +16,7 @@ Following packages are required before installing the project (install them with
 
 * `npm` version 7 or later
 * `nodejs` version 12 or later
-* `python3` version 3.9 or later
+* `python3` version 3.13 or later
 * `python3-pip` (Debian-based distributions) / `python-pip` (Arch-based distributions)
 * `python3-venv` (only on Debian-based distributions)
 * Either `postgresql` **or** `docker` to run a local database server
@@ -57,7 +57,7 @@ All default users share the password `compass`.
 
 ## License
 
-Copyright © 2023 [Tür an Tür - Digitalfabrik gGmbH](https://github.com/digitalfabrik) and [individual contributors](https://github.com/digitalfabrik/integreat-compass/graphs/contributors).
+Copyright © 2026 [Tür an Tür - Digitalfabrik gGmbH](https://github.com/digitalfabrik) and [individual contributors](https://github.com/digitalfabrik/integreat-compass/graphs/contributors).
 All rights reserved.
 
 This project is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0), see [LICENSE](./LICENSE) and [NOTICE.md](./NOTICE.md).
