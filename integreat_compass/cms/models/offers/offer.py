@@ -37,9 +37,16 @@ class Offer(AbstractBaseModel):
         """
         Returns the latest approved version of an offer, if such a version exists.
 
+        If ``versions`` has been prefetched, this re-uses that cache instead of
+        issuing a separate filtered query (avoids N+1 queries when listing offers).
+
         :return: OfferVersion or ``None``
         :rtype: ~integreat_compass.cms.models.offers.offer_version.OfferVersion
         """
+        if "versions" in getattr(self, "_prefetched_objects_cache", {}):
+            return next(
+                (version for version in self.versions.all() if version.state), None
+            )
         return self.versions.filter(state=True).first()
 
     @cached_property
@@ -57,9 +64,19 @@ class Offer(AbstractBaseModel):
         """
         Method to retrieve all comments on an Offer.
 
+        If ``versions`` (and its ``comments``) has been prefetched, this re-uses that
+        cache instead of issuing a separate query (avoids N+1 queries when listing offers).
+
         :return: List of comments together with information on whether the comment was made on the public offer version
         :rtype: list [ dict [ ~integreat_compass.cms.models.interactions.comment.Comment, bool ] ]
         """
+        if "versions" in getattr(self, "_prefetched_objects_cache", {}):
+            all_comments = [
+                comment
+                for version in self.versions.all()
+                for comment in version.comments.all()
+            ]
+            return sorted(all_comments, key=lambda comment: comment.date, reverse=True)
         return Comment.objects.filter(offer_version__in=self.versions.all()).order_by(
             "-date"
         )
