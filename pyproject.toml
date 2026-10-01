@@ -131,7 +131,7 @@ dev-pinned = [
     "pre_commit==4.6.0",
     "pycparser==3.0",
     "Pygments==2.20.0",
-    "PyJWT==2.13.0",
+    "PyJWT==2.15.0",
     "pylint==4.0.6",
     "pylint-django==2.7.0",
     "pylint-per-file-ignores==3.2.1",
