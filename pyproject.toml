@@ -170,7 +170,7 @@ dev-pinned = [
     "tomlkit==0.15.0",
     "twine==6.2.0",
     "urllib3==2.8.0",
-    "virtualenv==21.5.1",
+    "virtualenv==21.7.13",
     "zipp==4.1.0",
 ]
 
