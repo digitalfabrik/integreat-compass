@@ -78,7 +78,7 @@ dev-pinned = [
     "astroid==4.0.4",
     "babel==2.18.0",
     "backports.tarfile==1.2.0",
-    "black==26.5.1",
+    "black==26.10.1",
     "build==1.5.0",
     "bumpver==2026.1132",
     "certifi==2026.6.17",
